@@ -1,7 +1,7 @@
 package net.kigawa.renlin.sample
 
-import net.kigawa.renlin.Tags.Companion.div
-import net.kigawa.renlin.Tags.Companion.p
+import net.kigawa.renlin.Tags.div
+import net.kigawa.renlin.Tags.p
 
 class SampleComponent(
     val name: String,
