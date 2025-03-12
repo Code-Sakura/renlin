@@ -2,17 +2,15 @@ package net.kigawa.renlin.tag
 
 import net.kigawa.renlin.Component0
 import net.kigawa.renlin.Component1
-import net.kigawa.renlin.tag.group.FlowContent
-import net.kigawa.renlin.tag.group.FlowContentable
-import net.kigawa.renlin.tag.group.Html
-import net.kigawa.renlin.tag.group.PalpableContent
+import net.kigawa.renlin.tag.group.*
+
 
 @Html
-object Div : AbstractTag(), FlowContent, PalpableContent, FlowContentable {
-    fun component(func: Div.() -> Unit): Component0<Div> {
-        return object : Component0<Div> {
-            override fun call() {
-                this@Div.func()
+object Div : AbstractTag(), FlowContent, PalpableContent, FlowContentable, Tag<FlowContentable> {
+    fun component(func: Div.() -> Unit): Component0<FlowContentable,Tag<FlowContentable>> {
+        return object : Component0<FlowContentable,Tag<FlowContentable>> {
+            override fun FlowContentable.call() {
+                this@Div{ func() }
             }
         }
     }

@@ -14,3 +14,8 @@ class SampleComponent(
         sub.controller()
     }
 }
+
+fun a() {
+    
+    SampleComponent("name", Sub()).root
+}

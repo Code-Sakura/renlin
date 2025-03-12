@@ -9,15 +9,18 @@ interface FlowContentable {
     operator fun <T : FlowContent> T.invoke(classes: String? = null, block: T.() -> Unit) {
     }
 
-    operator fun Component0<out FlowContent>.invoke() {
+    operator fun Component0<FlowContentable, Tag<FlowContentable>>.invoke() {
+        this@FlowContentable.call()
     }
 
     operator fun <T> Component1<out FlowContent, T>.invoke(t: T) {
+        this.call(t)
     }
+
     operator fun plus(txt: String) {}
     operator fun String.unaryPlus() {
 
     }
 }
 
-fun <T: FlowContent>T.onClick(block: T.() -> Unit) {}
+fun <T : FlowContent> T.onClick(block: T.() -> Unit) {}

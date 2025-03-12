@@ -26,6 +26,7 @@ kotlin {
                     useChromeHeadless()
                 }
             }
+            binaries.executable()
         }
     }
     sourceSets["commonMain"].dependencies {
