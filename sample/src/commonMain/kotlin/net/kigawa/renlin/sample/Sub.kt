@@ -1,7 +1,6 @@
 package net.kigawa.renlin.sample
 
-import net.kigawa.renlin.Tags.Companion.div
-import net.kigawa.renlin.tag.group.onClick
+import net.kigawa.renlin.Tags.div
 
 class Sub {
     val display = div.component {
@@ -9,7 +8,5 @@ class Sub {
         }
     }
     val controller = div.component {
-        onClick {
-        }
     }
 }
