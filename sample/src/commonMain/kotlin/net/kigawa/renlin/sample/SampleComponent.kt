@@ -1,7 +1,8 @@
 package net.kigawa.renlin.sample
 
-import net.kigawa.renlin.Tags.div
-import net.kigawa.renlin.Tags.p
+import net.kigawa.renlin.tag.component
+import net.kigawa.renlin.tag.div
+import net.kigawa.renlin.tag.p
 
 class SampleComponent(
     val name: String,
@@ -10,7 +11,7 @@ class SampleComponent(
     val root = div.component {
         p {
         }
-        sub.display()
-        sub.controller()
+        sub.display {}
+        sub.controller {}
     }
 }
