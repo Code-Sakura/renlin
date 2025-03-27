@@ -6,8 +6,8 @@ import net.kigawa.renlin.dsl.EmptyDsl
 import net.kigawa.renlin.tag.Tag
 
 @Html
-interface Component0<TAG : Tag, DSL : Dsl> {
-    fun render(block: DSL.() -> Unit)
+interface Component0<TAG : Tag<*>, DSL : Dsl> {
+    fun render(parentDsl: Dsl, block: DSL.() -> Unit)
 
     fun <NEW_DSL : Dsl> component(
         newDsl: () -> NEW_DSL,
@@ -16,8 +16,8 @@ interface Component0<TAG : Tag, DSL : Dsl> {
         val parent = this
         val parentBlock = block
         return object : Component0<TAG, NEW_DSL> {
-            override fun render(childBlock: NEW_DSL.() -> Unit) {
-                parent.render {
+            override fun render(parentDsl: Dsl, childBlock: NEW_DSL.() -> Unit) {
+                parent.render(parentDsl) {
                     val dsl = newDsl()
                     dsl.childBlock()
                     parentBlock(dsl)

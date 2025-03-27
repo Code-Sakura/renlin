@@ -1,4 +1,9 @@
 package net.kigawa.renlin.dsl
 
-class EmptyDsl: Dsl {
+import net.kigawa.renlin.element.TagElement
+
+class EmptyDsl : Dsl {
+    override val element: TagElement
+        get() = throw IllegalArgumentException("EmptyDsl")
+    override var key: String? = null
 }
