@@ -1,13 +1,15 @@
 package net.kigawa.renlin.dsl.category
 
+import net.kigawa.renlin.Html
 import net.kigawa.renlin.dsl.Dsl
-import net.kigawa.renlin.tag.Div
-import net.kigawa.renlin.tag.DivDsl
-import net.kigawa.renlin.tag.P
-import net.kigawa.renlin.tag.PDsl
-import net.kigawa.renlin.tag.item.Item
-
+import net.kigawa.renlin.tag.component.Component0
+import net.kigawa.renlin.tag.component.Component1
+import net.kigawa.renlin.tag.item.FlowContentItem
+@Html
 interface FlowContentDsl : Dsl {
-    operator fun Item<P>.invoke(block: PDsl.() -> Unit) {}
-    operator fun Item<Div>.invoke(block: DivDsl.() -> Unit) {}
+    operator fun <TAG : FlowContentItem, DSL : Dsl> Component0<TAG, DSL>.invoke(block: DSL.() -> Unit) =
+        this.render(block)
+
+    operator fun <TAG : FlowContentItem, DSL : Dsl, T> Component1<TAG, DSL, T>.invoke(arg1: T, block: DSL.(arg1: T) -> Unit) =
+        this.render(arg1, block)
 }
