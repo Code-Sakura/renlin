@@ -8,9 +8,17 @@ class SampleComponent(
     val sub: Sub,
 ) {
     val root = div.component {
-        p {
+        key = "uuid aaaddasdawaadadssdasaaaa"
+        repeat(10) {
+            p {
+                key = "uuid aaaddasdawaadadsaaaa"
+            }
         }
-        sub.display {}
-        sub.controller {}
+        sub.display {
+            key = "uuid aaadaadadadsaaaa"
+        }
+        sub.controller {
+            key = "uuid aaadaadadsaaaaaaaa"
+        }
     }
 }

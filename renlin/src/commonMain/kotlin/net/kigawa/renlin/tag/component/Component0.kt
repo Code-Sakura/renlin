@@ -7,21 +7,24 @@ import net.kigawa.renlin.tag.Tag
 
 @Html
 interface Component0<TAG : Tag<*>, DSL : Dsl> {
-    fun render(parentDsl: Dsl, block: DSL.() -> Unit)
+    val tag: TAG
+    fun newDsl(): DSL
+    fun render(parentDsl: Dsl, block: DSL.() -> Unit) {
+        val dsl = newDsl()
+        dsl.block()
+        parentDsl.subDsl(dsl)
+    }
 
     fun <NEW_DSL : Dsl> component(
         newDsl: () -> NEW_DSL,
         block: DSL.(dsl: NEW_DSL) -> Unit,
     ): Component0<TAG, NEW_DSL> {
-        val parent = this
-        val parentBlock = block
         return object : Component0<TAG, NEW_DSL> {
-            override fun render(parentDsl: Dsl, childBlock: NEW_DSL.() -> Unit) {
-                parent.render(parentDsl) {
-                    val dsl = newDsl()
-                    dsl.childBlock()
-                    parentBlock(dsl)
-                }
+            override val tag: TAG
+                get() = tag
+
+            override fun newDsl(): NEW_DSL {
+                return newDsl()
             }
         }
     }
