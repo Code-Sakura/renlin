@@ -2,6 +2,7 @@ package net.kigawa.renlin.dsl.state
 
 import net.kigawa.renlin.dsl.Dsl
 import net.kigawa.renlin.element.TagElement
+import net.kigawa.renlin.tag.Tag
 import net.kigawa.renlin.tag.component.Component
 
 abstract class BasicDslStateBase : DslState {
@@ -9,6 +10,7 @@ abstract class BasicDslStateBase : DslState {
     protected abstract val ownElement: TagElement?
 
     override fun subDslState(key: String, component: Component): DslState {
+//        debug("subDslState", key)
         return subStates.firstOrNull { it.key == key } ?: SubBasicDslState(key, this, component).also {
             subStates.add(
                 it
@@ -17,6 +19,7 @@ abstract class BasicDslStateBase : DslState {
     }
 
     override fun setSubDsls(dsls: List<Pair<Dsl, Component>>) {
+//        debug("setSubDsls",subStates)
         val newList = mutableListOf<SubBasicDslState>()
         dsls.forEach { dsl ->
             val newState = subStates.first { it.key == dsl.first.key }
@@ -27,23 +30,20 @@ abstract class BasicDslStateBase : DslState {
             it.remove()
         }
         subStates = newList
+//        debug("setSubDsls end",subStates)
     }
 
     fun getIndex(basicDslState: SubBasicDslState): Int {
         var relativeIndex = 0
-        subStates.first {
+        subStates.firstOrNull {
             if (it == basicDslState) true
-            relativeIndex += it.getElements().size
+            relativeIndex += it.getElements().size -1
             false
         }
         return relativeIndex
     }
 
-    fun setElements(index: Int, elements: List<TagElement>) {
-        ownElement?.setElements(index, elements) ?: setElementsToParent(index, elements)
-    }
-
-    protected abstract fun setElementsToParent(index: Int, elements: List<TagElement>)
+    abstract fun setElements(index: Int, elements: List<TagElement>)
     fun getElements(): List<TagElement> {
         return ownElement?.let { listOf(it) }
             ?: subStates.flatMap { it.getElements() }
@@ -59,6 +59,6 @@ abstract class BasicDslStateBase : DslState {
         throw NotImplementedError("BasicDslState not implemented.")
     }
 
-    abstract fun newElement(): TagElement
+    abstract fun newElement(tag: Tag<*>): TagElement
 
 }

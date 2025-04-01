@@ -8,25 +8,33 @@ import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
 abstract class DslBase : Dsl {
-    var dslState: DslState? = null
-        private set
+    protected var dslState: DslState? = null
     override var key: String? = null
     private val subDsls = MutableStateFlow(listOf<Pair<Dsl, Component>>())
 
     @OptIn(ExperimentalUuidApi::class)
     override fun subDsl(subDsl: Dsl, component: Component) {
         if (subDsl.key == null) subDsl.key = Uuid.random().toString()
+//        debug("prev update")
         subDsls.update { list ->
             val newList = list.firstOrNull { it.first.key == subDsl.key }?.let { list - it } ?: list
             newList + subDsl.to(component)
         }
+//        debug("updated")
         dslState?.let { subDsl.mountDslState(it.subDslState(subDsl.key!!, component)) }
+//        debug("fin subDsl")
     }
 
     override fun mountDslState(state: DslState) {
+//        debug("mountDslState", subDsls.value, dslState)
         dslState = state
+//        debug("mountDslState subDsls")
         subDsls.value.also { it.forEach { it.first.mountDslState(state.subDslState(it.first.key!!, it.second)) } }
+//        debug("mountDslState setSubDsls")
+//        debug("mountDslState AA", subDsls.value, dslState)
         state.setSubDsls(subDsls.value)
+//        debug("mountDslState apply")
         state.applyDsl(this)
+//        debug("mountDslState finished")
     }
 }

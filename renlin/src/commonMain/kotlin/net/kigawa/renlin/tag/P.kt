@@ -4,11 +4,13 @@ import net.kigawa.renlin.Html
 import net.kigawa.renlin.dsl.Dsl
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.category.PalpableContentDsl
+import net.kigawa.renlin.element.TagElement
 import net.kigawa.renlin.tag.component.TagComponent0
 import net.kigawa.renlin.tag.item.FlowContentItem
 
 class PDsl() : DslBase(), Dsl, PalpableContentDsl {
-
+    override fun applyElement(element: TagElement) {
+    }
 }
 
 @Html

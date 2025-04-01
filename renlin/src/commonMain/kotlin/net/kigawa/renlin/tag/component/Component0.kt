@@ -9,11 +9,7 @@ import net.kigawa.renlin.tag.Tag
 interface Component0<TAG : Tag<*>, DSL : Dsl> : Component {
     val tag: TAG
     fun newDsl(): DSL
-    fun render(parentDsl: Dsl, block: DSL.() -> Unit) {
-        val dsl = newDsl()
-        dsl.block()
-        parentDsl.subDsl(dsl, this)
-    }
+    fun render(parentDsl: Dsl, block: DSL.() -> Unit)
 
     fun <NEW_DSL : Dsl> component(
         newDsl: () -> NEW_DSL,
@@ -25,6 +21,15 @@ interface Component0<TAG : Tag<*>, DSL : Dsl> : Component {
 
             override fun newDsl(): NEW_DSL {
                 return newDsl()
+            }
+
+            override fun render(parentDsl: Dsl, block: NEW_DSL.() -> Unit) {
+                val newDsl = newDsl()
+                newDsl.block()
+                val baseDsl = this@Component0.newDsl()
+                baseDsl.block(newDsl)
+                baseDsl.key = newDsl.key
+                parentDsl.subDsl(baseDsl, this@Component0)
             }
         }
     }

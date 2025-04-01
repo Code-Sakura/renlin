@@ -2,19 +2,23 @@ package net.kigawa.renlin.dsl.state
 
 import net.kigawa.renlin.dsl.Dsl
 import net.kigawa.renlin.element.TagElement
+import net.kigawa.renlin.tag.Tag
 import net.kigawa.renlin.tag.component.Component
+import net.kigawa.renlin.tag.component.TagComponent
 
 class SubBasicDslState(
     val key: String,
     private val parent: BasicDslStateBase,
     component: Component,
 ) : BasicDslStateBase(), DslState {
-    override val ownElement = if (component is TagElement) {
-        parent.newElement()
+    override val ownElement = if (component is TagComponent<*>) {
+        parent.newElement(component.tag)
     } else null
 
     override fun applyDsl(dsl: Dsl) {
+//        debug("applyDsl", subStates.map { it.key })
         val index = parent.getIndex(this)
+//        debug("index", index, key)
         if (ownElement != null) {
             dsl.applyElement(ownElement)
             parent.setElements(index, listOf(ownElement))
@@ -23,12 +27,16 @@ class SubBasicDslState(
         parent.setElements(index, subStates.flatMap { it.getElements() })
     }
 
-    override fun setElementsToParent(index: Int, elements: List<TagElement>) {
-        val ownIndex = parent.getIndex(this)
-        parent.setElements(index + ownIndex, elements)
+    override fun setElements(index: Int, elements: List<TagElement>) {
+//        debug("setElements ddd", ownElement, index)
+        ownElement?.setElements(index, elements) ?: let {
+            val ownIndex = parent.getIndex(this)
+//            debug("setElements index", ownIndex, index)
+            parent.setElements(index + ownIndex, elements)
+        }
     }
 
-    override fun newElement(): TagElement {
-        return ownElement?.newElement() ?: parent.newElement()
+    override fun newElement(tag: Tag<*>): TagElement {
+        return ownElement?.newElement(tag) ?: parent.newElement(tag)
     }
 }

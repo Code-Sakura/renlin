@@ -1,37 +1,33 @@
 package net.kigawa.renlin.element
 
 import kotlinx.browser.document
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.update
 import net.kigawa.renlin.tag.Tag
+import net.kigawa.renlin.util.afterElement
 import org.w3c.dom.Element
-import kotlin.uuid.ExperimentalUuidApi
-import kotlin.uuid.Uuid
 
-open class DomTagElement : TagElement {
-    private val childDomElements = MutableStateFlow(mapOf<String, Element>())
-    private var element = MutableStateFlow<Element?>(null)
-
-    override fun newChild(tag: Tag<*>): DomTagElement {
-        return ChildDomTagElement(this, tag)
+class DomTagElement(
+    override val element: Element,
+) : TagElement {
+    override fun newElement(tag: Tag<*>): TagElement {
+        return DomTagElement(document.createElement(tag.name))
     }
 
-    override fun reflect() {
+    override fun remove() {
+        element.remove()
     }
 
-    @OptIn(ExperimentalUuidApi::class)
-    fun mountChild(child: ChildDomTagElement) {
-        val key = child.key ?: Uuid.random().toString().also { child.key = it }
-        var childElement: Element?
-        childDomElements.update {
-            childElement = it[key]
-            var elements = it
-            if (childElement == null) {
-                childElement = document.createElement(child.tag.name)
-                elements = it.plus(key to childElement)
-            }
-            elements
+    override fun setElements(
+        index: Int, elements: List<TagElement>,
+    ) {
+//        debug("setElements", index, elements)
+        var last: Element? = null
+        repeat(index) {
+            last = last?.nextElementSibling ?: element.firstElementChild
         }
-
+        elements.forEach {
+//            debug(last?.tagName)
+            last?.afterElement(it.element) ?: element.appendChild(it.element)
+            last = it.element
+        }
     }
 }

@@ -5,6 +5,7 @@ import net.kigawa.renlin.tag.p
 
 class Sub {
     val display = div.component {
+//        debug("display")
         key = "uuid aaaaaaaaa"
         div {
             key = "uuid aawaaaaaaa"
@@ -16,8 +17,18 @@ class Sub {
                 }
             }
         }
+        div {
+            key = "uuid aawaaaaaaaad"
+            div {
+                key = "uuid aadaaaaaaa"
+            }
+        }
+        div {
+            key = "uuid aawaaaaaaaa"
+        }
     }
     val controller = div.component {
+//        debug("controller")
         key = "uuid aaadaadadsaaaa"
     }
 }
