@@ -3,6 +3,7 @@ kotlin-version = "2.1.0"
 coroutines-version = "1.9.0"
 coroutines-test-version = "1.10.1"
 datetime-version = "0.6.1"
+hakate-version = "2.1.0"
 nexus-publish = "2.0.0-rc-1"
 dokka = "1.9.20"
 vanniktech-maven-publish = "0.29.0"
@@ -14,12 +15,11 @@ kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines-version" }
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines-test-version" }
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "datetime-version" }
-kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin-version" }
 nexus-publish = { module = "io.github.gradle-nexus.publish-plugin:io.github.gradle-nexus.publish-plugin.gradle.plugin", version.ref = "nexus-publish" }
+hakate = { module = "net.kigawa:hakate", version.ref = "hakate-version" }
 
 
 [plugins]
-sonatype-central-upload = { id = "cl.franciscosolis.sonatype-central-upload", version = "1.0.3" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin-version" }
 vanniktech-maven-publish = { id = "com.vanniktech.maven.publish", version.ref = "vanniktech-maven-publish" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }

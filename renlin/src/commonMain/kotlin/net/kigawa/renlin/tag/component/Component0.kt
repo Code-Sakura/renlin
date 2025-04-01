@@ -6,13 +6,13 @@ import net.kigawa.renlin.dsl.EmptyDsl
 import net.kigawa.renlin.tag.Tag
 
 @Html
-interface Component0<TAG : Tag<*>, DSL : Dsl> {
+interface Component0<TAG : Tag<*>, DSL : Dsl> : Component {
     val tag: TAG
     fun newDsl(): DSL
     fun render(parentDsl: Dsl, block: DSL.() -> Unit) {
         val dsl = newDsl()
         dsl.block()
-        parentDsl.subDsl(dsl)
+        parentDsl.subDsl(dsl, this)
     }
 
     fun <NEW_DSL : Dsl> component(
