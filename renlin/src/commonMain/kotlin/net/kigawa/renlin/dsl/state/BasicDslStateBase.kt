@@ -45,8 +45,10 @@ abstract class BasicDslStateBase : DslState {
 
     abstract fun setElements(index: Int, elements: List<TagNode>)
     fun getElements(): List<TagNode> {
-        return ownElement?.let { listOf(it) }
-            ?: subStates.flatMap { it.getElements() }
+        return ownElement?.let {
+            if (it.isEmpty) listOf()
+            else listOf(it)
+        } ?: subStates.flatMap { it.getElements() }
     }
 
     fun remove() {

@@ -2,19 +2,24 @@ package net.kigawa.renlin.sample
 
 import net.kigawa.renlin.tag.div
 import net.kigawa.renlin.tag.p
+import net.kigawa.renlin.tag.text
 
 class SampleComponent(
     val name: String,
     val sub: Sub,
 ) {
+    lateinit var update: (Int) -> Unit
     val root = div.component {
 //        debug("root")
         key = "uuid aaaddasdawaadadssdasaaaa"
         +"test root"
-        for (i in 0..10) {
-            p {
-                key = "uuid 1"
-                +"repeat $i"
+        div {
+            key = "uuid 1"
+            text {
+                key = "uuid 1-1"
+                update = {
+                    +"repeat $it"
+                }
             }
         }
         sub.display {

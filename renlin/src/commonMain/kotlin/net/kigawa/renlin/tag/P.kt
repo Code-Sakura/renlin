@@ -14,7 +14,7 @@ class PDsl() : DslBase(), Dsl, PhrasingContentDsl {
 
     override var textContent: String? = null
         set(value) {
-            textNodeTag.render(this) {
+            text.render(this) {
                 text = value
             }
             field = value

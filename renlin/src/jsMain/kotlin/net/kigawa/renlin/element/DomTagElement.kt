@@ -10,6 +10,9 @@ class DomTagElement(
     override val node: Node,
     private val parent: DomTagElement?,
 ) : TagNode {
+    override val isEmpty: Boolean
+        get() = if (node is Text) node.textContent == null else false
+
     override fun setTextContent(text: String?) {
         node.textContent = text
     }

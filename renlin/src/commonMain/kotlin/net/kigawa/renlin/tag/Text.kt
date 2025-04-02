@@ -8,13 +8,20 @@ import net.kigawa.renlin.tag.item.FlowContentItem
 
 class TextNodeTagDsl : DslBase(), Dsl {
     var text: String? = null
+        set(value) {
+            dslState?.applyDsl(this)
+            field = value
+        }
+    operator fun String.unaryPlus() {
+        text = this
+    }
 
     override fun applyElement(element: TagNode) {
         element.setTextContent(text)
     }
 }
 
-val textNodeTag = TagComponent0<TextNodeTag, TextNodeTagDsl>(TextNodeTag)
+val text = TagComponent0<TextNodeTag, TextNodeTagDsl>(TextNodeTag)
 
 object TextNodeTag : FlowContentItem<TextNodeTagDsl>, Tag<TextNodeTagDsl> {
     override val name: String
