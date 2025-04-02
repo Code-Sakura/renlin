@@ -2,32 +2,41 @@ package net.kigawa.renlin.element
 
 import kotlinx.browser.document
 import net.kigawa.renlin.tag.Tag
-import net.kigawa.renlin.util.afterElement
-import org.w3c.dom.Element
+import net.kigawa.renlin.tag.TextNodeTag
+import org.w3c.dom.Node
+import org.w3c.dom.Text
 
 class DomTagElement(
-    override val element: Element,
-) : TagElement {
-    override fun newElement(tag: Tag<*>): TagElement {
-        return DomTagElement(document.createElement(tag.name))
+    override val node: Node,
+    private val parent: DomTagElement?,
+) : TagNode {
+    override fun setTextContent(text: String?) {
+        node.textContent = text
+    }
+
+    override fun newNode(tag: Tag<*>): TagNode {
+        return DomTagElement(
+            if (tag is TextNodeTag) Text() else document.createElement(tag.name),
+            this
+        )
     }
 
     override fun remove() {
-        element.remove()
+        parent?.node?.removeChild(node)
     }
 
-    override fun setElements(
-        index: Int, elements: List<TagElement>,
+    override fun setNodes(
+        index: Int, nodes: List<TagNode>,
     ) {
 //        debug("setElements", index, elements)
-        var last: Element? = null
+        var last: Node? = node.firstChild
         repeat(index) {
-            last = last?.nextElementSibling ?: element.firstElementChild
+            last = last?.nextSibling
         }
-        elements.forEach {
+        nodes.forEach {
 //            debug(last?.tagName)
-            last?.afterElement(it.element) ?: element.appendChild(it.element)
-            last = it.element
+            node.insertBefore(it.node, last?.nextSibling)
+            last = it.node
         }
     }
 }

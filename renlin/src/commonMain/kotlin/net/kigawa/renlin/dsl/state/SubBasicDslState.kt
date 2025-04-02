@@ -1,10 +1,11 @@
 package net.kigawa.renlin.dsl.state
 
 import net.kigawa.renlin.dsl.Dsl
-import net.kigawa.renlin.element.TagElement
+import net.kigawa.renlin.element.TagNode
 import net.kigawa.renlin.tag.Tag
 import net.kigawa.renlin.tag.component.Component
 import net.kigawa.renlin.tag.component.TagComponent
+import net.kigawa.renlin.util.debug
 
 class SubBasicDslState(
     val key: String,
@@ -27,16 +28,16 @@ class SubBasicDslState(
         parent.setElements(index, subStates.flatMap { it.getElements() })
     }
 
-    override fun setElements(index: Int, elements: List<TagElement>) {
-//        debug("setElements ddd", ownElement, index)
-        ownElement?.setElements(index, elements) ?: let {
+    override fun setElements(index: Int, elements: List<TagNode>) {
+        debug("setElements ddd", ownElement, index)
+        ownElement?.setNodes(index, elements) ?: let {
             val ownIndex = parent.getIndex(this)
-//            debug("setElements index", ownIndex, index)
+            debug("setElements index", ownIndex, index)
             parent.setElements(index + ownIndex, elements)
         }
     }
 
-    override fun newElement(tag: Tag<*>): TagElement {
-        return ownElement?.newElement(tag) ?: parent.newElement(tag)
+    override fun newElement(tag: Tag<*>): TagNode {
+        return ownElement?.newNode(tag) ?: parent.newElement(tag)
     }
 }

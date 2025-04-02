@@ -10,9 +10,11 @@ class SampleComponent(
     val root = div.component {
 //        debug("root")
         key = "uuid aaaddasdawaadadssdasaaaa"
-        repeat(10) {
+        +"test root"
+        for (i in 0..10) {
             p {
                 key = "uuid 1"
+                +"repeat $i"
             }
         }
         sub.display {

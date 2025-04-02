@@ -8,7 +8,7 @@ import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
 abstract class DslBase : Dsl {
-    protected var dslState: DslState? = null
+    override var dslState: DslState? = null
     override var key: String? = null
     private val subDsls = MutableStateFlow(listOf<Pair<Dsl, Component>>())
 
