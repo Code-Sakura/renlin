@@ -4,7 +4,7 @@ import net.kigawa.renlin.dsl.Dsl
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.element.TagNode
 import net.kigawa.renlin.tag.component.TagComponent0
-import net.kigawa.renlin.tag.item.FlowContentItem
+import net.kigawa.renlin.category.FlowContentItem
 
 class TextNodeTagDsl : DslBase(), Dsl {
     var text: String? = null

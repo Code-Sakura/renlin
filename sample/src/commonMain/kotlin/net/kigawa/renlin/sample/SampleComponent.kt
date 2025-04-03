@@ -8,7 +8,7 @@ class SampleComponent(
     val name: String,
     val sub: Sub,
 ) {
-    lateinit var update: (Int) -> Unit
+    var update: (Int) -> Unit = {}
     val root = div.component {
 //        debug("root")
         key = "uuid aaaddasdawaadadssdasaaaa"
@@ -17,22 +17,40 @@ class SampleComponent(
             key = "uuid 1"
             text {
                 key = "uuid 1-1"
-                update = {
-                    +"repeat $it"
-                }
+                +"repeat "
             }
         }
         sub.display {
             key = "uuid 2"
         }
+//        update = {
+//            div {
+//                key = "uuid 1"
+//                text {
+//                    key = "uuid 1-1"
+//                    +"repeat $it"
+//                }
+//            }
+//            sub.display {
+//                key = "uuid 2"
+//            }
+//        }
+        fragment {
+            p {
+
+            }
+        }
+//        fragment {
         sub.display {
             key = "uuid 3"
         }
+//        }
         sub.controller {
             key = "uuid 4"
         }
         p {
             key = "uuid 5"
         }
+        sub.test {}
     }
 }

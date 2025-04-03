@@ -6,7 +6,7 @@ import net.kigawa.renlin.dsl.EmptyDsl
 import net.kigawa.renlin.tag.Tag
 
 @Html
-interface Component0<TAG : Tag<*>, DSL : Dsl> : Component {
+interface Component0<out TAG : Tag<*>, DSL : Dsl> : Component {
     val tag: TAG
     fun newDsl(): DSL
     fun render(parentDsl: Dsl, block: DSL.() -> Unit)

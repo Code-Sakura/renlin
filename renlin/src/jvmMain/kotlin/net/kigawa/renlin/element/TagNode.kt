@@ -8,6 +8,5 @@ actual interface TagNode {
     actual fun setTextContent(text: String?)
     actual fun newNode(tag: Tag<*>): TagNode
     actual fun remove()
-
     actual fun setNodes(index: Int, nodes: List<TagNode>)
 }

@@ -9,10 +9,13 @@ fun main() {
     val sample = SampleComponent("sample", Sub())
     Entrypoint(root).render(sample.root)
     var i = 0
-    window.setInterval({
+    window.setInterval(
+        {
 
-                           i++
-                           sample.update(i)
-                       }, 1000, 1000)
+            i++
+            sample.update(i)
+        },
+        1000, 1000
+    )
 
 }
