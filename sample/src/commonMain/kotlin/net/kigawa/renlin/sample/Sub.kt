@@ -1,49 +1,50 @@
 package net.kigawa.renlin.sample
 
+import net.kigawa.renlin.category.FlowContent
+import net.kigawa.renlin.category.FlowPhrasingIntersection
+import net.kigawa.renlin.category.PhrasingContent
+import net.kigawa.renlin.category.t
 import net.kigawa.renlin.tag.div
+import net.kigawa.renlin.tag.fragment
 import net.kigawa.renlin.tag.p
 
 class Sub {
     val display = div.component {
 //        debug("display")
-        +"display"
+        t("display")
         key = "uuid aaaaaaaaa"
         div {
             key = "uuid aawaaaaaaa"
-            +"display1"
+            t("display1")
             div {
-                +"display1-1"
+                t("display1-1")
                 key = "uuid aadaaaaaaa"
                 p {
-                    +"display1-1-1"
+                    t("display1-1-1")
                     key = "uuid aaadaaaaaa"
 
                 }
             }
         }
         div {
-            +"display2"
+            t("display2")
             key = "uuid aawaaaaaaaad"
             div {
-                +"display2-1"
+                t("display2-1")
                 key = "uuid aadaaaaaaa"
             }
         }
         div {
-            +"display3"
+            t("display3")
             key = "uuid aawaaaaaaaa"
         }
     }
     val controller = div.component {
 //        debug("controller")
-        +"controller"
+        t("controller")
         key = "uuid aaadaadadsaaaa"
     }
-//    val test = FlowContent.component {
-//        debug("controller")
-//        key = "uuid aaadaadadsaaaa"
-//        div {
-//        }
-//        p {}
-//    }
+    val test = fragment<FlowContent>().component { }
+    val test1 = fragment<PhrasingContent>().component { }
+    val test2 = fragment<FlowPhrasingIntersection>().component { }
 }

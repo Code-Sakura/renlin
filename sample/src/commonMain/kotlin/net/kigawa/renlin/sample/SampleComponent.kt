@@ -1,5 +1,6 @@
 package net.kigawa.renlin.sample
 
+import net.kigawa.renlin.category.t
 import net.kigawa.renlin.tag.div
 import net.kigawa.renlin.tag.p
 import net.kigawa.renlin.tag.text
@@ -12,7 +13,7 @@ class SampleComponent(
     val root = div.component {
 //        debug("root")
         key = "uuid aaaddasdawaadadssdasaaaa"
-        +"test root"
+        t("test root")
         div {
             key = "uuid 1"
             text {
@@ -28,7 +29,7 @@ class SampleComponent(
             div {
                 fragment {
                     p {
-                        +""
+                        t("")
                     }
                 }
                 p {
@@ -47,6 +48,8 @@ class SampleComponent(
         p {
 //            key = "uuid 5"
         }
-//        sub.test {}
+        sub.test {}
+        sub.test1 {}
+        sub.test2 {}
     }
 }
