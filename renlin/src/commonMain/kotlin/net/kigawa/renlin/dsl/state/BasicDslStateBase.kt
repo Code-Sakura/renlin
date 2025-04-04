@@ -18,7 +18,7 @@ abstract class BasicDslStateBase : DslState {
         }
     }
 
-    override fun setSubDsls(dsls: List<Pair<Dsl, Component>>) {
+    override fun setSubDsls(dsls: List<Pair<Dsl<*>, Component>>) {
 //        debug("setSubDsls",subStates)
         val newList = mutableListOf<SubBasicDslState>()
         dsls.forEach { dsl ->
@@ -57,7 +57,7 @@ abstract class BasicDslStateBase : DslState {
     }
 
 
-    override fun applyDsl(dsl: Dsl) {
+    override fun applyDsl(dsl: Dsl<*>) {
         throw NotImplementedError("BasicDslState not implemented.")
     }
 

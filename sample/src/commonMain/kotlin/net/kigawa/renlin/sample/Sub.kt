@@ -1,6 +1,5 @@
 package net.kigawa.renlin.sample
 
-import net.kigawa.renlin.category.FlowContent
 import net.kigawa.renlin.tag.div
 import net.kigawa.renlin.tag.p
 
@@ -40,11 +39,11 @@ class Sub {
         +"controller"
         key = "uuid aaadaadadsaaaa"
     }
-    val test = FlowContent.component {
+//    val test = FlowContent.component {
 //        debug("controller")
-        key = "uuid aaadaadadsaaaa"
-        div {
-        }
-        p {}
-    }
+//        key = "uuid aaadaadadsaaaa"
+//        div {
+//        }
+//        p {}
+//    }
 }

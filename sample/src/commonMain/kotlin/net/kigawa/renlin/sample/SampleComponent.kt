@@ -23,23 +23,12 @@ class SampleComponent(
         sub.display {
             key = "uuid 2"
         }
-//        update = {
-//            div {
-//                key = "uuid 1"
-//                text {
-//                    key = "uuid 1-1"
-//                    +"repeat $it"
-//                }
-//            }
-//            sub.display {
-//                key = "uuid 2"
-//            }
-//        }
-        fragment {
+
+//        fragment {
             p {
 
             }
-        }
+//        }
 //        fragment {
         sub.display {
             key = "uuid 3"
@@ -49,8 +38,8 @@ class SampleComponent(
             key = "uuid 4"
         }
         p {
-            key = "uuid 5"
+//            key = "uuid 5"
         }
-        sub.test {}
+//        sub.test {}
     }
 }

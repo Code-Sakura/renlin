@@ -2,18 +2,19 @@ package net.kigawa.renlin.dsl
 
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
+import net.kigawa.renlin.category.ContentCategory
 import net.kigawa.renlin.dsl.state.DslState
 import net.kigawa.renlin.tag.component.Component
 import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
-abstract class DslBase : Dsl {
+abstract class DslBase<CONTENT_CATEGORY: ContentCategory> : Dsl<CONTENT_CATEGORY> {
     override var dslState: DslState? = null
     override var key: String? = null
-    private val subDsls = MutableStateFlow(listOf<Pair<Dsl, Component>>())
+    private val subDsls = MutableStateFlow(listOf<Pair<Dsl<*>, Component>>())
 
     @OptIn(ExperimentalUuidApi::class)
-    override fun subDsl(subDsl: Dsl, component: Component) {
+    override fun subDsl(subDsl: Dsl<*>, component: Component) {
         if (subDsl.key == null) subDsl.key = Uuid.random().toString()
 //        debug("prev update")
         subDsls.update { list ->

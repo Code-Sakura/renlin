@@ -1,14 +1,15 @@
 package net.kigawa.renlin.tag
 
+import net.kigawa.renlin.category.FlowContent
+import net.kigawa.renlin.category.FlowPhrasingDsl
+import net.kigawa.renlin.category.FlowPhrasingIntersection
 import net.kigawa.renlin.dsl.Dsl
 import net.kigawa.renlin.dsl.DslBase
-import net.kigawa.renlin.category.FlowContentDsl
-import net.kigawa.renlin.category.PhrasingContentDsl
 import net.kigawa.renlin.element.TagNode
-import net.kigawa.renlin.tag.component.TagComponent0
-import net.kigawa.renlin.category.FlowContentItem
+import net.kigawa.renlin.tag.component.TagComponent1
 
-class DivDsl : DslBase(), Dsl, FlowContentDsl, PhrasingContentDsl {
+class DivDsl :
+    DslBase<FlowPhrasingIntersection>(), Dsl<FlowPhrasingIntersection>, FlowPhrasingDsl<FlowPhrasingIntersection> {
     override fun applyElement(element: TagNode) {
     }
 
@@ -21,13 +22,10 @@ class DivDsl : DslBase(), Dsl, FlowContentDsl, PhrasingContentDsl {
         }
 }
 
-val div = TagComponent0<Div, DivDsl>(Div)
+val div = TagComponent1<Div, DivDsl>(Div, ::DivDsl)
 
-object Div : FlowContentItem<DivDsl>, Tag<DivDsl> {
+object Div : Tag<FlowContent> {
     override val name: String
         get() = "div"
 
-    override fun newDsl(): DivDsl {
-        return DivDsl()
-    }
 }

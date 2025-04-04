@@ -2,7 +2,7 @@ package net.kigawa.renlin.element
 
 import kotlinx.browser.document
 import net.kigawa.renlin.tag.Tag
-import net.kigawa.renlin.tag.TextNodeTag
+import net.kigawa.renlin.tag.TextTag
 import org.w3c.dom.Node
 import org.w3c.dom.Text
 
@@ -19,7 +19,7 @@ class DomTagElement(
 
     override fun newNode(tag: Tag<*>): TagNode {
         return DomTagElement(
-            if (tag is TextNodeTag) Text() else document.createElement(tag.name),
+            if (tag is TextTag) Text() else document.createElement(tag.name),
             this
         )
     }

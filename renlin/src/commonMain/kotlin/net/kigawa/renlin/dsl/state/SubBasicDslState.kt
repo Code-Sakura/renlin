@@ -16,7 +16,7 @@ class SubBasicDslState(
         parent.newElement(component.tag)
     } else null
 
-    override fun applyDsl(dsl: Dsl) {
+    override fun applyDsl(dsl: Dsl<*>) {
 //        debug("applyDsl", subStates.map { it.key })
         val index = parent.getIndex(this)
 //        debug("index", index, key)
