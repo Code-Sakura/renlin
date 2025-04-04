@@ -24,11 +24,18 @@ class SampleComponent(
             key = "uuid 2"
         }
 
-//        fragment {
-            p {
-
+        fragment {
+            div {
+                fragment {
+                    p {
+                        +""
+                    }
+                }
+                p {
+//                    +"aaaa"
+                }
             }
-//        }
+        }
 //        fragment {
         sub.display {
             key = "uuid 3"

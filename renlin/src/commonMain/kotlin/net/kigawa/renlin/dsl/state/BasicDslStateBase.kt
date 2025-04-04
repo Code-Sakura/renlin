@@ -1,6 +1,6 @@
 package net.kigawa.renlin.dsl.state
 
-import net.kigawa.renlin.dsl.Dsl
+import net.kigawa.renlin.dsl.TagDsl
 import net.kigawa.renlin.element.TagNode
 import net.kigawa.renlin.tag.Tag
 import net.kigawa.renlin.tag.component.Component
@@ -18,7 +18,7 @@ abstract class BasicDslStateBase : DslState {
         }
     }
 
-    override fun setSubDsls(dsls: List<Pair<Dsl<*>, Component>>) {
+    override fun setSubDsls(dsls: List<Pair<TagDsl<*>, Component>>) {
 //        debug("setSubDsls",subStates)
         val newList = mutableListOf<SubBasicDslState>()
         dsls.forEach { dsl ->
@@ -57,7 +57,7 @@ abstract class BasicDslStateBase : DslState {
     }
 
 
-    override fun applyDsl(dsl: Dsl<*>) {
+    override fun applyDsl(dsl: TagDsl<*>) {
         throw NotImplementedError("BasicDslState not implemented.")
     }
 

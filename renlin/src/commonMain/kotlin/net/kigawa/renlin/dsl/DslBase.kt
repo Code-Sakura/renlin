@@ -8,13 +8,13 @@ import net.kigawa.renlin.tag.component.Component
 import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
-abstract class DslBase<CONTENT_CATEGORY: ContentCategory> : Dsl<CONTENT_CATEGORY> {
+abstract class DslBase<CONTENT_CATEGORY: ContentCategory> : TagDsl<CONTENT_CATEGORY> {
     override var dslState: DslState? = null
     override var key: String? = null
-    private val subDsls = MutableStateFlow(listOf<Pair<Dsl<*>, Component>>())
+    private val subDsls = MutableStateFlow(listOf<Pair<TagDsl<*>, Component>>())
 
     @OptIn(ExperimentalUuidApi::class)
-    override fun subDsl(subDsl: Dsl<*>, component: Component) {
+    override fun subDsl(subDsl: TagDsl<*>, component: Component) {
         if (subDsl.key == null) subDsl.key = Uuid.random().toString()
 //        debug("prev update")
         subDsls.update { list ->

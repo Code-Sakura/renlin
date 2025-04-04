@@ -1,6 +1,6 @@
 package net.kigawa.renlin.dsl.state
 
-import net.kigawa.renlin.dsl.Dsl
+import net.kigawa.renlin.dsl.TagDsl
 import net.kigawa.renlin.element.TagNode
 import net.kigawa.renlin.tag.Tag
 import net.kigawa.renlin.tag.component.Component
@@ -16,7 +16,7 @@ class SubBasicDslState(
         parent.newElement(component.tag)
     } else null
 
-    override fun applyDsl(dsl: Dsl<*>) {
+    override fun applyDsl(dsl: TagDsl<*>) {
 //        debug("applyDsl", subStates.map { it.key })
         val index = parent.getIndex(this)
 //        debug("index", index, key)

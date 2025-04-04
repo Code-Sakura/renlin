@@ -6,7 +6,7 @@ import net.kigawa.renlin.element.DomTagElement
 import net.kigawa.renlin.element.TagNode
 import org.w3c.dom.Element
 
-class DomDsl(element: Element) : DslBase<AllContentCategory>(), Dsl<AllContentCategory> {
+class DomDsl(element: Element) : DslBase<AllContentCategory>(), TagDsl<AllContentCategory> {
     init {
         dslState = RootDslStateBase(DomTagElement(element, null))
     }

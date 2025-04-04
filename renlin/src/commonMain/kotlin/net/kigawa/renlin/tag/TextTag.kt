@@ -2,12 +2,12 @@ package net.kigawa.renlin.tag
 
 import net.kigawa.renlin.NotingContent
 import net.kigawa.renlin.category.PhrasingContent
-import net.kigawa.renlin.dsl.Dsl
+import net.kigawa.renlin.dsl.TagDsl
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.element.TagNode
 import net.kigawa.renlin.tag.component.TagComponent1
 
-class TextDsl : DslBase<NotingContent>(), Dsl<NotingContent> {
+class TextDsl : DslBase<NotingContent>(), TagDsl<NotingContent> {
     var text: String? = null
         set(value) {
             dslState?.applyDsl(this)
