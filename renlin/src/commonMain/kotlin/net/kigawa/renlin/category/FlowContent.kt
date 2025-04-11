@@ -1,7 +1,7 @@
 package net.kigawa.renlin.category
 
 import net.kigawa.renlin.Html
-import net.kigawa.renlin.dsl.TagDsl
+import net.kigawa.renlin.dsl.Dsl
 
 
 interface FlowContent : ContentCategory {
@@ -12,7 +12,7 @@ interface FlowContent : ContentCategory {
 
 @Html
 interface FlowContentDsl<CATEGORY_DSL : FlowContent> :
-    TagDsl<CATEGORY_DSL> {
+    Dsl<CATEGORY_DSL> {
 
 //    fun fragment(block: FlowContentDsl.() -> Unit) {
 //        object : FragmentComponent<FlowContentDsl>() {

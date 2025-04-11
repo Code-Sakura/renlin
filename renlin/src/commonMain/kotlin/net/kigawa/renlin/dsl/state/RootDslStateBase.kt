@@ -1,11 +1,13 @@
 package net.kigawa.renlin.dsl.state
 
+import net.kigawa.hakate.api.state.StateContext
+import net.kigawa.renlin.dsl.RegisteredDslData
 import net.kigawa.renlin.element.TagNode
 import net.kigawa.renlin.tag.Tag
 
 class RootDslStateBase(
-    override val ownElement: TagNode,
-) : BasicDslStateBase() {
+    override val ownElement: TagNode, stateContext: StateContext,
+) : BasicDslStateBase(stateContext) {
 
     override fun newElement(tag: Tag<*>): TagNode {
         return ownElement.newNode(tag)
@@ -16,4 +18,7 @@ class RootDslStateBase(
     ) {
         ownElement.setNodes(index, elements)
     }
+
+    override val latestRegisteredDslData: RegisteredDslData?
+        get() = null
 }

@@ -1,5 +1,7 @@
 package net.kigawa.renlin.sample
 
+import net.kigawa.hakate.api.HakateInitializer
+import net.kigawa.hakate.api.state.MutableState
 import net.kigawa.renlin.category.FlowContent
 import net.kigawa.renlin.category.FlowPhrasingIntersection
 import net.kigawa.renlin.category.PhrasingContent
@@ -7,8 +9,17 @@ import net.kigawa.renlin.category.t
 import net.kigawa.renlin.tag.div
 import net.kigawa.renlin.tag.fragment
 import net.kigawa.renlin.tag.p
+import net.kigawa.renlin.util.debug
 
 class Sub {
+    val state: MutableState<String> = HakateInitializer().newStateDispatcher().newState("state")
+
+    init {
+        HakateInitializer().newStateDispatcher().useState {
+            state.collect { debug("collect $it") }
+        }
+    }
+
     val display = div.component {
 //        debug("display")
         t("display")
@@ -17,12 +28,13 @@ class Sub {
             key = "uuid aawaaaaaaa"
             t("display1")
             div {
+                val value = state.useValue()
+//            debug("value = $value")
                 t("display1-1")
                 key = "uuid aadaaaaaaa"
                 p {
-                    t("display1-1-1")
+                    t("display1-1-1 $value")
                     key = "uuid aaadaaaaaa"
-
                 }
             }
         }

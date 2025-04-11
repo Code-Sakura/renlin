@@ -1,36 +1,38 @@
 package net.kigawa.renlin.dsl.state
 
-import net.kigawa.renlin.dsl.TagDsl
+import net.kigawa.hakate.api.state.StateContext
+import net.kigawa.renlin.dsl.Dsl
+import net.kigawa.renlin.dsl.RegisteredDslData
 import net.kigawa.renlin.element.TagNode
 import net.kigawa.renlin.tag.Tag
 import net.kigawa.renlin.tag.component.Component
 
-abstract class BasicDslStateBase : DslState {
+abstract class BasicDslStateBase(
+    protected val stateContext: StateContext,
+) : DslState {
     protected var subStates = mutableListOf<SubBasicDslState>()
     abstract override val ownElement: TagNode?
 
     override fun subDslState(key: String, component: Component): DslState {
-//        debug("subDslState", key)
-        return subStates.firstOrNull { it.key == key } ?: SubBasicDslState(key, this, component).also {
-            subStates.add(
-                it
-            )
+        return subStates.firstOrNull { it.key == key } ?: SubBasicDslState(
+            key, this, component, stateContext.newStateContext()
+        ).also {
+            subStates.add(it)
         }
     }
 
-    override fun setSubDsls(dsls: List<Pair<TagDsl<*>, Component>>) {
-//        debug("setSubDsls",subStates)
+    override fun setSubDsls(dsls: List<RegisteredDslData>) {
         val newList = mutableListOf<SubBasicDslState>()
-        dsls.forEach { dsl ->
-            val newState = subStates.first { it.key == dsl.first.key }
+        dsls.forEach { registeredData ->
+            val newState = subStates.first { it.key == registeredData.dsl.key }
             subStates.remove(newState)
             newList.add(newState)
         }
         subStates.forEach {
             it.remove()
         }
+//        debug("diff", newList, subStates)
         subStates = newList
-//        debug("setSubDsls end",subStates)
     }
 
     fun getIndex(basicDslState: SubBasicDslState): Int {
@@ -57,7 +59,7 @@ abstract class BasicDslStateBase : DslState {
     }
 
 
-    override fun applyDsl(dsl: TagDsl<*>) {
+    override fun applyDsl(dsl: Dsl<*>, registeredDslData: RegisteredDslData) {
         throw NotImplementedError("BasicDslState not implemented.")
     }
 

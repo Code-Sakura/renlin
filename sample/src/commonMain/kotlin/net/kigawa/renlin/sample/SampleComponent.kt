@@ -12,7 +12,7 @@ class SampleComponent(
     var update: (Int) -> Unit = {}
     val root = div.component {
 //        debug("root")
-        key = "uuid aaaddasdawaadadssdasaaaa"
+        key = "key root"
         t("test root")
         div {
             key = "uuid 1"
