@@ -4,7 +4,7 @@ import net.kigawa.renlin.category.ContentCategory
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.Dsl
 import net.kigawa.renlin.element.TagNode
-import net.kigawa.renlin.tag.component.Component1
+import net.kigawa.renlin.tag.component.SubComponent
 import net.kigawa.renlin.tag.component.StructuredComponent
 
 object Fragment {
@@ -46,6 +46,6 @@ object Fragment {
 
 }
 
-fun <CONTENT_CATEGORY : ContentCategory> fragment(): Component1<Tag<CONTENT_CATEGORY>, Dsl<CONTENT_CATEGORY>> {
+fun <CONTENT_CATEGORY : ContentCategory> fragment(): SubComponent<Tag<CONTENT_CATEGORY>, Dsl<CONTENT_CATEGORY>> {
     return Fragment.create<CONTENT_CATEGORY>()
 }

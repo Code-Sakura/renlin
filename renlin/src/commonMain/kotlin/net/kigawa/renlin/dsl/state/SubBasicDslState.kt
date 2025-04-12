@@ -7,13 +7,13 @@ import net.kigawa.renlin.dsl.Dsl
 import net.kigawa.renlin.dsl.RegisteredDslData
 import net.kigawa.renlin.element.TagNode
 import net.kigawa.renlin.tag.Tag
-import net.kigawa.renlin.tag.component.Component
+import net.kigawa.renlin.tag.component.SubComponent
 import net.kigawa.renlin.tag.component.TagComponent
 
 class SubBasicDslState(
     val key: String,
     private val parent: BasicDslStateBase,
-    component: Component,
+    component: SubComponent<*, *>,
     stateContext: StateContext,
 ) : BasicDslStateBase(stateContext), DslState {
     override val ownElement = if (component is TagComponent<*>) {

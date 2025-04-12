@@ -5,7 +5,7 @@ import net.kigawa.renlin.dsl.Dsl
 import net.kigawa.renlin.dsl.RegisteredDslData
 import net.kigawa.renlin.element.TagNode
 import net.kigawa.renlin.tag.Tag
-import net.kigawa.renlin.tag.component.Component
+import net.kigawa.renlin.tag.component.SubComponent
 
 abstract class BasicDslStateBase(
     protected val stateContext: StateContext,
@@ -13,7 +13,7 @@ abstract class BasicDslStateBase(
     protected var subStates = mutableListOf<SubBasicDslState>()
     abstract override val ownElement: TagNode?
 
-    override fun subDslState(key: String, component: Component): DslState {
+    override fun subDslState(key: String, component: SubComponent<*, *>): DslState {
         return subStates.firstOrNull { it.key == key } ?: SubBasicDslState(
             key, this, component, stateContext.newStateContext()
         ).also {
