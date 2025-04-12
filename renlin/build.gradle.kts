@@ -38,6 +38,7 @@ kotlin {
     sourceSets["commonMain"].dependencies {
         implementation(libs.kotlinx.coroutines.core)
         implementation(libs.kotlin.stdlib)
+        implementation(libs.hakate)
     }
     sourceSets["commonTest"].dependencies {
         implementation(kotlin("test-common"))

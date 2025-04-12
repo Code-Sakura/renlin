@@ -31,6 +31,8 @@ kotlin {
     }
     sourceSets["commonMain"].dependencies {
         implementation(project(":renlin"))
+        implementation(libs.hakate)
+        implementation(libs.kotlinx.coroutines.core)
     }
     sourceSets["commonTest"].dependencies {
         implementation(kotlin("test-common"))

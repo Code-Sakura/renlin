@@ -1,26 +1,22 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.dsl.Dsl
+import net.kigawa.renlin.category.FlowContent
+import net.kigawa.renlin.category.FlowPhrasingDsl
+import net.kigawa.renlin.category.FlowPhrasingIntersection
 import net.kigawa.renlin.dsl.DslBase
-import net.kigawa.renlin.dsl.category.FlowContentDsl
-import net.kigawa.renlin.dsl.category.PalpableContentDsl
-import net.kigawa.renlin.element.TagElement
-import net.kigawa.renlin.tag.component.TagComponent0
-import net.kigawa.renlin.tag.item.FlowContentItem
+import net.kigawa.renlin.dsl.Dsl
+import net.kigawa.renlin.element.TagNode
+import net.kigawa.renlin.tag.component.TagComponent1
 
-class DivDsl(
-    element: TagElement,
-) : DslBase(element), Dsl, FlowContentDsl, PalpableContentDsl {
-
+class DivDsl :
+    DslBase<FlowPhrasingIntersection>(), Dsl<FlowPhrasingIntersection>, FlowPhrasingDsl<FlowPhrasingIntersection> {
+    override fun applyElement(element: TagNode) {
+    }
 }
 
-val div = TagComponent0<Div, DivDsl>(Div)
+val div = TagComponent1<Div, DivDsl>(Div, ::DivDsl)
 
-object Div : FlowContentItem<DivDsl>, Tag<DivDsl> {
+object Div : Tag<FlowContent> {
     override val name: String
         get() = "div"
-
-    override fun newDsl(element: TagElement): DivDsl {
-        return DivDsl(element)
-    }
 }

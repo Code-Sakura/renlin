@@ -1,9 +1,8 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.dsl.Dsl
-import net.kigawa.renlin.element.TagElement
+import net.kigawa.renlin.category.ContentCategory
 
-interface Tag<DSL : Dsl> {
+@Suppress("unused")
+interface Tag<CONTENT_CATEGORY : ContentCategory> {
     val name: String
-    fun newDsl(element: TagElement): DSL
 }
