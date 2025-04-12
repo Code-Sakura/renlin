@@ -11,7 +11,6 @@ class SampleComponent(
 ) {
     var update: (Int) -> Unit = {}
     val root = div.component {
-//        debug("root")
         key = "key root"
         t("test root")
         div {

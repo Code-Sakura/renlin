@@ -12,8 +12,8 @@ abstract class DslBase<CONTENT_CATEGORY : ContentCategory> : Dsl<CONTENT_CATEGOR
     private val subDsls = mutableListOf<RegisteredDslData>()
     override val states = mutableSetOf<State<*>>()
 
-    @OptIn(ExperimentalUuidApi::class)
     override fun subDsl(registeredDslData: RegisteredDslData) {
+        @OptIn(ExperimentalUuidApi::class)
         if (registeredDslData.dsl.key == null) registeredDslData.dsl.key = Uuid.random().toString()
 
         val i = subDsls.indexOfFirst { it.dsl.key == registeredDslData.dsl.key }
@@ -43,3 +43,5 @@ abstract class DslBase<CONTENT_CATEGORY : ContentCategory> : Dsl<CONTENT_CATEGOR
         return this.currentValue()
     }
 }
+
+

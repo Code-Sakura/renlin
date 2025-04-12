@@ -14,7 +14,7 @@ class DomTagElement(
         get() = if (node is Text) node.textContent == null else false
 
     override fun setTextContent(text: String?) {
-        node.textContent = text
+        if (node.textContent != text) node.textContent = text
     }
 
     override fun newNode(tag: Tag<*>): TagNode {
@@ -31,15 +31,15 @@ class DomTagElement(
     override fun setNodes(
         index: Int, nodes: List<TagNode>,
     ) {
-//        debug("setElements", index, elements)
         var last: Node? = node.firstChild
         repeat(index) {
             last = last?.nextSibling
         }
         nodes.forEach {
-//            debug(last?.tagName)
-            if (it.node != last?.nextSibling) node.insertBefore(it.node, last?.nextSibling)
-            last = it.node
+            if (it.node != last) {
+                node.insertBefore(it.node, last)
+            }
+            last = it.node.nextSibling
         }
     }
 }

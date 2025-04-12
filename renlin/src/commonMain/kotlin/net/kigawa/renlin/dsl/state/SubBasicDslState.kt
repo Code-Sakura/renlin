@@ -28,8 +28,9 @@ class SubBasicDslState(
         if (ownElement != null) {
             dsl.applyElement(ownElement)
             parent.setElements(index, listOf(ownElement))
-        } else parent.setElements(index, subStates.flatMap { it.getElements() })
-
+        } else {
+            parent.setElements(index, subStates.flatMap { it.getElements() })
+        }
         latestStateContext?.cancel()
         stateContext.dispatch {
             latestStateContext = this@dispatch

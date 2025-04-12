@@ -13,27 +13,19 @@ import net.kigawa.renlin.tag.p
 class Sub {
     val state: MutableState<String> = HakateInitializer().newStateDispatcher().newState("state")
 
-    init {
-        HakateInitializer().newStateDispatcher().useState {
-//            state.collect { debug("collect $it") }
-        }
-    }
-
     val display = div.component {
-//        debug("display")
         t("display")
         key = "uuid aaaaaaaaa"
         div {
-            key = "uuid aawaaaaaaa"
-            t("display1")
+            val value = state.useValue()
+            key = "key display1 div"
+            t("display1", key = "key display1")
             div {
-                val value = state.useValue()
-//            debug("value = $value")
-                t("display1-1")
-                key = "uuid aadaaaaaaa"
+                t("display1-1", key = "key display1-1")
+                key = "key display1-1 div"
                 p {
-                    t("display1-1-1 $value")
-                    key = "uuid aaadaaaaaa"
+                    t("display1-1-1 $value", key = "key display1-1-1")
+                    key = "key display1-1-1 p"
                 }
             }
         }
@@ -51,7 +43,6 @@ class Sub {
         }
     }
     val controller = div.component {
-//        debug("controller")
         t("controller")
         key = "uuid aaadaadadsaaaa"
     }

@@ -37,10 +37,9 @@ abstract class BasicDslStateBase(
 
     fun getIndex(basicDslState: SubBasicDslState): Int {
         var relativeIndex = 0
-        subStates.firstOrNull {
-            if (it == basicDslState) true
-            relativeIndex += it.getElements().size
-            false
+        for (subState in subStates) {
+            if (subState == basicDslState) break
+            relativeIndex += subState.getElements().size
         }
         return relativeIndex
     }
