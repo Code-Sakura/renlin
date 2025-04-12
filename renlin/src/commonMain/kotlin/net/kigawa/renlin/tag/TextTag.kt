@@ -9,10 +9,6 @@ import net.kigawa.renlin.tag.component.TagComponent1
 
 class TextDsl : DslBase<NotingContent>(), Dsl<NotingContent> {
     var text: String? = null
-        set(value) {
-            dslState?.latestRegisteredDslData?.reload()
-            field = value
-        }
 
     operator fun String.unaryPlus() {
         text = this

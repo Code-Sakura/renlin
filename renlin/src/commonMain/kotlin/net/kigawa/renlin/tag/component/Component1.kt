@@ -7,7 +7,6 @@ import net.kigawa.renlin.dsl.Dsl
 import net.kigawa.renlin.dsl.EmptyDsl
 import net.kigawa.renlin.dsl.RegisteredDslData
 import net.kigawa.renlin.tag.Tag
-import net.kigawa.renlin.util.debug
 
 @Html
 interface Component1<out TAG : Tag<*>, DSL : Dsl<*>> : Component {
@@ -30,7 +29,6 @@ interface Component1<out TAG : Tag<*>, DSL : Dsl<*>> : Component {
                 val baseDsl = this@Component1.newDsl()
                 baseDsl.block()
                 baseDsl.key = newDsl.key
-                debug("render component", baseDsl.key)
                 parentDsl.subDsl(RegisteredDslData(object : Dsl<ContentCategory> by baseDsl {
                     override val states: Set<State<*>>
                         get() = baseDsl.states + newDsl.states

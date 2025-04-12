@@ -38,7 +38,7 @@ class DomTagElement(
         }
         nodes.forEach {
 //            debug(last?.tagName)
-            node.insertBefore(it.node, last?.nextSibling)
+            if (it.node != last?.nextSibling) node.insertBefore(it.node, last?.nextSibling)
             last = it.node
         }
     }

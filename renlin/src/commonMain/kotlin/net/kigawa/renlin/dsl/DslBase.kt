@@ -1,7 +1,5 @@
 package net.kigawa.renlin.dsl
 
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.update
 import net.kigawa.hakate.api.state.State
 import net.kigawa.renlin.category.ContentCategory
 import net.kigawa.renlin.dsl.state.DslState
@@ -11,16 +9,17 @@ import kotlin.uuid.Uuid
 abstract class DslBase<CONTENT_CATEGORY : ContentCategory> : Dsl<CONTENT_CATEGORY> {
     override var dslState: DslState? = null
     override var key: String? = null
-    private val subDsls = MutableStateFlow(listOf<RegisteredDslData>())
+    private val subDsls = mutableListOf<RegisteredDslData>()
     override val states = mutableSetOf<State<*>>()
 
     @OptIn(ExperimentalUuidApi::class)
     override fun subDsl(registeredDslData: RegisteredDslData) {
         if (registeredDslData.dsl.key == null) registeredDslData.dsl.key = Uuid.random().toString()
-        subDsls.update { list ->
-            val newList = list.firstOrNull { it.dsl.key == registeredDslData.dsl.key }?.let { list - it } ?: list
-            newList + registeredDslData
-        }
+
+        val i = subDsls.indexOfFirst { it.dsl.key == registeredDslData.dsl.key }
+        if (i == -1) subDsls.add(registeredDslData)
+        else subDsls[i] = registeredDslData
+
         dslState?.let {
             registeredDslData.dsl.mountDslState(
                 it.subDslState(registeredDslData.dsl.key!!, registeredDslData.component), registeredDslData
@@ -30,14 +29,12 @@ abstract class DslBase<CONTENT_CATEGORY : ContentCategory> : Dsl<CONTENT_CATEGOR
 
     override fun mountDslState(state: DslState, registeredDslData: RegisteredDslData) {
         dslState = state
-        subDsls.value.also {
-            it.forEach {
-                it.dsl.mountDslState(
-                    state.subDslState(it.dsl.key!!, it.component), registeredDslData
-                )
-            }
+        subDsls.forEach {
+            it.dsl.mountDslState(
+                state.subDslState(it.dsl.key!!, it.component), it
+            )
         }
-        state.setSubDsls(subDsls.value)
+        state.setSubDsls(subDsls)
         state.applyDsl(this, registeredDslData)
     }
 

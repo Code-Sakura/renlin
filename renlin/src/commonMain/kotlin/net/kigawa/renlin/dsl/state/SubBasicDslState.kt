@@ -9,7 +9,6 @@ import net.kigawa.renlin.element.TagNode
 import net.kigawa.renlin.tag.Tag
 import net.kigawa.renlin.tag.component.Component
 import net.kigawa.renlin.tag.component.TagComponent
-import net.kigawa.renlin.util.debug
 
 class SubBasicDslState(
     val key: String,
@@ -42,26 +41,22 @@ class SubBasicDslState(
                 }
                 result = mergeState(result, it)
             }
-//            debug("dispatch", result)
             var first = true
             result?.collect {
                 if (first) {
                     first = false
                     return@collect
                 }
-                debug("result collected: $it", key)
                 registeredDslData.reload()
             }
         }
     }
 
     override fun setElements(index: Int, elements: List<TagNode>) {
-//        debug("setElements ddd", ownElement, index)
-        ownElement?.setNodes(index, elements) ?: let {
+        if (ownElement == null) {
             val ownIndex = parent.getIndex(this)
-//            debug("setElements index", ownIndex, index)
             parent.setElements(index + ownIndex, elements)
-        }
+        } else ownElement.setNodes(index, elements)
     }
 
     override fun newElement(tag: Tag<*>): TagNode {

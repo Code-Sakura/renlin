@@ -18,7 +18,7 @@ fun main() {
             sample.update(i)
             sub.state.set("state $i")
         },
-        1000, 1000
+        1000, 10000
     )
 
 }

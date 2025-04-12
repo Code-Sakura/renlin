@@ -23,6 +23,7 @@ abstract class BasicDslStateBase(
 
     override fun setSubDsls(dsls: List<RegisteredDslData>) {
         val newList = mutableListOf<SubBasicDslState>()
+
         dsls.forEach { registeredData ->
             val newState = subStates.first { it.key == registeredData.dsl.key }
             subStates.remove(newState)
@@ -31,7 +32,6 @@ abstract class BasicDslStateBase(
         subStates.forEach {
             it.remove()
         }
-//        debug("diff", newList, subStates)
         subStates = newList
     }
 

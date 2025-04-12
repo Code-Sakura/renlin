@@ -9,14 +9,13 @@ import net.kigawa.renlin.category.t
 import net.kigawa.renlin.tag.div
 import net.kigawa.renlin.tag.fragment
 import net.kigawa.renlin.tag.p
-import net.kigawa.renlin.util.debug
 
 class Sub {
     val state: MutableState<String> = HakateInitializer().newStateDispatcher().newState("state")
 
     init {
         HakateInitializer().newStateDispatcher().useState {
-            state.collect { debug("collect $it") }
+//            state.collect { debug("collect $it") }
         }
     }
 
