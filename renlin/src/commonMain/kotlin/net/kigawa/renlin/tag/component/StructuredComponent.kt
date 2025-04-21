@@ -4,7 +4,7 @@ import net.kigawa.renlin.dsl.Dsl
 import net.kigawa.renlin.dsl.RegisteredDslData
 import net.kigawa.renlin.tag.Tag
 
-interface StructuredComponent<TAG : Tag<*>, DSL : Dsl<*>> : SubComponent<TAG, DSL> {
+interface StructuredComponent<TAG : Tag<*>, DSL : Dsl<*>> : Component1<TAG, DSL> {
     override fun render(parentDsl: Dsl<*>, block: DSL.() -> Unit) {
         val dsl = newDsl()
         dsl.block()
