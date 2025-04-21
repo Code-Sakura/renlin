@@ -9,6 +9,7 @@ import net.kigawa.renlin.tag.component.TagComponent1
 
 class TextDsl : DslBase<NotingContent>(), Dsl<NotingContent> {
     var text: String? = null
+    var margin: String? = null
 
     operator fun String.unaryPlus() {
         text = this

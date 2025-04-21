@@ -9,6 +9,10 @@ import net.kigawa.renlin.category.t
 import net.kigawa.renlin.tag.div
 import net.kigawa.renlin.tag.fragment
 import net.kigawa.renlin.tag.p
+import net.kigawa.renlin.tag.text
+
+interface MarginValue
+
 
 class Sub {
     val state: MutableState<String> = HakateInitializer().newStateDispatcher().newState("state")
@@ -26,6 +30,9 @@ class Sub {
                 p {
                     t("display1-1-1 $value", key = "key display1-1-1")
                     key = "key display1-1-1 p"
+                    text {
+                        margin = "asd"
+                    }
                 }
             }
         }
