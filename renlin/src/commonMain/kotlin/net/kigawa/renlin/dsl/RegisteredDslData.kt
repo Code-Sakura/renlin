@@ -1,10 +1,10 @@
 package net.kigawa.renlin.dsl
 
-import net.kigawa.renlin.tag.component.SubComponent
+import net.kigawa.renlin.tag.component.Component
 
 data class RegisteredDslData(
     val dsl: Dsl<*>,
-    val component: SubComponent<*, *>,
-    val reload: () -> Unit,
+    val component: Component,
+    val reload: ()-> Unit
 ) {
 }

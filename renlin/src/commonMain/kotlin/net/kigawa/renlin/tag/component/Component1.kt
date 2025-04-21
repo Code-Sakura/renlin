@@ -9,15 +9,15 @@ import net.kigawa.renlin.dsl.RegisteredDslData
 import net.kigawa.renlin.tag.Tag
 
 @Html
-interface SubComponent<out TAG : Tag<*>, DSL : Dsl<*>> : Component {
+interface Component1<out TAG : Tag<*>, DSL : Dsl<*>> : Component {
     fun newDsl(): DSL
     fun render(parentDsl: Dsl<*>, block: DSL.() -> Unit)
 
     fun <NEW_DSL : Dsl<*>> component(
         newDsl: () -> NEW_DSL,
-        block: DSL.(dsl: NEW_DSL) -> Unit,
-    ): SubComponent<TAG, NEW_DSL> {
-        return object : SubComponent<TAG, NEW_DSL> {
+        block: DSL.() -> Unit,
+    ): Component1<TAG, NEW_DSL> {
+        return object : Component1<TAG, NEW_DSL> {
 
             override fun newDsl(): NEW_DSL {
                 return newDsl()
@@ -26,18 +26,18 @@ interface SubComponent<out TAG : Tag<*>, DSL : Dsl<*>> : Component {
             override fun render(parentDsl: Dsl<*>, block: NEW_DSL.() -> Unit) {
                 val newDsl = newDsl()
                 newDsl.block()
-                val baseDsl = this@SubComponent.newDsl()
-                baseDsl.block(newDsl)
+                val baseDsl = this@Component1.newDsl()
+                baseDsl.block()
                 baseDsl.key = newDsl.key
                 parentDsl.subDsl(RegisteredDslData(object : Dsl<ContentCategory> by baseDsl {
                     override val states: Set<State<*>>
                         get() = baseDsl.states + newDsl.states
-                }, this@SubComponent) {
+                }, this@Component1) {
                     render(parentDsl, block = block)
                 })
             }
         }
     }
 
-    fun component(block: DSL.() -> Unit) = component(::EmptyDsl) { block }
+    fun component(block: DSL.() -> Unit) = component(::EmptyDsl, block)
 }
