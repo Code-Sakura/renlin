@@ -1,5 +1,3 @@
-package net.kigawa.renlin.tag
-
 import java.io.File
 
 fun main() {
