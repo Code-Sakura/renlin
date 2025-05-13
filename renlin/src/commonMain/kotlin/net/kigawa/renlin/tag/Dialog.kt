@@ -7,15 +7,15 @@ import net.kigawa.renlin.dsl.Dsl
 import net.kigawa.renlin.element.TagNode
 import net.kigawa.renlin.tag.component.TagComponent1
 
-class PDsl :
+class DialogDsl :
     DslBase<FlowContent>(), Dsl<FlowContent>, FlowContentDsl<FlowContent> {
     override fun applyElement(element: TagNode) {
     }
 }
 
-val p = TagComponent1<P, PDsl>(P, ::PDsl)
+val dialog = TagComponent1<Dialog, DialogDsl>(Dialog, ::DialogDsl)
 
-object P : Tag<FlowContent> {
+object Dialog : Tag<FlowContent> {
     override val name: String
-        get() = "p"
+        get() = "dialog"
 }
