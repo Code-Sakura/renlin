@@ -1,0 +1,5 @@
+package net.kigawa.renlin.category
+
+interface AutocapitalizeInheritingFormFlowFormAssociatedPalpableIntersection : AutocapitalizeInheritingFormContent, FlowContent, FormAssociatedContent, PalpableContent
+interface AutocapitalizeInheritingFormFlowFormAssociatedPalpableDsl<CATEGORY_DSL : AutocapitalizeInheritingFormFlowFormAssociatedPalpableIntersection> :
+    FlowContentDsl<CATEGORY_DSL>
