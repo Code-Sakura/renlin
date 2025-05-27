@@ -303,6 +303,7 @@ fun main() {
                     $baseDsl<CATEGORY_DSL>
             """.trimIndent()
 
+            val interfaceName = interfaceName.replace("Intersection", "")
             val file = File("$categoryOutputDir/${interfaceName}.kt")
             file.writeText(fileContent)
             println("Generated intersection interface and DSL: ${interfaceName}.kt")
