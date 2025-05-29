@@ -6,6 +6,7 @@ import net.kigawa.renlin.category.FlowContent
 import net.kigawa.renlin.category.FlowPhrasingIntersection
 import net.kigawa.renlin.category.PhrasingContent
 import net.kigawa.renlin.category.t
+
 import net.kigawa.renlin.tag.div
 import net.kigawa.renlin.tag.fragment
 import net.kigawa.renlin.tag.p
