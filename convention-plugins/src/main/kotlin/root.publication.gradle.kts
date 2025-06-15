@@ -9,6 +9,7 @@ object Conf {
 group = Conf.GROUP
 version = Conf.VERSION
 allprojects {
+    apply(plugin = "renlin.common")
     group = Conf.GROUP
     version = Conf.VERSION
 }
