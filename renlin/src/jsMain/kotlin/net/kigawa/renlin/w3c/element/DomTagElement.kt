@@ -1,8 +1,10 @@
-package net.kigawa.renlin.element
+package net.kigawa.renlin.w3c.element
 
 import kotlinx.browser.document
 import net.kigawa.renlin.tag.Tag
 import net.kigawa.renlin.tag.TextTag
+import net.kigawa.renlin.w3c.event.WebEvent
+import net.kigawa.renlin.w3c.event.name.EventName
 import org.w3c.dom.Node
 import org.w3c.dom.Text
 
@@ -41,5 +43,14 @@ class DomTagElement(
             }
             last = it.node.nextSibling
         }
+    }
+
+    override fun <T : WebEvent> addEventListener(
+        eventName: EventName<T>, listener: (T) -> Unit,
+    ) {
+        node.addEventListener(eventName.name, {
+            @Suppress("UNCHECKED_CAST")
+            listener(it as T)
+        })
     }
 }

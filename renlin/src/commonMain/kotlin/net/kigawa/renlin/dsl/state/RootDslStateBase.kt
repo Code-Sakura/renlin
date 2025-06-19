@@ -2,7 +2,7 @@ package net.kigawa.renlin.dsl.state
 
 import net.kigawa.hakate.api.state.StateContext
 import net.kigawa.renlin.dsl.RegisteredDslData
-import net.kigawa.renlin.element.TagNode
+import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.tag.Tag
 
 class RootDslStateBase(

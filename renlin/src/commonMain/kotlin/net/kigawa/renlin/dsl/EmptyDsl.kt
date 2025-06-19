@@ -1,7 +1,7 @@
 package net.kigawa.renlin.dsl
 
 import net.kigawa.renlin.NotingContent
-import net.kigawa.renlin.element.TagNode
+import net.kigawa.renlin.w3c.element.TagNode
 
 class EmptyDsl : DslBase<NotingContent>(), Dsl<NotingContent> {
     override var key: String? = null

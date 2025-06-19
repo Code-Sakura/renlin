@@ -3,9 +3,8 @@ package net.kigawa.renlin.dsl
 import net.kigawa.hakate.api.state.State
 import net.kigawa.renlin.Html
 import net.kigawa.renlin.category.ContentCategory
-import net.kigawa.renlin.category.PhrasingContent
 import net.kigawa.renlin.dsl.state.DslState
-import net.kigawa.renlin.element.TagNode
+import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.tag.Fragment
 import net.kigawa.renlin.tag.Tag
 import net.kigawa.renlin.tag.component.Component1

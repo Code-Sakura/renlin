@@ -4,7 +4,7 @@ import net.kigawa.renlin.category.FlowPhrasingIntersection
 import net.kigawa.renlin.category.FlowPhrasingDsl
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.Dsl
-import net.kigawa.renlin.element.TagNode
+import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.tag.component.TagComponent1
 
 class AbbrDsl :
