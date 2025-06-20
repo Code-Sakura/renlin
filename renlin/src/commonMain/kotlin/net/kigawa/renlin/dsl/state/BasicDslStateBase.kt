@@ -13,9 +13,9 @@ abstract class BasicDslStateBase(
     protected var subStates = mutableListOf<SubBasicDslState>()
     abstract override val ownElement: TagNode?
 
-    override fun subDslState(key: String, component: Component): DslState {
+    override fun subDslState(key: String, second: Component): DslState {
         return subStates.firstOrNull { it.key == key } ?: SubBasicDslState(
-            key, this, component, stateContext.newStateContext()
+            key, this, second, stateContext.newStateContext()
         ).also {
             subStates.add(it)
         }
@@ -25,7 +25,7 @@ abstract class BasicDslStateBase(
         val newList = mutableListOf<SubBasicDslState>()
 
         dsls.forEach { registeredData ->
-            val newState = subStates.first { it.key == registeredData.dsl.key }
+            val newState = subStates.first { it.key == registeredData.key }
             subStates.remove(newState)
             newList.add(newState)
         }

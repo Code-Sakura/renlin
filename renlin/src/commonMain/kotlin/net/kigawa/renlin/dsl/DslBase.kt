@@ -3,26 +3,21 @@ package net.kigawa.renlin.dsl
 import net.kigawa.hakate.api.state.State
 import net.kigawa.renlin.category.ContentCategory
 import net.kigawa.renlin.dsl.state.DslState
-import kotlin.uuid.ExperimentalUuidApi
-import kotlin.uuid.Uuid
 
 abstract class DslBase<CONTENT_CATEGORY : ContentCategory> : Dsl<CONTENT_CATEGORY> {
     override var dslState: DslState? = null
-    override var key: String? = null
     private val subDsls = mutableListOf<RegisteredDslData>()
     override val states = mutableSetOf<State<*>>()
 
     override fun subDsl(registeredDslData: RegisteredDslData) {
-        @OptIn(ExperimentalUuidApi::class)
-        if (registeredDslData.dsl.key == null) registeredDslData.dsl.key = Uuid.random().toString()
 
-        val i = subDsls.indexOfFirst { it.dsl.key == registeredDslData.dsl.key }
+        val i = subDsls.indexOfFirst { it.key == registeredDslData.key }
         if (i == -1) subDsls.add(registeredDslData)
         else subDsls[i] = registeredDslData
 
         dslState?.let {
             registeredDslData.dsl.mountDslState(
-                it.subDslState(registeredDslData.dsl.key!!, registeredDslData.component), registeredDslData
+                it.subDslState(registeredDslData.key, registeredDslData.component), registeredDslData
             )
         }
     }
@@ -31,7 +26,7 @@ abstract class DslBase<CONTENT_CATEGORY : ContentCategory> : Dsl<CONTENT_CATEGOR
         dslState = state
         subDsls.forEach {
             it.dsl.mountDslState(
-                state.subDslState(it.dsl.key!!, it.component), it
+                state.subDslState(it.key, it.component), it
             )
         }
         state.setSubDsls(subDsls)

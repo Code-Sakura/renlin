@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package net.kigawa.renlin.sample
 
 import net.kigawa.hakate.api.HakateInitializer
@@ -20,39 +22,36 @@ class Sub {
 
     val display = div.component {
         t("display")
-        key = "uuid aaaaaaaaa"
-        div {
+        div("key display1 div") {
             val value = state.useValue()
-            key = "key display1 div"
             t("display1", key = "key display1")
-            div {
+            div("key display1-1 div") {
                 t("display1-1", key = "key display1-1")
-                key = "key display1-1 div"
-                p {
+
+                p("key display1-1-1 p") {
                     t("display1-1-1 $value", key = "key display1-1-1")
-                    key = "key display1-1-1 p"
+
                     text {
                         margin = "asd"
                     }
                 }
             }
         }
-        div {
+        div("uuid aawaaaaaaaad") {
             t("display2")
-            key = "uuid aawaaaaaaaad"
-            div {
+
+            div("uuid aadaaaaaaa") {
                 t("display2-1")
-                key = "uuid aadaaaaaaa"
+
             }
         }
-        div {
+        div("uuid aawaaaaaaaa") {
             t("display3")
-            key = "uuid aawaaaaaaaa"
+
         }
     }
     val controller = div.component {
         t("controller")
-        key = "uuid aaadaadadsaaaa"
     }
     val test = fragment<FlowContent>().component { }
     val test1 = fragment<PhrasingContent>().component { }

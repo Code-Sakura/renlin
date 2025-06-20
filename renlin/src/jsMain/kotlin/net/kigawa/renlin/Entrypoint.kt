@@ -11,8 +11,6 @@ class Entrypoint(
 ) {
     fun render(component: Component1<*, EmptyDsl>, dispatcher: StateDispatcher) {
         val dsl = DomDsl(element, dispatcher)
-        component.render(dsl) {
-            key = "root"
-        }
+        component.render(dsl, {}, "root")
     }
 }

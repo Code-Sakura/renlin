@@ -8,8 +8,7 @@ interface PhrasingContent : ContentCategory
 
 
 fun <CONTENT_CATEGORY : PhrasingContent> Dsl<CONTENT_CATEGORY>.t(str: String, key: String? = null) {
-    text.render(this) {
-        this@render.key = key
+    text.render(this, {
         this@render.text = str
-    }
+    }, key)
 }

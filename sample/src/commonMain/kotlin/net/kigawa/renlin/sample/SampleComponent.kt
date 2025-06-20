@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package net.kigawa.renlin.sample
 
 import net.kigawa.renlin.category.t
@@ -19,17 +21,13 @@ class SampleComponent(
   }
 
   val root = div.component {
-    key = "key root"
 
-    div {
-      key = "uuid 1"
-      text {
-        key = "uuid 1-1"
+    div ("uuid 1"){
+      text ("uuid 1-1"){
         +"repeat "
       }
     }
-    sub.display {
-      key = "uuid 2"
+    sub.display ("uuid 2"){
     }
 
     fragment {
@@ -45,12 +43,10 @@ class SampleComponent(
       }
     }
 //        fragment {
-    sub.display {
-      key = "uuid 3"
+    sub.display ("uuid 3"){
     }
 //        }
-    sub.controller {
-      key = "uuid 4"
+    sub.controller ("uuid 4"){
     }
     p {
 //            key = "uuid 5"
