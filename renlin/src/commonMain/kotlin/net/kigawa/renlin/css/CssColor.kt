@@ -101,5 +101,6 @@ object Color {
 }
 
 // 文字列からの便利な変換
+@Suppress("unused")
 val String.color: HexColor
     get() = HexColor(if (startsWith("#")) this else "#$this")
