@@ -7,6 +7,11 @@ import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.tag.component.TagComponent1
 
+/**
+ * HTML <rt> element
+ * 
+ * Categories: FlowContent, PhrasingContent
+ */
 class RtDsl :
     DslBase<FlowPhrasingIntersection>(), StatedDsl<FlowPhrasingIntersection>, FlowPhrasingDsl<FlowPhrasingIntersection> {
     override fun applyElement(element: TagNode) {

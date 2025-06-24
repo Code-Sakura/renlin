@@ -7,6 +7,11 @@ import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.tag.component.TagComponent1
 
+/**
+ * HTML <datalist> element
+ * 
+ * Categories: FlowContent, PhrasingContent
+ */
 class DatalistDsl :
     DslBase<FlowPhrasingIntersection>(), StatedDsl<FlowPhrasingIntersection>, FlowPhrasingDsl<FlowPhrasingIntersection> {
     override fun applyElement(element: TagNode) {
