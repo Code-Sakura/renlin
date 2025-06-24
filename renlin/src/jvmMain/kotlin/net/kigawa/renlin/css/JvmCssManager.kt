@@ -1,0 +1,80 @@
+package net.kigawa.renlin.css
+
+/**
+ * JVM版のCSSマネージャー実装
+ */
+class JvmCssManager : CssManager {
+    private val cssClasses = mutableMapOf<String, String>() // クラス名 -> CSS文字列
+
+    override fun getOrCreateClass(properties: Map<String, CssValue>): String {
+        if (properties.isEmpty()) return ""
+
+        // React風のクラス名を生成
+        val className = CssUtils.generateClassName(properties)
+
+        // 既に同じクラス名が存在する場合はそれを返す
+        return if (cssClasses.containsKey(className)) {
+            className
+        } else {
+            val cssString = CssUtils.generateCssString(properties)
+            cssClasses[className] = cssString
+            updateStyles()
+            className
+        }
+    }
+
+    override fun updateStyles() {
+        // JVM版では何もしない（HTMLファイル生成時にまとめて出力）
+    }
+
+    /**
+     * スタイルタグを生成
+     */
+    fun generateStyleTag(): String {
+        return if (cssClasses.isEmpty()) {
+            ""
+        } else {
+            "<style>\n${cssClasses.entries.joinToString("\n") { (className, css) ->
+                ".$className { $css }"
+            }}\n</style>"
+        }
+    }
+
+    /**
+     * HTMLにスタイルを埋め込んだ完全なHTMLを生成
+     */
+    fun generateHtmlWithStyles(htmlContent: String): String {
+        val styleTag = generateStyleTag()
+        return if (styleTag.isNotEmpty()) {
+            """
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <meta charset="UTF-8">
+                $styleTag
+            </head>
+            <body>
+                $htmlContent
+            </body>
+            </html>
+            """.trimIndent()
+        } else {
+            """
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <meta charset="UTF-8">
+            </head>
+            <body>
+                $htmlContent
+            </body>
+            </html>
+            """.trimIndent()
+        }
+    }
+}
+
+/**
+ * JVM版のCssManagerファクトリ関数
+ */
+actual fun createCssManager(): CssManager = JvmCssManager()

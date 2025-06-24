@@ -9,6 +9,11 @@ class RootDslStateBase(
     override val ownElement: TagNode, stateContext: StateContext,
 ) : BasicDslStateBase(stateContext) {
 
+    init {
+        // ルートではCssManagerを初期化
+        initializeCssManager()
+    }
+
     override fun newElement(tag: Tag<*>): TagNode {
         return ownElement.newNode(tag)
     }

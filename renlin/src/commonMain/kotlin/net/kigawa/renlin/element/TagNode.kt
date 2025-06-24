@@ -9,4 +9,5 @@ expect interface TagNode {
     fun newNode(tag: Tag<*>): TagNode
     fun remove()
     fun setNodes(index: Int, nodes: List<TagNode>)
+    fun setClassName(className: String)
 }

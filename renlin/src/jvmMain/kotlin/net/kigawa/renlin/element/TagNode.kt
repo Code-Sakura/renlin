@@ -9,4 +9,5 @@ actual interface TagNode {
     actual fun newNode(tag: Tag<*>): TagNode
     actual fun remove()
     actual fun setNodes(index: Int, nodes: List<TagNode>)
+    actual fun setClassName(className: String)
 }

@@ -1,5 +1,6 @@
 package net.kigawa.renlin.dsl.state
 
+import net.kigawa.renlin.css.CssManager
 import net.kigawa.renlin.dsl.Dsl
 import net.kigawa.renlin.dsl.RegisteredDslData
 import net.kigawa.renlin.element.TagNode
@@ -11,4 +12,7 @@ interface DslState {
     fun subDslState(key: String, second: Component): DslState
     fun setSubDsls(dsls: List<RegisteredDslData>)
     fun applyDsl(dsl: Dsl<*>, registeredDslData: RegisteredDslData)
+
+    // CSS機能の追加
+    fun getCssManager(): CssManager?
 }

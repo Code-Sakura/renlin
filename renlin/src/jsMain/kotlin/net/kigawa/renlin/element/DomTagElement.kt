@@ -3,6 +3,7 @@ package net.kigawa.renlin.element
 import kotlinx.browser.document
 import net.kigawa.renlin.tag.Tag
 import net.kigawa.renlin.tag.TextTag
+import org.w3c.dom.Element
 import org.w3c.dom.Node
 import org.w3c.dom.Text
 
@@ -40,6 +41,16 @@ class DomTagElement(
                 node.insertBefore(it.node, last)
             }
             last = it.node.nextSibling
+        }
+    }
+
+    override fun setClassName(className: String) {
+        if (node is Element) {
+            // 既存のクラス名から renlin- プレフィックスのクラス名を削除
+            val existingClasses = node.className.split(" ").filter { it.isNotEmpty() }
+            val nonRenlinClasses = existingClasses.filter { !it.startsWith("renlin-") }
+            val newClasses = (nonRenlinClasses + className).distinct()
+            node.className = newClasses.joinToString(" ")
         }
     }
 }

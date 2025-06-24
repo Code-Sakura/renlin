@@ -1,6 +1,9 @@
 package net.kigawa.renlin.dsl.state
 
 import net.kigawa.hakate.api.state.StateContext
+import net.kigawa.renlin.css.CssCapable
+import net.kigawa.renlin.css.CssManager
+import net.kigawa.renlin.css.createCssManager
 import net.kigawa.renlin.dsl.Dsl
 import net.kigawa.renlin.dsl.RegisteredDslData
 import net.kigawa.renlin.element.TagNode
@@ -12,6 +15,7 @@ abstract class BasicDslStateBase(
 ) : DslState {
     protected var subStates = mutableListOf<SubBasicDslState>()
     abstract override val ownElement: TagNode?
+    protected var cssManager: CssManager? = null
 
     override fun subDslState(key: String, component: Component): DslState {
         return subStates.firstOrNull { it.key == key } ?: SubBasicDslState(
@@ -57,11 +61,22 @@ abstract class BasicDslStateBase(
         subStates.forEach { it.remove() }
     }
 
-
     override fun applyDsl(dsl: Dsl<*>, registeredDslData: RegisteredDslData) {
+        // CSS適用処理を追加
+        if (dsl is CssCapable && dsl.cssClassName != null) {
+            ownElement?.setClassName(dsl.cssClassName!!)
+        }
         throw NotImplementedError("BasicDslState not implemented.")
     }
 
     abstract fun newElement(tag: Tag<*>): TagNode
 
+    // CSS機能の追加
+    override fun getCssManager(): CssManager? = cssManager
+
+    protected fun initializeCssManager() {
+        if (cssManager == null) {
+            cssManager = createCssManager()
+        }
+    }
 }

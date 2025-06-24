@@ -3,6 +3,7 @@ package net.kigawa.renlin.dsl.state
 import net.kigawa.hakate.api.multi.mergeState
 import net.kigawa.hakate.api.state.State
 import net.kigawa.hakate.api.state.StateContext
+import net.kigawa.renlin.css.CssCapable
 import net.kigawa.renlin.dsl.Dsl
 import net.kigawa.renlin.dsl.RegisteredDslData
 import net.kigawa.renlin.element.TagNode
@@ -25,6 +26,12 @@ class SubBasicDslState(
     override fun applyDsl(dsl: Dsl<*>, registeredDslData: RegisteredDslData) {
         latestRegisteredDslData = registeredDslData
         val index = parent.getIndex(this)
+
+        // CSS適用処理を追加
+        if (dsl is CssCapable && dsl.cssClassName != null) {
+            ownElement?.setClassName(dsl.cssClassName!!)
+        }
+
         if (ownElement != null) {
             dsl.applyElement(ownElement)
             parent.setElements(index, listOf(ownElement))
@@ -63,4 +70,7 @@ class SubBasicDslState(
     override fun newElement(tag: Tag<*>): TagNode {
         return ownElement?.newNode(tag) ?: parent.newElement(tag)
     }
+
+    // CSS機能：親のCssManagerを継承
+    override fun getCssManager() = parent.getCssManager()
 }
