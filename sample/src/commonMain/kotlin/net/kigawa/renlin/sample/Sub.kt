@@ -12,8 +12,6 @@ import net.kigawa.renlin.tag.fragment
 import net.kigawa.renlin.tag.p
 import net.kigawa.renlin.tag.text
 
-interface MarginValue
-
 
 class Sub {
     val state: MutableState<String> = HakateInitializer().newStateDispatcher().newState("state 0")
