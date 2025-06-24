@@ -3,6 +3,7 @@ package net.kigawa.renlin.w3c.element
 import kotlinx.browser.document
 import net.kigawa.renlin.tag.Tag
 import net.kigawa.renlin.tag.TextTag
+import net.kigawa.renlin.w3c.event.RegisteredEvent
 import net.kigawa.renlin.w3c.event.WebEvent
 import net.kigawa.renlin.w3c.event.name.EventName
 import org.w3c.dom.Node
@@ -47,10 +48,13 @@ class DomTagElement(
 
     override fun <T : WebEvent> addEventListener(
         eventName: EventName<T>, listener: (T) -> Unit,
-    ) {
-        node.addEventListener(eventName.name, {
-            @Suppress("UNCHECKED_CAST")
-            listener(it as T)
-        })
+    ): RegisteredEvent {
+        return RegisteredEvent(eventName, {
+            listener(eventName.asWebEvent(it))
+        }).also { node.addEventListener(eventName.name, it.listener) }
+    }
+
+    override fun removeEventListener(registeredEvent: RegisteredEvent) {
+        node.removeEventListener(registeredEvent.name.name, registeredEvent.listener)
     }
 }
