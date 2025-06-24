@@ -1,7 +1,7 @@
-package net.kigawa.renlin.dsl.state
+package net.kigawa.renlin.state
 
 import net.kigawa.hakate.api.state.StateContext
-import net.kigawa.renlin.dsl.Dsl
+import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.dsl.RegisteredDslData
 import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.tag.Tag
@@ -13,7 +13,7 @@ abstract class BasicDslStateBase(
     protected var subStates = mutableListOf<SubBasicDslState>()
     abstract override val ownElement: TagNode?
 
-    override fun subDslState(key: String, second: Component): DslState {
+    override fun getOrCreateSubDslState(key: String, second: Component): DslState {
         return subStates.firstOrNull { it.key == key } ?: SubBasicDslState(
             key, this, second, stateContext.newStateContext()
         ).also {
@@ -58,7 +58,7 @@ abstract class BasicDslStateBase(
     }
 
 
-    override fun applyDsl(dsl: Dsl<*>, registeredDslData: RegisteredDslData) {
+    override fun applyDsl(dsl: StatedDsl<*>, registeredDslData: RegisteredDslData) {
         throw NotImplementedError("BasicDslState not implemented.")
     }
 

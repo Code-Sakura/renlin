@@ -1,4 +1,4 @@
-package net.kigawa.renlin.dsl.state
+package net.kigawa.renlin.state
 
 import net.kigawa.hakate.api.state.StateContext
 import net.kigawa.renlin.dsl.RegisteredDslData

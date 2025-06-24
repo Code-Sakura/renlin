@@ -1,9 +1,9 @@
-package net.kigawa.renlin.dsl.state
+package net.kigawa.renlin.state
 
 import net.kigawa.hakate.api.multi.mergeState
 import net.kigawa.hakate.api.state.State
 import net.kigawa.hakate.api.state.StateContext
-import net.kigawa.renlin.dsl.Dsl
+import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.dsl.RegisteredDslData
 import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.tag.Tag
@@ -22,7 +22,7 @@ class SubBasicDslState(
     override var latestRegisteredDslData: RegisteredDslData? = null
     var latestStateContext: StateContext? = null
 
-    override fun applyDsl(dsl: Dsl<*>, registeredDslData: RegisteredDslData) {
+    override fun applyDsl(dsl: StatedDsl<*>, registeredDslData: RegisteredDslData) {
         latestRegisteredDslData = registeredDslData
         val index = parent.getIndex(this)
         if (ownElement != null) {
