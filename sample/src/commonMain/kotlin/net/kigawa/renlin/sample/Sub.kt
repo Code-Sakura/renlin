@@ -6,10 +6,7 @@ import net.kigawa.renlin.category.FlowContent
 import net.kigawa.renlin.category.FlowPhrasingIntersection
 import net.kigawa.renlin.category.PhrasingContent
 import net.kigawa.renlin.category.t
-import net.kigawa.renlin.css.Color
-import net.kigawa.renlin.css.css
-import net.kigawa.renlin.css.percent
-import net.kigawa.renlin.css.px
+import net.kigawa.renlin.css.*
 import net.kigawa.renlin.tag.div
 import net.kigawa.renlin.tag.fragment
 import net.kigawa.renlin.tag.p
@@ -20,7 +17,6 @@ interface MarginValue
 
 class Sub {
     val state: MutableState<String> = HakateInitializer().newStateDispatcher().newState("state 0")
-    val numState: MutableState<Number> = HakateInitializer().newStateDispatcher().newState(0)
 
     val display = div.component {
         t("display")
