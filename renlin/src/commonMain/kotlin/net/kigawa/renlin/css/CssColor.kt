@@ -74,6 +74,7 @@ data class RgbaColor(val r: Int, val g: Int, val b: Int, val a: Double) : CssCol
 /**
  * 色のファクトリオブジェクト
  */
+@Suppress("unused")
 object Color {
     // よく使う色の定数
     val RED = NamedColor.RED

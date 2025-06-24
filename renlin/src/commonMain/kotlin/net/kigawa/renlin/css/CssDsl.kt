@@ -6,6 +6,7 @@ import net.kigawa.renlin.Html
  * CSS記述用のDSL（基本プロパティのみ）
  */
 @Html
+@Suppress("unused")
 class CssDsl {
     private val properties = mutableMapOf<String, CssValue>()
 
