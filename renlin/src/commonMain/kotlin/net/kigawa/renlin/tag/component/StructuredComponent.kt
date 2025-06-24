@@ -13,7 +13,7 @@ interface StructuredComponent<TAG : Tag<*>, DSL : StatedDsl<*>> : Component1<TAG
         val dslState = parentDsl.dslState.getOrCreateSubDslState(nonNullKey, this)
         val dsl = newDsl(dslState)
         dsl.block()
-        parentDsl.subDsl(
+        parentDsl.registerSubDsl(
             RegisteredDslData(
                 dsl,
                 this,

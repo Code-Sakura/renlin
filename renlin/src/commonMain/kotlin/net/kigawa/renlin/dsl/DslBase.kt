@@ -1,31 +1,31 @@
 package net.kigawa.renlin.dsl
 
 import net.kigawa.hakate.api.state.State
-import net.kigawa.renlin.category.ContentCategory
 import net.kigawa.renlin.state.DslState
+import net.kigawa.renlin.w3c.category.ContentCategory
 
-abstract class DslBase<CONTENT_CATEGORY : ContentCategory> (
+abstract class DslBase<CONTENT_CATEGORY : ContentCategory>(
     override val dslState: DslState
-): StatedDsl<CONTENT_CATEGORY> {
+) : StatedDsl<CONTENT_CATEGORY> {
     private val subDsls = mutableListOf<RegisteredDslData>()
     override val states = mutableSetOf<State<*>>()
 
-    override fun subDsl(registeredDslData: RegisteredDslData) {
+    override fun registerSubDsl(registeredDslData: RegisteredDslData) {
 
         val i = subDsls.indexOfFirst { it.key == registeredDslData.key }
         if (i == -1) subDsls.add(registeredDslData)
         else subDsls[i] = registeredDslData
 
         dslState.let {
-            registeredDslData.dsl.mountDslState(
+            registeredDslData.dsl.applyToDslState(
                 it.getOrCreateSubDslState(registeredDslData.key, registeredDslData.component), registeredDslData
             )
         }
     }
 
-    override fun mountDslState(state: DslState, registeredDslData: RegisteredDslData) {
+    override fun applyToDslState(state: DslState, registeredDslData: RegisteredDslData) {
         subDsls.forEach {
-            it.dsl.mountDslState(
+            it.dsl.applyToDslState(
                 state.getOrCreateSubDslState(it.key, it.component), it
             )
         }

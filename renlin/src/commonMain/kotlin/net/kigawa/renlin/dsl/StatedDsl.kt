@@ -1,12 +1,11 @@
 package net.kigawa.renlin.dsl
 
 import net.kigawa.hakate.api.state.State
-import net.kigawa.renlin.Html
-import net.kigawa.renlin.category.ContentCategory
 import net.kigawa.renlin.state.DslState
 import net.kigawa.renlin.tag.Fragment
 import net.kigawa.renlin.tag.Tag
 import net.kigawa.renlin.tag.component.Component1
+import net.kigawa.renlin.w3c.category.ContentCategory
 import net.kigawa.renlin.w3c.element.TagNode
 
 /**
@@ -26,7 +25,7 @@ import net.kigawa.renlin.w3c.element.TagNode
  *
  * @param CONTENT_CATEGORY このDSLが生成できるHTMLコンテンツのカテゴリ
  */
-interface StatedDsl<CONTENT_CATEGORY : ContentCategory>: Dsl {
+interface StatedDsl<CONTENT_CATEGORY : ContentCategory> : Dsl {
     /**
      * 現在のDSLに関連付けられた状態。
      * この状態はDSLの動作と描画を制御します。
@@ -35,32 +34,32 @@ interface StatedDsl<CONTENT_CATEGORY : ContentCategory>: Dsl {
 
     /**
      * サブDSLを現在のDSLに登録します。
-     * 
+     *
      * @param registeredDslData 登録するDSLのデータ
      */
-    fun subDsl(registeredDslData: RegisteredDslData)
+    fun registerSubDsl(registeredDslData: RegisteredDslData)
 
     /**
      * 指定された状態をDSLにマウントします。
      * これにより、DSLの状態が更新され、関連するサブDSLも更新されます。
-     * 
+     *
      * @param state マウントする状態
      * @param registeredDslData 関連するDSLデータ
      */
-    fun mountDslState(state: DslState, registeredDslData: RegisteredDslData)
+    fun applyToDslState(state: DslState, registeredDslData: RegisteredDslData)
 
     /**
      * 指定された要素をDSLに適用します。
-     * 
+     *
      * @param element 適用するHTML要素
      * @return 要素の適用を取り消すための関数
      */
-    fun applyElement(element: TagNode): ()->Unit
+    fun applyElement(element: TagNode): () -> Unit
 
 
     /**
      * コンポーネントを呼び出し、レンダリングするための演算子オーバーロード。
-     * 
+     *
      * @param key コンポーネントの一意のキー（オプション）
      * @param block コンポーネントの内容を定義するブロック
      * @return コンポーネントのレンダリング結果
@@ -78,7 +77,7 @@ interface StatedDsl<CONTENT_CATEGORY : ContentCategory>: Dsl {
 
     /**
      * 状態の現在の値を取得し、この状態をDSLの状態セットに追加します。
-     * 
+     *
      * @return 状態の現在の値
      */
     fun <T> State<T>.useValue(): T

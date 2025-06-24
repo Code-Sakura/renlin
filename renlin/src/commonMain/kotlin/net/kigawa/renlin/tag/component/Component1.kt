@@ -2,14 +2,13 @@ package net.kigawa.renlin.tag.component
 
 import net.kigawa.hakate.api.state.State
 import net.kigawa.renlin.Html
-import net.kigawa.renlin.category.ContentCategory
 import net.kigawa.renlin.dsl.Dsl
 import net.kigawa.renlin.dsl.EmptyDsl
 import net.kigawa.renlin.dsl.StatedDsl
-import net.kigawa.renlin.dsl.EmptyStatedDsl
 import net.kigawa.renlin.dsl.RegisteredDslData
 import net.kigawa.renlin.state.DslState
 import net.kigawa.renlin.tag.Tag
+import net.kigawa.renlin.w3c.category.ContentCategory
 import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
 
@@ -36,7 +35,7 @@ interface Component1<out TAG : Tag<*>, DSL : Dsl> : Component {
                 newDsl.block()
                 val baseDsl = this@Component1.newDsl(state)
                 baseDsl.block()
-                parentDsl.subDsl(
+                parentDsl.registerSubDsl(
                     RegisteredDslData(
                         object : StatedDsl<ContentCategory> by baseDsl {
                             override val states: Set<State<*>>

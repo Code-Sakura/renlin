@@ -4,15 +4,15 @@ package net.kigawa.renlin.sample
 
 import net.kigawa.hakate.api.HakateInitializer
 import net.kigawa.hakate.api.state.MutableState
-import net.kigawa.renlin.category.FlowContent
-import net.kigawa.renlin.category.FlowPhrasingIntersection
-import net.kigawa.renlin.category.PhrasingContent
-import net.kigawa.renlin.category.t
 
 import net.kigawa.renlin.tag.div
 import net.kigawa.renlin.tag.fragment
 import net.kigawa.renlin.tag.p
 import net.kigawa.renlin.tag.text
+import net.kigawa.renlin.w3c.category.FlowContent
+import net.kigawa.renlin.w3c.category.FlowPhrasingIntersection
+import net.kigawa.renlin.w3c.category.PhrasingContent
+import net.kigawa.renlin.w3c.category.t
 
 interface MarginValue
 

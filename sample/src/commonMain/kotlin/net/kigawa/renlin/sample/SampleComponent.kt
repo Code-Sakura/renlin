@@ -2,7 +2,6 @@
 
 package net.kigawa.renlin.sample
 
-import net.kigawa.renlin.category.t
 import net.kigawa.renlin.tag.div
 import net.kigawa.renlin.tag.p
 import net.kigawa.renlin.tag.text

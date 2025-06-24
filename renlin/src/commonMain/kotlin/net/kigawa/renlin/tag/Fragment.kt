@@ -1,12 +1,12 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.category.ContentCategory
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.state.DslState
-import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.tag.component.Component1
 import net.kigawa.renlin.tag.component.StructuredComponent
+import net.kigawa.renlin.w3c.category.ContentCategory
+import net.kigawa.renlin.w3c.element.TagNode
 
 object Fragment {
 
