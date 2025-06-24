@@ -1,21 +1,28 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.category.FlowPhrasingIntersection
-import net.kigawa.renlin.category.FlowPhrasingDsl
+import net.kigawa.renlin.category.EmbeddedFlowInteractivePalpablePhrasingIntersection
+import net.kigawa.renlin.category.EmbeddedFlowInteractivePalpablePhrasingDsl
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
-import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.tag.component.TagComponent1
+import net.kigawa.renlin.w3c.element.TagNode
+import net.kigawa.renlin.state.DslState
 
-class VideoDsl :
-    DslBase<FlowPhrasingIntersection>(), StatedDsl<FlowPhrasingIntersection>, FlowPhrasingDsl<FlowPhrasingIntersection> {
-    override fun applyElement(element: TagNode) {
+/**
+ * HTML <video> element
+ * 
+ * Categories: FlowContent, PhrasingContent, EmbeddedContent, PalpableContent, InteractiveContent
+ */
+class VideoDsl(dslState: DslState):
+    DslBase<EmbeddedFlowInteractivePalpablePhrasingIntersection>(dslState), StatedDsl<EmbeddedFlowInteractivePalpablePhrasingIntersection>, EmbeddedFlowInteractivePalpablePhrasingDsl<EmbeddedFlowInteractivePalpablePhrasingIntersection> {
+    override fun applyElement(element: TagNode): ()->Unit {
+        return {}
     }
 }
 
 val video = TagComponent1<Video, VideoDsl>(Video, ::VideoDsl)
 
-object Video : Tag<FlowPhrasingIntersection> {
+object Video : Tag<EmbeddedFlowInteractivePalpablePhrasingIntersection> {
     override val name: String
         get() = "video"
 }

@@ -1,21 +1,28 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.category.FlowPhrasingIntersection
-import net.kigawa.renlin.category.FlowPhrasingDsl
+import net.kigawa.renlin.category.EmbeddedFlowInteractivePalpablePhrasingIntersection
+import net.kigawa.renlin.category.EmbeddedFlowInteractivePalpablePhrasingDsl
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
-import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.tag.component.TagComponent1
+import net.kigawa.renlin.w3c.element.TagNode
+import net.kigawa.renlin.state.DslState
 
-class IframeDsl :
-    DslBase<FlowPhrasingIntersection>(), StatedDsl<FlowPhrasingIntersection>, FlowPhrasingDsl<FlowPhrasingIntersection> {
-    override fun applyElement(element: TagNode) {
+/**
+ * HTML <iframe> element
+ * 
+ * Categories: FlowContent, PhrasingContent, EmbeddedContent, InteractiveContent, PalpableContent
+ */
+class IframeDsl(dslState: DslState):
+    DslBase<EmbeddedFlowInteractivePalpablePhrasingIntersection>(dslState), StatedDsl<EmbeddedFlowInteractivePalpablePhrasingIntersection>, EmbeddedFlowInteractivePalpablePhrasingDsl<EmbeddedFlowInteractivePalpablePhrasingIntersection> {
+    override fun applyElement(element: TagNode): ()->Unit {
+        return {}
     }
 }
 
 val iframe = TagComponent1<Iframe, IframeDsl>(Iframe, ::IframeDsl)
 
-object Iframe : Tag<FlowPhrasingIntersection> {
+object Iframe : Tag<EmbeddedFlowInteractivePalpablePhrasingIntersection> {
     override val name: String
         get() = "iframe"
 }

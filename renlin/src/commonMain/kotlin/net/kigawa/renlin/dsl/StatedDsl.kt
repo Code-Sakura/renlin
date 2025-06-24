@@ -26,7 +26,6 @@ import net.kigawa.renlin.w3c.element.TagNode
  *
  * @param CONTENT_CATEGORY このDSLが生成できるHTMLコンテンツのカテゴリ
  */
-@Html
 interface StatedDsl<CONTENT_CATEGORY : ContentCategory>: Dsl {
     /**
      * 現在のDSLに関連付けられた状態。
@@ -66,7 +65,7 @@ interface StatedDsl<CONTENT_CATEGORY : ContentCategory>: Dsl {
      * @param block コンポーネントの内容を定義するブロック
      * @return コンポーネントのレンダリング結果
      */
-    operator fun <TAG : Tag<in CONTENT_CATEGORY>, DSL : StatedDsl<*>> Component1<TAG, DSL>.invoke(
+    operator fun <TAG : Tag<in CONTENT_CATEGORY>, DSL : Dsl> Component1<TAG, DSL>.invoke(
         key: String? = null, block: DSL.() -> Unit,
     ) = this.render(this@StatedDsl, block, key)
 

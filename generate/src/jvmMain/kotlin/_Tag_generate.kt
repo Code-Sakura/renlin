@@ -226,18 +226,20 @@ fun main() {
             import net.kigawa.renlin.category.$categoryInterface
             import net.kigawa.renlin.category.$dslInterface
             import net.kigawa.renlin.dsl.DslBase
-            import net.kigawa.renlin.dsl.Dsl
-            import net.kigawa.renlin.element.TagNode
+            import net.kigawa.renlin.dsl.StatedDsl
             import net.kigawa.renlin.tag.component.TagComponent1
+            import net.kigawa.renlin.w3c.element.TagNode
+            import net.kigawa.renlin.state.DslState
 
             /**
              * HTML <$tag> element
              * 
              * Categories: ${categories.joinToString(", ")}
              */
-            class ${className}Dsl :
-                DslBase<$categoryInterface>(), Dsl<$categoryInterface>, $dslInterface<$categoryInterface> {
-                override fun applyElement(element: TagNode) {
+            class ${className}Dsl(dslState: DslState):
+                DslBase<$categoryInterface>(dslState), StatedDsl<$categoryInterface>, $dslInterface<$categoryInterface> {
+                override fun applyElement(element: TagNode): ()->Unit {
+                    return {}
                 }
             }
 
