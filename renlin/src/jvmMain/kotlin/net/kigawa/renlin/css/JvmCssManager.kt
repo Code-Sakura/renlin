@@ -1,23 +1,23 @@
 package net.kigawa.renlin.css
 
 /**
- * JVM版のCSSマネージャー実装
+ * JVM版のCSSマネージャー実装（疑似クラス対応）
  */
 class JvmCssManager : CssManager {
-    private val cssClasses = mutableMapOf<String, String>() // クラス名 -> CSS文字列
+    private val cssRules = mutableMapOf<String, String>() // クラス名 -> 完全なCSS文字列
 
-    override fun getOrCreateClass(properties: Map<String, CssValue>): String {
-        if (properties.isEmpty()) return ""
+    override fun getOrCreateClass(ruleSet: CssRuleSet): String {
+        if (ruleSet.isEmpty()) return ""
 
         // React風のクラス名を生成
-        val className = CssUtils.generateClassName(properties)
+        val className = CssUtils.generateClassName(ruleSet)
 
         // 既に同じクラス名が存在する場合はそれを返す
-        return if (cssClasses.containsKey(className)) {
+        return if (cssRules.containsKey(className)) {
             className
         } else {
-            val cssString = CssUtils.generateCssString(properties)
-            cssClasses[className] = cssString
+            val cssString = CssUtils.generateFullCssString(className, ruleSet)
+            cssRules[className] = cssString
             updateStyles()
             className
         }
@@ -31,12 +31,10 @@ class JvmCssManager : CssManager {
      * スタイルタグを生成
      */
     fun generateStyleTag(): String {
-        return if (cssClasses.isEmpty()) {
+        return if (cssRules.isEmpty()) {
             ""
         } else {
-            "<style>\n${cssClasses.entries.joinToString("\n") { (className, css) ->
-                ".$className { $css }"
-            }}\n</style>"
+            "<style>\n${cssRules.values.joinToString("\n")}\n</style>"
         }
     }
 

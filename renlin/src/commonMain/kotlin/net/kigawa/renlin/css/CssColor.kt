@@ -8,6 +8,7 @@ sealed interface CssColor : CssValue
 /**
  * 名前付きの色
  */
+@Suppress("unused")
 enum class NamedColor(private val colorName: String) : CssColor {
     RED("red"),
     GREEN("green"),

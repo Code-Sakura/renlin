@@ -4,17 +4,17 @@ import net.kigawa.renlin.dsl.Dsl
 import net.kigawa.renlin.category.ContentCategory
 
 /**
- * DSLにCSS機能を追加する拡張関数
+ * DSLにCSS機能を追加する拡張関数（疑似クラス対応）
  */
 fun <CONTENT_CATEGORY : ContentCategory> Dsl<CONTENT_CATEGORY>.css(block: CssDsl.() -> Unit) {
     val cssDsl = CssDsl()
     cssDsl.block()
-    val properties = cssDsl.getProperties()
+    val ruleSet = cssDsl.getRuleSet()
 
-    if (properties.isNotEmpty()) {
+    if (!ruleSet.isEmpty()) {
         // dslStateがnullの場合は、CSS情報を一時保存
         if (this is CssCapable) {
-            this.pendingCssProperties = properties
+            this.pendingCssRuleSet = ruleSet
         }
     }
 }
@@ -25,4 +25,5 @@ fun <CONTENT_CATEGORY : ContentCategory> Dsl<CONTENT_CATEGORY>.css(block: CssDsl
 interface CssCapable {
     var cssClassName: String?
     var pendingCssProperties: Map<String, CssValue>?
+    var pendingCssRuleSet: CssRuleSet?
 }

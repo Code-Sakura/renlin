@@ -24,3 +24,21 @@ val Double.rem: CssUnit get() = CssUnit(this, "rem")
 val Int.percent: CssUnit get() = CssUnit(this, "%")
 @Suppress("unused")
 val Double.percent: CssUnit get() = CssUnit(this, "%")
+@Suppress("unused")
+val Int.vh: CssUnit get() = CssUnit(this, "vh")
+@Suppress("unused")
+val Double.vh: CssUnit get() = CssUnit(this, "vh")
+@Suppress("unused")
+val Int.vw: CssUnit get() = CssUnit(this, "vw")
+@Suppress("unused")
+val Double.vw: CssUnit get() = CssUnit(this, "vw")
+
+// 文字列をCssValueに変換する拡張プロパティ
+@Suppress("unused")
+val String.cssValue: CssValue get() = CssString(this)
+
+// 数値をCssValueに変換する拡張プロパティ
+@Suppress("unused")
+val Int.cssValue: CssValue get() = CssString(this.toString())
+@Suppress("unused")
+val Double.cssValue: CssValue get() = CssString(this.toString())
