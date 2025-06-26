@@ -35,6 +35,9 @@ class Sub {
                     css { 
                         color = if (value.last().digitToInt() % 2 == 0) Color.RED else Color.BLUE
                         backgroundColor = if (value.last().digitToInt() % 2 == 0) Color.BLUE else Color.RED
+                        hover { 
+                            cursor = Cursor.GRABBING
+                        }
                     }
                 }
             }
@@ -45,6 +48,17 @@ class Sub {
             div {
                 t("display2-1")
                 key = "uuid aadaaaaaaa"
+                css {
+                    userSelect = UserSelect.NONE
+                    hover { 
+                        cursor = Cursor.POINTER
+                        backgroundColor = Color.rgba(0, 255, 255, 0.3)
+                    }
+                    active { 
+                        color = Color.RED
+                        fontWeight = FontWeight.BOLD
+                    }
+                }
             }
         }
         div {
