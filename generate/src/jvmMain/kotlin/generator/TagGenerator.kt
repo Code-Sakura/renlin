@@ -14,14 +14,28 @@ class TagGenerator(
             package net.kigawa.renlin.tag
 
             import net.kigawa.renlin.w3c.category.native.${tagInfo.tagCategories.connectedStr("Union")}
-            import net.kigawa.renlin.w3c.category.integration.${tagInfo.allowedCategories.connectedStr("Integration")}
+            ${
+                if (tagInfo.allowedCategories.categories.size > 1)
+                    "import net.kigawa.renlin.w3c.category.integration.${
+                        tagInfo.allowedCategories.connectedStr("Integration")
+                    }"
+                else if (
+                    tagInfo.allowedCategories.categories.isNotEmpty() &&
+                    tagInfo.tagCategories.connectedStr("Union") !=
+                    tagInfo.allowedCategories.connectedStr("Integration")
+                ) "import net.kigawa.renlin.w3c.category.native.${
+                    tagInfo.allowedCategories.connectedStr("Integration")
+                }"
+                else ""
+            }
             import net.kigawa.renlin.dsl.DslBase
             import net.kigawa.renlin.dsl.StatedDsl
             import net.kigawa.renlin.tag.component.TagComponent1
             import net.kigawa.renlin.w3c.element.TagNode
             import net.kigawa.renlin.state.DslState
             ${
-                if (tagInfo.allowedCategories.categories.isEmpty()) ""
+                if (tagInfo.allowedCategories.categories.isEmpty())
+                    "import net.kigawa.renlin.w3c.category.ContentCategory"
                 else "import net.kigawa.renlin.w3c.category.dsl.${tagInfo.allowedCategories.connectedStr()}Dsl\n"
             }
             

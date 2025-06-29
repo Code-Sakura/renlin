@@ -3,27 +3,32 @@ import model.TagCategories
 import model.TagInfo
 
 // 元のコードの並び順を維持するためのタグリスト
-    val tagCategories = setOf(
-        // Main root
-    TagInfo("html", TagCategories("FlowContent"), AllowedCategories()),
+val tagCategories = setOf(
+    // Main root
+    TagInfo("html", TagCategories("FlowContent"), AllowedCategories("FlowContent")),
 
-        // Document metadata
-    TagInfo("base", TagCategories("MetadataContent"), AllowedCategories()),
-    TagInfo("head", TagCategories("FlowContent"), AllowedCategories()),
+    // Document metadata
+    TagInfo("base", TagCategories("MetadataContent"), AllowedCategories("MetadataContent")),
+    TagInfo("head", TagCategories("FlowContent"), AllowedCategories("FlowContent")),
     TagInfo(
-        "link", TagCategories("MetadataContent", "FlowContent", "PhrasingContent"), AllowedCategories()
+        "link", TagCategories("MetadataContent", "FlowContent", "PhrasingContent"),
+        AllowedCategories("MetadataContent", "FlowContent", "PhrasingContent")
     ),
     TagInfo(
-        "meta", TagCategories(setOf("MetadataContent", "FlowContent", "PhrasingContent")), AllowedCategories()
+        "meta", TagCategories(setOf("MetadataContent", "FlowContent", "PhrasingContent")),
+        AllowedCategories(setOf("MetadataContent", "FlowContent", "PhrasingContent"))
     ),
-    TagInfo("style", TagCategories("MetadataContent"), AllowedCategories()),
-    TagInfo("title", TagCategories("MetadataContent"), AllowedCategories()),
+    TagInfo("style", TagCategories("MetadataContent"), AllowedCategories("MetadataContent")),
+    TagInfo("title", TagCategories("MetadataContent"), AllowedCategories("MetadataContent")),
 
-        //Sectioning root
-    TagInfo("body", TagCategories("FlowContent"), AllowedCategories()),
+    //Sectioning root
+    TagInfo("body", TagCategories("FlowContent"), AllowedCategories("FlowContent")),
 
-        // Content sectioning
-    TagInfo("address", TagCategories(setOf("FlowContent", "PalpableContent")), AllowedCategories()),
+    // Content sectioning
+    TagInfo(
+        "address", TagCategories(setOf("FlowContent", "PalpableContent")),
+        AllowedCategories(setOf("FlowContent", "PalpableContent"))
+    ),
     TagInfo(
         "article", TagCategories(setOf("FlowContent", "SectioningContent", "PalpableContent")), AllowedCategories()
     ),
@@ -48,10 +53,13 @@ import model.TagInfo
     ),
     TagInfo("search", TagCategories(setOf("FlowContent", "PalpableContent")), AllowedCategories()),
 
-        // Text content
+    // Text content
     TagInfo("blockquote", TagCategories(setOf("FlowContent", "PalpableContent")), AllowedCategories()),
     TagInfo("dd", TagCategories("FlowContent"), AllowedCategories()),
-    TagInfo("div", TagCategories(setOf("FlowContent", "PalpableContent")), AllowedCategories()),
+    TagInfo(
+        "div", TagCategories(setOf("FlowContent", "PalpableContent")),
+        AllowedCategories(setOf("FlowContent", "PalpableContent", "PhrasingContent"))
+    ),
     TagInfo("dl", TagCategories(setOf("FlowContent", "PalpableContent")), AllowedCategories()),
     TagInfo("dt", TagCategories("FlowContent"), AllowedCategories()),
     TagInfo("figcaption", TagCategories("FlowContent"), AllowedCategories()),
@@ -60,14 +68,14 @@ import model.TagInfo
     TagInfo("li", TagCategories("FlowContent"), AllowedCategories()),
     TagInfo("menu", TagCategories("FlowContent"), AllowedCategories()),
     TagInfo("ol", TagCategories(setOf("FlowContent", "PalpableContent")), AllowedCategories()),
-    TagInfo("p", TagCategories(setOf("FlowContent", "PalpableContent")), AllowedCategories()),
+    TagInfo("p", TagCategories(setOf("FlowContent", "PalpableContent")), AllowedCategories("PhrasingContent")),
     TagInfo("pre", TagCategories(setOf("FlowContent", "PalpableContent")), AllowedCategories()),
     TagInfo("ul", TagCategories(setOf("FlowContent", "PalpableContent")), AllowedCategories()),
 
-        // Inline text semantics
+    // Inline text semantics
     TagInfo(
         "a", TagCategories(setOf("FlowContent", "PhrasingContent", "PalpableContent", "InteractiveContent")),
-        AllowedCategories()
+        AllowedCategories(setOf("FlowContent", "PhrasingContent", "PalpableContent", "InteractiveContent"))
     ),
     TagInfo(
         "abbr", TagCategories(setOf("FlowContent", "PhrasingContent", "PalpableContent")), AllowedCategories()
@@ -120,7 +128,7 @@ import model.TagInfo
     TagInfo("var", TagCategories(setOf("FlowContent", "PhrasingContent", "PalpableContent")), AllowedCategories()),
     TagInfo("wbr", TagCategories(setOf("FlowContent", "PhrasingContent")), AllowedCategories()),
 
-        // Image and multimedia
+    // Image and multimedia
     TagInfo("area", TagCategories(setOf("FlowContent", "PhrasingContent")), AllowedCategories()),
     TagInfo(
         "audio", TagCategories(
@@ -143,7 +151,7 @@ import model.TagInfo
         ), AllowedCategories()
     ),
 
-        // Embedded content
+    // Embedded content
     TagInfo(
         "embed", TagCategories(
             setOf("FlowContent", "PhrasingContent", "EmbeddedContent", "InteractiveContent", "PalpableContent")
@@ -165,71 +173,97 @@ import model.TagInfo
     ),
     TagInfo(
         "picture", TagCategories(setOf("FlowContent", "PhrasingContent", "EmbeddedContent", "PalpableContent")),
-        AllowedCategories()
+        AllowedCategories(setOf("FlowContent", "PhrasingContent", "EmbeddedContent", "PalpableContent"))
     ),
-    TagInfo("source", TagCategories("FlowContent"), AllowedCategories()),
+    TagInfo("source", TagCategories("FlowContent"), AllowedCategories("FlowContent")),
 
-        // SVG and MathML
+    // SVG and MathML
     TagInfo(
         "svg", TagCategories(setOf("FlowContent", "PhrasingContent", "EmbeddedContent", "PalpableContent")),
-        AllowedCategories()
+        AllowedCategories(setOf("FlowContent", "PhrasingContent", "EmbeddedContent", "PalpableContent"))
     ),
     TagInfo(
         "math", TagCategories(setOf("FlowContent", "PhrasingContent", "EmbeddedContent", "PalpableContent")),
-        AllowedCategories()
+        AllowedCategories(setOf("FlowContent", "PhrasingContent", "EmbeddedContent", "PalpableContent"))
     ),
 
-        // Scripting
+    // Scripting
     TagInfo(
         "canvas", TagCategories(setOf("FlowContent", "PhrasingContent", "EmbeddedContent", "PalpableContent")),
-        AllowedCategories()
+        AllowedCategories(setOf("FlowContent", "PhrasingContent", "EmbeddedContent", "PalpableContent"))
     ),
     TagInfo(
-        "noscript", TagCategories(setOf("MetadataContent", "FlowContent", "PhrasingContent")), AllowedCategories()
+        "noscript", TagCategories(setOf("MetadataContent", "FlowContent", "PhrasingContent")),
+        AllowedCategories(setOf("MetadataContent", "FlowContent", "PhrasingContent"))
     ),
     TagInfo(
         "script",
         TagCategories(setOf("MetadataContent", "FlowContent", "PhrasingContent", "ScriptSupportingContent")),
-        AllowedCategories()
+        AllowedCategories(setOf("MetadataContent", "FlowContent", "PhrasingContent", "ScriptSupportingContent"))
     ),
 
-        // Demarcating edits
-    TagInfo("del", TagCategories(setOf("FlowContent", "PhrasingContent", "PalpableContent")), AllowedCategories()),
-    TagInfo("ins", TagCategories(setOf("FlowContent", "PhrasingContent", "PalpableContent")), AllowedCategories()),
+    // Demarcating edits
+    TagInfo(
+        "del", TagCategories(setOf("FlowContent", "PhrasingContent", "PalpableContent")),
+        AllowedCategories(setOf("FlowContent", "PhrasingContent", "PalpableContent"))
+    ),
+    TagInfo(
+        "ins", TagCategories(setOf("FlowContent", "PhrasingContent", "PalpableContent")),
+        AllowedCategories(setOf("FlowContent", "PhrasingContent", "PalpableContent"))
+    ),
 
-        // Table content
-    TagInfo("caption", TagCategories("FlowContent"), AllowedCategories()),
-    TagInfo("col", TagCategories("FlowContent"), AllowedCategories()),
-    TagInfo("colgroup", TagCategories("FlowContent"), AllowedCategories()),
-    TagInfo("table", TagCategories(setOf("FlowContent", "PalpableContent")), AllowedCategories()),
-    TagInfo("tbody", TagCategories("FlowContent"), AllowedCategories()),
-    TagInfo("td", TagCategories("FlowContent"), AllowedCategories()),
-    TagInfo("tfoot", TagCategories("FlowContent"), AllowedCategories()),
-    TagInfo("th", TagCategories("FlowContent"), AllowedCategories()),
-    TagInfo("thead", TagCategories("FlowContent"), AllowedCategories()),
-    TagInfo("tr", TagCategories("FlowContent"), AllowedCategories()),
+    // Table content
+    TagInfo("caption", TagCategories("FlowContent"), AllowedCategories("FlowContent")),
+    TagInfo("col", TagCategories("FlowContent"), AllowedCategories("FlowContent")),
+    TagInfo("colgroup", TagCategories("FlowContent"), AllowedCategories("FlowContent")),
+    TagInfo(
+        "table", TagCategories(setOf("FlowContent", "PalpableContent")),
+        AllowedCategories(setOf("FlowContent", "PalpableContent"))
+    ),
+    TagInfo("tbody", TagCategories("FlowContent"), AllowedCategories("FlowContent")),
+    TagInfo("td", TagCategories("FlowContent"), AllowedCategories("FlowContent")),
+    TagInfo("tfoot", TagCategories("FlowContent"), AllowedCategories("FlowContent")),
+    TagInfo("th", TagCategories("FlowContent"), AllowedCategories("FlowContent")),
+    TagInfo("thead", TagCategories("FlowContent"), AllowedCategories("FlowContent")),
+    TagInfo("tr", TagCategories("FlowContent"), AllowedCategories("FlowContent")),
 
-        // Forms
+    // Forms
     TagInfo(
         "button", TagCategories(
             setOf(
                 "FlowContent", "PhrasingContent", "InteractiveContent", "PalpableContent", "FormAssociatedContent"
             )
-        ), AllowedCategories()
+        ), AllowedCategories(
+            setOf(
+                "FlowContent", "PhrasingContent", "InteractiveContent", "PalpableContent", "FormAssociatedContent"
+            )
+        )
     ),
-    TagInfo("datalist", TagCategories(setOf("FlowContent", "PhrasingContent")), AllowedCategories()),
+    TagInfo(
+        "datalist", TagCategories(setOf("FlowContent", "PhrasingContent")),
+        AllowedCategories(setOf("FlowContent", "PhrasingContent"))
+    ),
     TagInfo(
         "fieldset", TagCategories(
             setOf("FlowContent", "PalpableContent", "FormAssociatedContent", "AutocapitalizeInheritingFormContent")
-        ), AllowedCategories()
+        ), AllowedCategories(
+            setOf("FlowContent", "PalpableContent", "FormAssociatedContent", "AutocapitalizeInheritingFormContent")
+        )
     ),
-    TagInfo("form", TagCategories(setOf("FlowContent", "PalpableContent")), AllowedCategories()),
+    TagInfo(
+        "form", TagCategories(setOf("FlowContent", "PalpableContent")),
+        AllowedCategories(setOf("FlowContent", "PalpableContent"))
+    ),
     TagInfo(
         "input", TagCategories(
             setOf(
                 "FlowContent", "PhrasingContent", "PalpableContent", "InteractiveContent", "FormAssociatedContent"
             )
-        ), AllowedCategories()
+        ), AllowedCategories(
+            setOf(
+                "FlowContent", "PhrasingContent", "PalpableContent", "InteractiveContent", "FormAssociatedContent"
+            )
+        )
     ),
     TagInfo(
         "label", TagCategories(setOf("FlowContent", "PhrasingContent", "InteractiveContent", "PalpableContent")),
@@ -265,7 +299,7 @@ import model.TagInfo
         ), AllowedCategories()
     ),
 
-        // Interactive elements
+    // Interactive elements
     TagInfo(
         "details", TagCategories(setOf("FlowContent", "InteractiveContent", "PalpableContent")),
         AllowedCategories()
@@ -273,7 +307,7 @@ import model.TagInfo
     TagInfo("dialog", TagCategories("FlowContent"), AllowedCategories()),
     TagInfo("summary", TagCategories("FlowContent"), AllowedCategories()),
 
-        // Web Components
+    // Web Components
     TagInfo("slot", TagCategories(setOf("FlowContent", "PhrasingContent")), AllowedCategories()),
     TagInfo(
         "template",
@@ -282,4 +316,4 @@ import model.TagInfo
         ),
         AllowedCategories()
     )
-    )
+)
