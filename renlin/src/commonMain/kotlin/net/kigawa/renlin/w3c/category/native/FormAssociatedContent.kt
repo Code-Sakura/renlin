@@ -1,0 +1,8 @@
+package net.kigawa.renlin.w3c.category.native
+
+import net.kigawa.renlin.w3c.category.ContentCategory
+
+/**
+ * Union to EmbeddedFlowFormAssociatedInteractivePalpablePhrasingUnion, FlowFormAssociatedInteractivePalpablePhrasingUnion, AutocapitalizeInheritingFormFlowFormAssociatedPalpableUnion, FlowFormAssociatedPalpablePhrasingUnion
+ */
+interface FormAssociatedContent :  EmbeddedFlowFormAssociatedInteractivePalpablePhrasingUnion, FlowFormAssociatedInteractivePalpablePhrasingUnion, AutocapitalizeInheritingFormFlowFormAssociatedPalpableUnion, FlowFormAssociatedPalpablePhrasingUnion, ContentCategory

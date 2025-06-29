@@ -1,5 +1,0 @@
-package net.kigawa.renlin.w3c.category
-
-interface EmbeddedFlowFormAssociatedInteractivePalpablePhrasingIntersection : EmbeddedContent, FlowContent, FormAssociatedContent, InteractiveContent, PalpableContent, PhrasingContent
-interface EmbeddedFlowFormAssociatedInteractivePalpablePhrasingDsl<CATEGORY_DSL : EmbeddedFlowFormAssociatedInteractivePalpablePhrasingIntersection> :
-    FlowContentDsl<CATEGORY_DSL>

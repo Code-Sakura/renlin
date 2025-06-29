@@ -1,6 +1,6 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.category.ContentCategory
+import net.kigawa.renlin.w3c.category.ContentCategory
 
 @Suppress("unused")
 interface Tag<CONTENT_CATEGORY : ContentCategory> {

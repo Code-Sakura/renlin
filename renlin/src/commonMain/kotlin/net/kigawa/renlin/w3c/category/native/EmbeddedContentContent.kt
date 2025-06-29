@@ -1,0 +1,11 @@
+package net.kigawa.renlin.w3c.category.native
+
+import net.kigawa.renlin.w3c.category.ContentCategory
+import net.kigawa.renlin.w3c.category.union.EmbeddedFlowInteractivePalpablePhrasingUnion
+import net.kigawa.renlin.w3c.category.union.EmbeddedFlowFormAssociatedInteractivePalpablePhrasingUnion
+import net.kigawa.renlin.w3c.category.union.EmbeddedFlowPalpablePhrasingUnion
+
+/**
+ * Union to EmbeddedFlowInteractivePalpablePhrasingUnion, EmbeddedFlowFormAssociatedInteractivePalpablePhrasingUnion, EmbeddedFlowPalpablePhrasingUnion
+ */
+interface EmbeddedContentContent :  EmbeddedFlowInteractivePalpablePhrasingUnion, EmbeddedFlowFormAssociatedInteractivePalpablePhrasingUnion, EmbeddedFlowPalpablePhrasingUnion, ContentCategory

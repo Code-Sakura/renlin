@@ -1,20 +1,22 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.category.FlowInteractivePalpablePhrasingIntersection
-import net.kigawa.renlin.category.FlowInteractivePalpablePhrasingDsl
+import net.kigawa.renlin.w3c.category.native.FlowInteractivePalpablePhrasingUnion
+import net.kigawa.renlin.w3c.category.integration.ContentCategory
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.tag.component.TagComponent1
 import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.state.DslState
 
+
 /**
  * HTML <label> element
  * 
- * Categories: FlowContent, PhrasingContent, InteractiveContent, PalpableContent
+ * model.Categories: FlowContent, PhrasingContent, InteractiveContent, PalpableContent
  */
-class LabelDsl(dslState: DslState):
-    DslBase<FlowInteractivePalpablePhrasingIntersection>(dslState), StatedDsl<FlowInteractivePalpablePhrasingIntersection>, FlowInteractivePalpablePhrasingDsl<FlowInteractivePalpablePhrasingIntersection> {
+class LabelDsl(dslState: DslState): 
+    DslBase<ContentCategory>(dslState),
+    StatedDsl<ContentCategory> {
     override fun applyElement(element: TagNode): ()->Unit {
         return {}
     }
@@ -22,7 +24,7 @@ class LabelDsl(dslState: DslState):
 
 val label = TagComponent1<Label, LabelDsl>(Label, ::LabelDsl)
 
-object Label : Tag<FlowInteractivePalpablePhrasingIntersection> {
+object Label : Tag<FlowInteractivePalpablePhrasingUnion> {
     override val name: String
         get() = "label"
 }

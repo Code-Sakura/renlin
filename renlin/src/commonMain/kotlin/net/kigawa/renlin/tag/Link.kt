@@ -1,20 +1,22 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.category.FlowMetadataPhrasingIntersection
-import net.kigawa.renlin.category.FlowMetadataPhrasingDsl
+import net.kigawa.renlin.w3c.category.native.FlowMetadataPhrasingUnion
+import net.kigawa.renlin.w3c.category.integration.ContentCategory
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.tag.component.TagComponent1
 import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.state.DslState
 
+
 /**
  * HTML <link> element
  * 
- * Categories: MetadataContent, FlowContent, PhrasingContent
+ * model.Categories: MetadataContent, FlowContent, PhrasingContent
  */
-class LinkDsl(dslState: DslState):
-    DslBase<FlowMetadataPhrasingIntersection>(dslState), StatedDsl<FlowMetadataPhrasingIntersection>, FlowMetadataPhrasingDsl<FlowMetadataPhrasingIntersection> {
+class LinkDsl(dslState: DslState): 
+    DslBase<ContentCategory>(dslState),
+    StatedDsl<ContentCategory> {
     override fun applyElement(element: TagNode): ()->Unit {
         return {}
     }
@@ -22,7 +24,7 @@ class LinkDsl(dslState: DslState):
 
 val link = TagComponent1<Link, LinkDsl>(Link, ::LinkDsl)
 
-object Link : Tag<FlowMetadataPhrasingIntersection> {
+object Link : Tag<FlowMetadataPhrasingUnion> {
     override val name: String
         get() = "link"
 }

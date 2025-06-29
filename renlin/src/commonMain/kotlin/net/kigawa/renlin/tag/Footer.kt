@@ -1,20 +1,22 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.category.FlowPalpableIntersection
-import net.kigawa.renlin.category.FlowPalpableDsl
+import net.kigawa.renlin.w3c.category.native.FlowPalpableUnion
+import net.kigawa.renlin.w3c.category.integration.ContentCategory
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.tag.component.TagComponent1
 import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.state.DslState
 
+
 /**
  * HTML <footer> element
  * 
- * Categories: FlowContent, PalpableContent
+ * model.Categories: FlowContent, PalpableContent
  */
-class FooterDsl(dslState: DslState):
-    DslBase<FlowPalpableIntersection>(dslState), StatedDsl<FlowPalpableIntersection>, FlowPalpableDsl<FlowPalpableIntersection> {
+class FooterDsl(dslState: DslState): 
+    DslBase<ContentCategory>(dslState),
+    StatedDsl<ContentCategory> {
     override fun applyElement(element: TagNode): ()->Unit {
         return {}
     }
@@ -22,7 +24,7 @@ class FooterDsl(dslState: DslState):
 
 val footer = TagComponent1<Footer, FooterDsl>(Footer, ::FooterDsl)
 
-object Footer : Tag<FlowPalpableIntersection> {
+object Footer : Tag<FlowPalpableUnion> {
     override val name: String
         get() = "footer"
 }

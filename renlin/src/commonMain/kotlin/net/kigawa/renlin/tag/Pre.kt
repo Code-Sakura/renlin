@@ -1,20 +1,22 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.category.FlowPalpableIntersection
-import net.kigawa.renlin.category.FlowPalpableDsl
+import net.kigawa.renlin.w3c.category.native.FlowPalpableUnion
+import net.kigawa.renlin.w3c.category.integration.ContentCategory
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.tag.component.TagComponent1
 import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.state.DslState
 
+
 /**
  * HTML <pre> element
  * 
- * Categories: FlowContent, PalpableContent
+ * model.Categories: FlowContent, PalpableContent
  */
-class PreDsl(dslState: DslState):
-    DslBase<FlowPalpableIntersection>(dslState), StatedDsl<FlowPalpableIntersection>, FlowPalpableDsl<FlowPalpableIntersection> {
+class PreDsl(dslState: DslState): 
+    DslBase<ContentCategory>(dslState),
+    StatedDsl<ContentCategory> {
     override fun applyElement(element: TagNode): ()->Unit {
         return {}
     }
@@ -22,7 +24,7 @@ class PreDsl(dslState: DslState):
 
 val pre = TagComponent1<Pre, PreDsl>(Pre, ::PreDsl)
 
-object Pre : Tag<FlowPalpableIntersection> {
+object Pre : Tag<FlowPalpableUnion> {
     override val name: String
         get() = "pre"
 }

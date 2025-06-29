@@ -1,20 +1,22 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.category.FlowHeadingPalpableIntersection
-import net.kigawa.renlin.category.FlowHeadingPalpableDsl
+import net.kigawa.renlin.w3c.category.native.FlowHeadingPalpableUnion
+import net.kigawa.renlin.w3c.category.integration.ContentCategory
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.tag.component.TagComponent1
 import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.state.DslState
 
+
 /**
  * HTML <h4> element
  * 
- * Categories: FlowContent, HeadingContent, PalpableContent
+ * model.Categories: FlowContent, HeadingContent, PalpableContent
  */
-class H4Dsl(dslState: DslState):
-    DslBase<FlowHeadingPalpableIntersection>(dslState), StatedDsl<FlowHeadingPalpableIntersection>, FlowHeadingPalpableDsl<FlowHeadingPalpableIntersection> {
+class H4Dsl(dslState: DslState): 
+    DslBase<ContentCategory>(dslState),
+    StatedDsl<ContentCategory> {
     override fun applyElement(element: TagNode): ()->Unit {
         return {}
     }
@@ -22,7 +24,7 @@ class H4Dsl(dslState: DslState):
 
 val h4 = TagComponent1<H4, H4Dsl>(H4, ::H4Dsl)
 
-object H4 : Tag<FlowHeadingPalpableIntersection> {
+object H4 : Tag<FlowHeadingPalpableUnion> {
     override val name: String
         get() = "h4"
 }

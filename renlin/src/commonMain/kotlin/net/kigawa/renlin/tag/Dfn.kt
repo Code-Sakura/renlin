@@ -1,20 +1,22 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.category.FlowPalpablePhrasingIntersection
-import net.kigawa.renlin.category.FlowPalpablePhrasingDsl
+import net.kigawa.renlin.w3c.category.native.FlowPalpablePhrasingUnion
+import net.kigawa.renlin.w3c.category.integration.ContentCategory
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.tag.component.TagComponent1
 import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.state.DslState
 
+
 /**
  * HTML <dfn> element
  * 
- * Categories: FlowContent, PhrasingContent, PalpableContent
+ * model.Categories: FlowContent, PhrasingContent, PalpableContent
  */
-class DfnDsl(dslState: DslState):
-    DslBase<FlowPalpablePhrasingIntersection>(dslState), StatedDsl<FlowPalpablePhrasingIntersection>, FlowPalpablePhrasingDsl<FlowPalpablePhrasingIntersection> {
+class DfnDsl(dslState: DslState): 
+    DslBase<ContentCategory>(dslState),
+    StatedDsl<ContentCategory> {
     override fun applyElement(element: TagNode): ()->Unit {
         return {}
     }
@@ -22,7 +24,7 @@ class DfnDsl(dslState: DslState):
 
 val dfn = TagComponent1<Dfn, DfnDsl>(Dfn, ::DfnDsl)
 
-object Dfn : Tag<FlowPalpablePhrasingIntersection> {
+object Dfn : Tag<FlowPalpablePhrasingUnion> {
     override val name: String
         get() = "dfn"
 }

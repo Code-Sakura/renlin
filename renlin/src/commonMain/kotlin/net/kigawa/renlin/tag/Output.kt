@@ -1,20 +1,22 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.category.FlowFormAssociatedPalpablePhrasingIntersection
-import net.kigawa.renlin.category.FlowFormAssociatedPalpablePhrasingDsl
+import net.kigawa.renlin.w3c.category.native.FlowFormAssociatedPalpablePhrasingUnion
+import net.kigawa.renlin.w3c.category.integration.ContentCategory
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.tag.component.TagComponent1
 import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.state.DslState
 
+
 /**
  * HTML <output> element
  * 
- * Categories: FlowContent, PhrasingContent, PalpableContent, FormAssociatedContent
+ * model.Categories: FlowContent, PhrasingContent, PalpableContent, FormAssociatedContent
  */
-class OutputDsl(dslState: DslState):
-    DslBase<FlowFormAssociatedPalpablePhrasingIntersection>(dslState), StatedDsl<FlowFormAssociatedPalpablePhrasingIntersection>, FlowFormAssociatedPalpablePhrasingDsl<FlowFormAssociatedPalpablePhrasingIntersection> {
+class OutputDsl(dslState: DslState): 
+    DslBase<ContentCategory>(dslState),
+    StatedDsl<ContentCategory> {
     override fun applyElement(element: TagNode): ()->Unit {
         return {}
     }
@@ -22,7 +24,7 @@ class OutputDsl(dslState: DslState):
 
 val output = TagComponent1<Output, OutputDsl>(Output, ::OutputDsl)
 
-object Output : Tag<FlowFormAssociatedPalpablePhrasingIntersection> {
+object Output : Tag<FlowFormAssociatedPalpablePhrasingUnion> {
     override val name: String
         get() = "output"
 }

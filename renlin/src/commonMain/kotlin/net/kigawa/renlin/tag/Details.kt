@@ -1,20 +1,22 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.category.FlowInteractivePalpableIntersection
-import net.kigawa.renlin.category.FlowInteractivePalpableDsl
+import net.kigawa.renlin.w3c.category.native.FlowInteractivePalpableUnion
+import net.kigawa.renlin.w3c.category.integration.ContentCategory
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.tag.component.TagComponent1
 import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.state.DslState
 
+
 /**
  * HTML <details> element
  * 
- * Categories: FlowContent, InteractiveContent, PalpableContent
+ * model.Categories: FlowContent, InteractiveContent, PalpableContent
  */
-class DetailsDsl(dslState: DslState):
-    DslBase<FlowInteractivePalpableIntersection>(dslState), StatedDsl<FlowInteractivePalpableIntersection>, FlowInteractivePalpableDsl<FlowInteractivePalpableIntersection> {
+class DetailsDsl(dslState: DslState): 
+    DslBase<ContentCategory>(dslState),
+    StatedDsl<ContentCategory> {
     override fun applyElement(element: TagNode): ()->Unit {
         return {}
     }
@@ -22,7 +24,7 @@ class DetailsDsl(dslState: DslState):
 
 val details = TagComponent1<Details, DetailsDsl>(Details, ::DetailsDsl)
 
-object Details : Tag<FlowInteractivePalpableIntersection> {
+object Details : Tag<FlowInteractivePalpableUnion> {
     override val name: String
         get() = "details"
 }

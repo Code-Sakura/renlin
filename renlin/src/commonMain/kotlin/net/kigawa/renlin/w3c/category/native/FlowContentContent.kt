@@ -1,0 +1,25 @@
+package net.kigawa.renlin.w3c.category.native
+
+import net.kigawa.renlin.w3c.category.ContentCategory
+import net.kigawa.renlin.w3c.category.union.FlowContentUnion
+import net.kigawa.renlin.w3c.category.union.FlowMetadataPhrasingUnion
+import net.kigawa.renlin.w3c.category.union.FlowPalpableUnion
+import net.kigawa.renlin.w3c.category.union.FlowPalpableSectioningUnion
+import net.kigawa.renlin.w3c.category.union.FlowHeadingPalpableUnion
+import net.kigawa.renlin.w3c.category.union.FlowHeadingUnion
+import net.kigawa.renlin.w3c.category.union.FlowInteractivePalpablePhrasingUnion
+import net.kigawa.renlin.w3c.category.union.FlowPalpablePhrasingUnion
+import net.kigawa.renlin.w3c.category.union.FlowPhrasingUnion
+import net.kigawa.renlin.w3c.category.union.EmbeddedFlowInteractivePalpablePhrasingUnion
+import net.kigawa.renlin.w3c.category.union.EmbeddedFlowFormAssociatedInteractivePalpablePhrasingUnion
+import net.kigawa.renlin.w3c.category.union.EmbeddedFlowPalpablePhrasingUnion
+import net.kigawa.renlin.w3c.category.union.FlowMetadataPhrasingScriptSupportingUnion
+import net.kigawa.renlin.w3c.category.union.FlowFormAssociatedInteractivePalpablePhrasingUnion
+import net.kigawa.renlin.w3c.category.union.AutocapitalizeInheritingFormFlowFormAssociatedPalpableUnion
+import net.kigawa.renlin.w3c.category.union.FlowFormAssociatedPalpablePhrasingUnion
+import net.kigawa.renlin.w3c.category.union.FlowInteractivePalpableUnion
+
+/**
+ * Union to FlowContentUnion, FlowMetadataPhrasingUnion, FlowPalpableUnion, FlowPalpableSectioningUnion, FlowHeadingPalpableUnion, FlowHeadingUnion, FlowInteractivePalpablePhrasingUnion, FlowPalpablePhrasingUnion, FlowPhrasingUnion, EmbeddedFlowInteractivePalpablePhrasingUnion, EmbeddedFlowFormAssociatedInteractivePalpablePhrasingUnion, EmbeddedFlowPalpablePhrasingUnion, FlowMetadataPhrasingScriptSupportingUnion, FlowFormAssociatedInteractivePalpablePhrasingUnion, AutocapitalizeInheritingFormFlowFormAssociatedPalpableUnion, FlowFormAssociatedPalpablePhrasingUnion, FlowInteractivePalpableUnion
+ */
+interface FlowContentContent :  FlowContentUnion, FlowMetadataPhrasingUnion, FlowPalpableUnion, FlowPalpableSectioningUnion, FlowHeadingPalpableUnion, FlowHeadingUnion, FlowInteractivePalpablePhrasingUnion, FlowPalpablePhrasingUnion, FlowPhrasingUnion, EmbeddedFlowInteractivePalpablePhrasingUnion, EmbeddedFlowFormAssociatedInteractivePalpablePhrasingUnion, EmbeddedFlowPalpablePhrasingUnion, FlowMetadataPhrasingScriptSupportingUnion, FlowFormAssociatedInteractivePalpablePhrasingUnion, AutocapitalizeInheritingFormFlowFormAssociatedPalpableUnion, FlowFormAssociatedPalpablePhrasingUnion, FlowInteractivePalpableUnion, ContentCategory
