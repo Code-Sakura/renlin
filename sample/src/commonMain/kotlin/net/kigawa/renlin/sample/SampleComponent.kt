@@ -6,6 +6,7 @@ import net.kigawa.renlin.tag.div
 import net.kigawa.renlin.tag.p
 import net.kigawa.renlin.tag.text
 import net.kigawa.renlin.w3c.category.t
+import net.kigawa.renlin.w3c.event.tag.onClick
 
 class SampleComponent(
     val name: String,
@@ -34,8 +35,12 @@ class SampleComponent(
             div {
                 fragment {
                     p {
-                        t("")
+                        onClick {
+                            println("onClick!")
+                        }
+                        t("onClick")
                         text {
+                            text = "onClick"
                         }
                     }
                 }

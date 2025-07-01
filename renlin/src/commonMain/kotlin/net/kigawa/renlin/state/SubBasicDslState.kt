@@ -57,8 +57,8 @@ class SubBasicDslState(
         }
     }
 
-    override fun dslStateData(): DslStateData {
-        return latestDslStateData.copy()
+    override fun dslStateData(): DslStateData? {
+        return latestDslStateData?.copy()
     }
 
     override fun setElements(index: Int, elements: List<TagNode>) {

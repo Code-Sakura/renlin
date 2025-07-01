@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+
 plugins {
     kotlin("multiplatform")
 
@@ -6,10 +8,10 @@ plugins {
 
 kotlin {
     jvm {
-//        @OptIn(ExperimentalKotlinGradlePluginApi::class)
-//        compilerOptions {
-//            freeCompilerArgs = listOf("-Xjsr305=strict")
-//        }
+        @OptIn(ExperimentalKotlinGradlePluginApi::class)
+        compilerOptions {
+            freeCompilerArgs = listOf("-Xjsr305=strict")
+        }
     }
     js {
         browser {
@@ -18,7 +20,6 @@ kotlin {
                     useChromeHeadless()
                 }
             }
-            binaries.executable()
         }
     }
     sourceSets["commonMain"].dependencies {

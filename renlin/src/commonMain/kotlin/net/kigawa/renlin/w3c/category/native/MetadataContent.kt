@@ -4,5 +4,6 @@ import net.kigawa.renlin.w3c.category.ContentCategory
 
 /**
  * Union to FlowMetadataPhrasingUnion, FlowMetadataPhrasingScriptSupportingUnion
+ * 
  */
-interface MetadataContent :  FlowMetadataPhrasingUnion, FlowMetadataPhrasingScriptSupportingUnion, ContentCategory
+interface MetadataContent : FlowMetadataPhrasingUnion, FlowMetadataPhrasingScriptSupportingUnion, ContentCategory

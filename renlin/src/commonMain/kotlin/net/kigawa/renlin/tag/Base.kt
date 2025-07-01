@@ -7,7 +7,6 @@ import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.tag.component.TagComponent1
 import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.state.DslState
-import net.kigawa.renlin.state.DslStateData
 import net.kigawa.renlin.w3c.category.dsl.MetadataContentDsl
 
 
@@ -23,8 +22,6 @@ class BaseDsl(dslState: DslState):
     override fun applyElement(element: TagNode): ()->Unit {
         return {}
     }
-
-    override val dslStateData: DslStateData? = dslState.dslStateData()
 }
 
 val base = TagComponent1<Base, BaseDsl>(Base, ::BaseDsl)
