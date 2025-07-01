@@ -2,6 +2,7 @@ package net.kigawa.renlin.dsl
 
 import net.kigawa.hakate.api.state.State
 import net.kigawa.renlin.state.DslState
+import net.kigawa.renlin.state.DslStateData
 import net.kigawa.renlin.tag.Fragment
 import net.kigawa.renlin.tag.Tag
 import net.kigawa.renlin.tag.component.Component1

@@ -21,4 +21,8 @@ class RootDslStateBase(
 
     override val latestRegisteredDslData: RegisteredDslData?
         get() = null
+
+    override fun dslStateData(): DslStateData? {
+       return null
+    }
 }

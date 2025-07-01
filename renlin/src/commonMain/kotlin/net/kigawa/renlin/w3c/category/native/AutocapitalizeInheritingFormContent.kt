@@ -4,5 +4,6 @@ import net.kigawa.renlin.w3c.category.ContentCategory
 
 /**
  * Union to AutocapitalizeInheritingFormFlowFormAssociatedPalpableUnion
+ * 
  */
-interface AutocapitalizeInheritingFormContent :  AutocapitalizeInheritingFormFlowFormAssociatedPalpableUnion, ContentCategory
+interface AutocapitalizeInheritingFormContent : AutocapitalizeInheritingFormFlowFormAssociatedPalpableUnion, ContentCategory

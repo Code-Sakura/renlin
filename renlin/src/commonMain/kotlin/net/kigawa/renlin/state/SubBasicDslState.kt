@@ -3,12 +3,12 @@ package net.kigawa.renlin.state
 import net.kigawa.hakate.api.multi.mergeState
 import net.kigawa.hakate.api.state.State
 import net.kigawa.hakate.api.state.StateContext
-import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.dsl.RegisteredDslData
-import net.kigawa.renlin.w3c.element.TagNode
+import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.tag.Tag
 import net.kigawa.renlin.tag.component.Component
 import net.kigawa.renlin.tag.component.TagComponent
+import net.kigawa.renlin.w3c.element.TagNode
 
 class SubBasicDslState(
     val key: String,
@@ -20,6 +20,8 @@ class SubBasicDslState(
         parent.newElement(component.tag)
     } else null
     override var latestRegisteredDslData: RegisteredDslData? = null
+    private var latestDslStateData: DslStateData? = DslStateData(key)
+
     var latestStateContext: StateContext? = null
 
     override fun applyDsl(dsl: StatedDsl<*>, registeredDslData: RegisteredDslData) {
@@ -27,6 +29,8 @@ class SubBasicDslState(
         val index = parent.getIndex(this)
         if (ownElement != null) {
             dsl.applyElement(ownElement)
+            ownElement.setDslStateData(latestDslStateData, dsl.dslStateData)
+            latestDslStateData = dsl.dslStateData
             parent.setElements(index, listOf(ownElement))
         } else {
             parent.setElements(index, subStates.flatMap { it.getElements() })
@@ -51,6 +55,10 @@ class SubBasicDslState(
                 registeredDslData.reload()
             }
         }
+    }
+
+    override fun dslStateData(): DslStateData? {
+        return latestDslStateData?.copy()
     }
 
     override fun setElements(index: Int, elements: List<TagNode>) {

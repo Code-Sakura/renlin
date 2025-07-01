@@ -52,4 +52,5 @@ interface DslState {
      * @param registeredDslData 関連するDSLデータ
      */
     fun applyDsl(dsl: StatedDsl<*>, registeredDslData: RegisteredDslData)
+    fun dslStateData(): DslStateData?
 }
