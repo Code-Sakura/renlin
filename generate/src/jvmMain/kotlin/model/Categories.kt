@@ -2,6 +2,8 @@ package model
 
 interface Categories {
     val categories: Set<String>
+    val parentCategories: Map<String, String>
+
     fun connectedStr(pluralSuffix: String = ""): String {
         // 複数のカテゴリーがある場合、交差インターフェース名を生成
         if (categories.size > 1) {

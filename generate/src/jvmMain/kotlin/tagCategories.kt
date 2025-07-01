@@ -2,6 +2,25 @@ import model.AllowedCategories
 import model.TagCategories
 import model.TagInfo
 
+// カテゴリーの親子関係を定義
+val categoryParents = mapOf(
+    "PhrasingContent" to "FlowContent",
+    "HeadingContent" to "FlowContent",
+    "SectioningContent" to "FlowContent",
+    "EmbeddedContent" to "PhrasingContent",
+    "InteractiveContent" to "PhrasingContent",
+    "FlowContent" to "EventTarget",
+    "MetaDataContent" to "FlowContent",
+    "PhrasingPhrasingContent" to "PhrasingContent",
+    "FlowPhrasingContent" to "FlowContent",
+    "MetaDataPhrasingContent" to "MetaDataContent",
+    "FlowMetaDataContent" to "FlowContent",
+    "HeadingPhrasingContent" to "HeadingContent",
+    "SectioningRoot" to "Any",
+    "SectioningHeadings" to "HeadingContent",
+    "FlowSectioningContent" to "FlowContent",
+)
+
 // 元のコードの並び順を維持するためのタグリスト
 val tagCategories = setOf(
     // Main root
