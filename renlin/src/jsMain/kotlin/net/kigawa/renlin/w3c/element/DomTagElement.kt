@@ -1,6 +1,7 @@
 package net.kigawa.renlin.w3c.element
 
 import kotlinx.browser.document
+import net.kigawa.renlin.state.DslStateData
 import net.kigawa.renlin.tag.Tag
 import net.kigawa.renlin.tag.TextTag
 import net.kigawa.renlin.w3c.event.RegisteredEvent
@@ -57,4 +58,5 @@ class DomTagElement(
     override fun removeEventListener(registeredEvent: RegisteredEvent) {
         node.removeEventListener(registeredEvent.name.name, registeredEvent.listener)
     }
+
 }

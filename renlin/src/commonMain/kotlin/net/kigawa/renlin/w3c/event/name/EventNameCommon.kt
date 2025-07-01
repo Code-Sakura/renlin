@@ -9,7 +9,4 @@ abstract class EventNameCommon<T : WebEvent>(
     val name: String
 ) {
 
-    companion object {
-        val click: EventName<WebPointerEvent> = EventName(WebPointerEvent::class, "click")
-    }
 }
