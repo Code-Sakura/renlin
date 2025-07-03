@@ -23,4 +23,6 @@ interface TagNodeCommon {
             dslStateData.onClick?.let { addEventListener(EventNames.click, it) }
         ).let { dslStateData.setAdditionalData(this::class, it) }
     }
+
+    fun setClassName(className: String)
 }

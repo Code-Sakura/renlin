@@ -2,10 +2,6 @@ package net.kigawa.renlin.sample
 
 import net.kigawa.hakate.api.HakateInitializer
 import net.kigawa.hakate.api.state.MutableState
-import net.kigawa.renlin.category.FlowContent
-import net.kigawa.renlin.category.FlowPhrasingIntersection
-import net.kigawa.renlin.category.PhrasingContent
-import net.kigawa.renlin.category.t
 import net.kigawa.renlin.css.*
 import net.kigawa.renlin.tag.div
 import net.kigawa.renlin.tag.fragment
@@ -15,7 +11,6 @@ import net.kigawa.renlin.w3c.category.integration.FlowPhrasingIntegration
 import net.kigawa.renlin.w3c.category.native.FlowContent
 import net.kigawa.renlin.w3c.category.native.PhrasingContent
 import net.kigawa.renlin.w3c.category.t
-
 
 
 class Sub {
@@ -51,7 +46,6 @@ class Sub {
             div("uuid aadaaaaaaa") {
                 t("display2-1")
 
-                key = "uuid aadaaaaaaa"
                 css {
                     userSelect = UserSelect.NONE
                     hover {
@@ -67,8 +61,7 @@ class Sub {
         }
         div("uuid aawaaaaaaaa") {
             t("display3")
-            key = "uuid aawaaaaaaaa"
-            css{
+            css {
                 color = Color.YELLOW
                 backgroundColor = Color.BLUE
                 fontSize = 24.px

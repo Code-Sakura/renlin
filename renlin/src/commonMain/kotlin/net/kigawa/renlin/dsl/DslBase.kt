@@ -1,18 +1,16 @@
 package net.kigawa.renlin.dsl
 
 import net.kigawa.hakate.api.state.State
-import net.kigawa.renlin.state.DslState
 import net.kigawa.renlin.css.CssCapable
 import net.kigawa.renlin.css.CssRuleSet
 import net.kigawa.renlin.css.CssValue
+import net.kigawa.renlin.state.DslState
 import net.kigawa.renlin.state.DslStateData
 import net.kigawa.renlin.w3c.category.ContentCategory
 
 abstract class DslBase<CONTENT_CATEGORY : ContentCategory>(
     override val dslState: DslState,
-) : StatedDsl<CONTENT_CATEGORY> {
-abstract class DslBase<CONTENT_CATEGORY : ContentCategory> : Dsl<CONTENT_CATEGORY>, CssCapable {
-    override var key: String? = null
+) : StatedDsl<CONTENT_CATEGORY>, CssCapable {
     override var cssClassName: String? = null
     override var pendingCssProperties: Map<String, CssValue>? = null
     override var pendingCssRuleSet: CssRuleSet? = null
@@ -58,7 +56,7 @@ abstract class DslBase<CONTENT_CATEGORY : ContentCategory> : Dsl<CONTENT_CATEGOR
     private fun processPendingCss() {
         // 新しいCssRuleSet形式を優先的に処理
         pendingCssRuleSet?.let { ruleSet ->
-            val cssManager = dslState?.getCssManager()
+            val cssManager = dslState.getCssManager()
             if (cssManager != null) {
                 cssClassName = cssManager.getOrCreateClass(ruleSet)
                 // 処理完了後はクリア
@@ -69,7 +67,7 @@ abstract class DslBase<CONTENT_CATEGORY : ContentCategory> : Dsl<CONTENT_CATEGOR
 
         // 後方互換性のため、古いproperties形式も処理
         pendingCssProperties?.let { properties ->
-            val cssManager = dslState?.getCssManager()
+            val cssManager = dslState.getCssManager()
             if (cssManager != null) {
                 val ruleSet = CssRuleSet(properties, emptyList())
                 cssClassName = cssManager.getOrCreateClass(ruleSet)

@@ -1,12 +1,12 @@
 package net.kigawa.renlin.css
 
-import net.kigawa.renlin.dsl.Dsl
-import net.kigawa.renlin.category.ContentCategory
+import net.kigawa.renlin.dsl.StatedDsl
+import net.kigawa.renlin.w3c.category.ContentCategory
 
 /**
  * DSLにCSS機能を追加する拡張関数（疑似クラス対応）
  */
-fun <CONTENT_CATEGORY : ContentCategory> Dsl<CONTENT_CATEGORY>.css(block: CssDsl.() -> Unit) {
+fun <CONTENT_CATEGORY : ContentCategory> StatedDsl<CONTENT_CATEGORY>.css(block: CssDsl.() -> Unit) {
     val cssDsl = CssDsl()
     cssDsl.block()
     val ruleSet = cssDsl.getRuleSet()
