@@ -1,0 +1,30 @@
+package net.kigawa.renlin.tag
+
+import net.kigawa.renlin.w3c.category.native.FlowContent
+
+import net.kigawa.renlin.dsl.DslBase
+import net.kigawa.renlin.dsl.StatedDsl
+import net.kigawa.renlin.tag.component.TagComponent1
+import net.kigawa.renlin.w3c.element.TagNode
+import net.kigawa.renlin.state.DslState
+import net.kigawa.renlin.w3c.category.ContentCategory
+
+/**
+ * HTML <li> element
+ * 
+ * model.Categories: FlowContent
+ */
+class LiDsl(dslState: DslState): 
+    DslBase<ContentCategory>(dslState),
+    StatedDsl<ContentCategory> {
+    override fun applyElement(element: TagNode): ()->Unit {
+        return {}
+    }
+}
+
+val li = TagComponent1<Li, LiDsl>(Li, ::LiDsl)
+
+object Li : Tag<FlowContent> {
+    override val name: String
+        get() = "li"
+}

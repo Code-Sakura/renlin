@@ -3,12 +3,13 @@ plugins {
 }
 object Conf {
     const val GROUP = "net.kigawa"
-    const val VERSION = "1.0.0"
+    const val VERSION = "1.0.0-SNAPSHOT"
 }
 
 group = Conf.GROUP
 version = Conf.VERSION
 allprojects {
+    apply(plugin = "renlin.common")
     group = Conf.GROUP
     version = Conf.VERSION
 }

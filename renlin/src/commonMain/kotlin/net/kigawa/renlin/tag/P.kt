@@ -1,22 +1,32 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.Html
-import net.kigawa.renlin.category.FlowContent
-import net.kigawa.renlin.category.PhrasingContent
+import net.kigawa.renlin.w3c.category.native.FlowPalpableUnion
+import net.kigawa.renlin.w3c.category.native.PhrasingContent
 import net.kigawa.renlin.dsl.DslBase
-import net.kigawa.renlin.dsl.Dsl
-import net.kigawa.renlin.element.TagNode
+import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.tag.component.TagComponent1
+import net.kigawa.renlin.w3c.element.TagNode
+import net.kigawa.renlin.state.DslState
+import net.kigawa.renlin.w3c.category.dsl.PhrasingContentDsl
 
-class PDsl() : DslBase<PhrasingContent>(), Dsl<PhrasingContent> {
-    override fun applyElement(element: TagNode) {
+
+/**
+ * HTML <p> element
+ * 
+ * model.Categories: FlowContent, PalpableContent
+ */
+class PDsl(dslState: DslState): 
+    DslBase<PhrasingContent>(dslState),
+    StatedDsl<PhrasingContent>,
+    PhrasingContentDsl<PhrasingContent> {
+    override fun applyElement(element: TagNode): ()->Unit {
+        return {}
     }
 }
 
-@Html
 val p = TagComponent1<P, PDsl>(P, ::PDsl)
 
-object P : Tag<FlowContent> {
+object P : Tag<FlowPalpableUnion> {
     override val name: String
         get() = "p"
 }

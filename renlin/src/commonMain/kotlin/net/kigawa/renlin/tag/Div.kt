@@ -1,27 +1,32 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.category.FlowContent
-import net.kigawa.renlin.category.FlowPhrasingDsl
-import net.kigawa.renlin.category.FlowPhrasingIntersection
-import net.kigawa.renlin.css.CssCapable
+import net.kigawa.renlin.w3c.category.native.FlowPalpableUnion
+import net.kigawa.renlin.w3c.category.integration.FlowPalpablePhrasingIntegration
 import net.kigawa.renlin.dsl.DslBase
-import net.kigawa.renlin.dsl.Dsl
-import net.kigawa.renlin.element.TagNode
+import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.tag.component.TagComponent1
+import net.kigawa.renlin.w3c.element.TagNode
+import net.kigawa.renlin.state.DslState
+import net.kigawa.renlin.w3c.category.dsl.FlowPalpablePhrasingDsl
 
-class DivDsl :
-    DslBase<FlowPhrasingIntersection>(), Dsl<FlowPhrasingIntersection>, FlowPhrasingDsl<FlowPhrasingIntersection>, CssCapable {
 
-    override fun applyElement(element: TagNode) {
-        cssClassName?.let { className ->
-            element.setClassName(className)
-        }
+/**
+ * HTML <div> element
+ * 
+ * model.Categories: FlowContent, PalpableContent
+ */
+class DivDsl(dslState: DslState): 
+    DslBase<FlowPalpablePhrasingIntegration>(dslState),
+    StatedDsl<FlowPalpablePhrasingIntegration>,
+    FlowPalpablePhrasingDsl<FlowPalpablePhrasingIntegration> {
+    override fun applyElement(element: TagNode): ()->Unit {
+        return {}
     }
 }
 
 val div = TagComponent1<Div, DivDsl>(Div, ::DivDsl)
 
-object Div : Tag<FlowContent> {
+object Div : Tag<FlowPalpableUnion> {
     override val name: String
         get() = "div"
 }

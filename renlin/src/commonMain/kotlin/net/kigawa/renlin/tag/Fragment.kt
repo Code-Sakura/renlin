@@ -1,11 +1,12 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.category.ContentCategory
 import net.kigawa.renlin.dsl.DslBase
-import net.kigawa.renlin.dsl.Dsl
-import net.kigawa.renlin.element.TagNode
+import net.kigawa.renlin.dsl.StatedDsl
+import net.kigawa.renlin.state.DslState
 import net.kigawa.renlin.tag.component.Component1
 import net.kigawa.renlin.tag.component.StructuredComponent
+import net.kigawa.renlin.w3c.category.ContentCategory
+import net.kigawa.renlin.w3c.element.TagNode
 
 object Fragment {
 
@@ -35,10 +36,11 @@ object Fragment {
 //
 //fun component(block: DSL.() -> Unit) = component(::EmptyDsl, block)
     fun <CONTENT_CATEGORY : ContentCategory> create() =
-        object : StructuredComponent<Tag<CONTENT_CATEGORY>, Dsl<CONTENT_CATEGORY>> {
-            override fun newDsl(): Dsl<CONTENT_CATEGORY> {
-                return object : DslBase<CONTENT_CATEGORY>() {
-                    override fun applyElement(element: TagNode) {
+        object : StructuredComponent<Tag<CONTENT_CATEGORY>, StatedDsl<CONTENT_CATEGORY>> {
+            override fun newDsl(dslState: DslState): StatedDsl<CONTENT_CATEGORY> {
+                return object : DslBase<CONTENT_CATEGORY>(dslState) {
+                    override fun applyElement(element: TagNode): () -> Unit {
+                        return {}
                     }
                 }
             }
@@ -46,6 +48,6 @@ object Fragment {
 
 }
 
-fun <CONTENT_CATEGORY : ContentCategory> fragment(): Component1<Tag<CONTENT_CATEGORY>, Dsl<CONTENT_CATEGORY>> {
+fun <CONTENT_CATEGORY : ContentCategory> fragment(): Component1<Tag<CONTENT_CATEGORY>, StatedDsl<CONTENT_CATEGORY>> {
     return Fragment.create<CONTENT_CATEGORY>()
 }

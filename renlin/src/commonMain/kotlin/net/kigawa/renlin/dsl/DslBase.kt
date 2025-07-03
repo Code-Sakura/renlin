@@ -1,47 +1,46 @@
 package net.kigawa.renlin.dsl
 
 import net.kigawa.hakate.api.state.State
-import net.kigawa.renlin.category.ContentCategory
+import net.kigawa.renlin.state.DslState
 import net.kigawa.renlin.css.CssCapable
 import net.kigawa.renlin.css.CssRuleSet
 import net.kigawa.renlin.css.CssValue
-import net.kigawa.renlin.dsl.state.DslState
-import kotlin.uuid.ExperimentalUuidApi
-import kotlin.uuid.Uuid
+import net.kigawa.renlin.state.DslStateData
+import net.kigawa.renlin.w3c.category.ContentCategory
 
+abstract class DslBase<CONTENT_CATEGORY : ContentCategory>(
+    override val dslState: DslState,
+) : StatedDsl<CONTENT_CATEGORY> {
 abstract class DslBase<CONTENT_CATEGORY : ContentCategory> : Dsl<CONTENT_CATEGORY>, CssCapable {
-    override var dslState: DslState? = null
     override var key: String? = null
     override var cssClassName: String? = null
     override var pendingCssProperties: Map<String, CssValue>? = null
     override var pendingCssRuleSet: CssRuleSet? = null
     private val subDsls = mutableListOf<RegisteredDslData>()
     override val states = mutableSetOf<State<*>>()
+    override val dslStateData: DslStateData? = dslState.dslStateData()
 
-    override fun subDsl(registeredDslData: RegisteredDslData) {
-        @OptIn(ExperimentalUuidApi::class)
-        if (registeredDslData.dsl.key == null) registeredDslData.dsl.key = Uuid.random().toString()
+    override fun registerSubDsl(registeredDslData: RegisteredDslData) {
 
-        val i = subDsls.indexOfFirst { it.dsl.key == registeredDslData.dsl.key }
+        val i = subDsls.indexOfFirst { it.key == registeredDslData.key }
         if (i == -1) subDsls.add(registeredDslData)
         else subDsls[i] = registeredDslData
 
-        dslState?.let {
-            registeredDslData.dsl.mountDslState(
-                it.subDslState(registeredDslData.dsl.key!!, registeredDslData.component), registeredDslData
+        dslState.let {
+            registeredDslData.dsl.applyToDslState(
+                it.getOrCreateSubDslState(registeredDslData.key, registeredDslData.component), registeredDslData
             )
         }
     }
 
-    override fun mountDslState(state: DslState, registeredDslData: RegisteredDslData) {
-        dslState = state
+    override fun applyToDslState(state: DslState, registeredDslData: RegisteredDslData) {
 
         // dslStateが設定されたタイミングでpendingCssPropertiesを処理
         processPendingCss()
 
         subDsls.forEach {
-            it.dsl.mountDslState(
-                state.subDslState(it.dsl.key!!, it.component), it
+            it.dsl.applyToDslState(
+                state.getOrCreateSubDslState(it.key, it.component), it
             )
         }
         state.setSubDsls(subDsls)
