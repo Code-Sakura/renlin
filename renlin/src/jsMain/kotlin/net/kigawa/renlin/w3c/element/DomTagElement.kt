@@ -7,6 +7,7 @@ import net.kigawa.renlin.tag.TextTag
 import net.kigawa.renlin.w3c.event.RegisteredEvent
 import net.kigawa.renlin.w3c.event.WebEvent
 import net.kigawa.renlin.w3c.event.name.EventName
+import org.w3c.dom.Element
 import org.w3c.dom.Node
 import org.w3c.dom.Text
 
@@ -59,4 +60,14 @@ class DomTagElement(
         node.removeEventListener(registeredEvent.name.name, registeredEvent.listener)
     }
 
+
+    override fun setClassName(className: String) {
+        if (node is Element) {
+            // 既存のクラス名から renlin- プレフィックスのクラス名を削除
+            val existingClasses = node.className.split(" ").filter { it.isNotEmpty() }
+            val nonRenlinClasses = existingClasses.filter { !it.startsWith("renlin-") }
+            val newClasses = (nonRenlinClasses + className).distinct()
+            node.className = newClasses.joinToString(" ")
+        }
+    }
 }

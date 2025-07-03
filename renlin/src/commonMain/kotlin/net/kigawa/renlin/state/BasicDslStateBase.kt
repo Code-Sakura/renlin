@@ -1,17 +1,23 @@
 package net.kigawa.renlin.state
 
 import net.kigawa.hakate.api.state.StateContext
-import net.kigawa.renlin.dsl.StatedDsl
+import net.kigawa.renlin.css.CssCapable
+import net.kigawa.renlin.css.CssManager
+import net.kigawa.renlin.css.createCssManager
 import net.kigawa.renlin.dsl.RegisteredDslData
-import net.kigawa.renlin.w3c.element.TagNode
+import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.tag.Tag
 import net.kigawa.renlin.tag.component.Component
+import net.kigawa.renlin.w3c.element.TagNode
 
 abstract class BasicDslStateBase(
     protected val stateContext: StateContext,
 ) : DslState {
     protected var subStates = mutableListOf<SubBasicDslState>()
     abstract override val ownElement: TagNode?
+    protected var internalCssManager: CssManager? = null
+    override val cssManager: CssManager?
+        get() = internalCssManager
 
     override fun getOrCreateSubDslState(key: String, second: Component): DslState {
         return subStates.firstOrNull { it.key == key } ?: SubBasicDslState(
@@ -57,11 +63,19 @@ abstract class BasicDslStateBase(
         subStates.forEach { it.remove() }
     }
 
-
     override fun applyDsl(dsl: StatedDsl<*>, registeredDslData: RegisteredDslData) {
+        // CSS適用処理を追加
+        if (dsl is CssCapable && dsl.cssClassName != null) {
+            ownElement?.setClassName(dsl.cssClassName!!)
+        }
         throw NotImplementedError("BasicDslState not implemented.")
     }
 
     abstract fun newElement(tag: Tag<*>): TagNode
 
+    protected fun initializeCssManager() {
+        if (internalCssManager == null) {
+            internalCssManager = createCssManager()
+        }
+    }
 }
