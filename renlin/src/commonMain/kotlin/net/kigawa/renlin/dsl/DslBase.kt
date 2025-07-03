@@ -56,7 +56,7 @@ abstract class DslBase<CONTENT_CATEGORY : ContentCategory>(
     private fun processPendingCss() {
         // 新しいCssRuleSet形式を優先的に処理
         pendingCssRuleSet?.let { ruleSet ->
-            val cssManager = dslState.getCssManager()
+            val cssManager = dslState.cssManager
             if (cssManager != null) {
                 cssClassName = cssManager.getOrCreateClass(ruleSet)
                 // 処理完了後はクリア
@@ -67,7 +67,7 @@ abstract class DslBase<CONTENT_CATEGORY : ContentCategory>(
 
         // 後方互換性のため、古いproperties形式も処理
         pendingCssProperties?.let { properties ->
-            val cssManager = dslState.getCssManager()
+            val cssManager = dslState.cssManager
             if (cssManager != null) {
                 val ruleSet = CssRuleSet(properties, emptyList())
                 cssClassName = cssManager.getOrCreateClass(ruleSet)

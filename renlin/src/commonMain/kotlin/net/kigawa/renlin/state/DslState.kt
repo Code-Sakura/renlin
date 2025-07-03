@@ -1,10 +1,10 @@
 package net.kigawa.renlin.state
 
 import net.kigawa.renlin.css.CssManager
-import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.dsl.RegisteredDslData
-import net.kigawa.renlin.w3c.element.TagNode
+import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.tag.component.Component
+import net.kigawa.renlin.w3c.element.TagNode
 
 /**
  * `DslState` インターフェースは、DSLの状態を管理するための機能を定義します。
@@ -56,5 +56,5 @@ interface DslState {
     fun dslStateData(): DslStateData?
 
     // CSS機能の追加
-    fun getCssManager(): CssManager?
+    val cssManager: CssManager?
 }
