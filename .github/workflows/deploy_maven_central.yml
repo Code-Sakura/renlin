@@ -1,8 +1,21 @@
 
 name: deploy maven central
 
+# This workflow handles deployment to Maven Central
+# Deployment occurs automatically in two scenarios:
+# 1. When code is merged to the main branch
+# 2. When a PR is opened or updated to merge to the main branch
+# For releases, use branch naming convention: release/vx.x.x (e.g., release/v1.0.0)
+# The version number will be extracted from the branch name
+
 on:
   push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize]
+    branches:
+      - main
   workflow_dispatch:
 
 jobs:
@@ -10,7 +23,8 @@ jobs:
     if: github.ref != 'refs/heads/main'
     uses: ./.github/workflows/test.yml
   cd:
-    if: github.ref == 'refs/heads/main'
+    # Run on main branch or when a PR is targeting the main branch
+    if: github.ref == 'refs/heads/main' || (github.event_name == 'pull_request' && github.event.pull_request.base.ref == 'main')
     runs-on: ubuntu-latest
 
     steps:
@@ -29,6 +43,11 @@ jobs:
         run: chmod +x ./gradlew
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@v1
+      - name: Display version info
+        run: |
+          echo "Branch name from GITHUB_REF_NAME: $GITHUB_REF_NAME"
+          echo "Branch name from GITHUB_HEAD_REF: $GITHUB_HEAD_REF"
+          ./gradlew -q printVersion
       - name: Publish package
         uses: gradle/gradle-build-action@v2
         with:
