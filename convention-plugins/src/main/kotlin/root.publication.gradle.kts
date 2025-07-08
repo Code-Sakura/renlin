@@ -3,7 +3,7 @@ plugins {
 }
 object Conf {
     const val GROUP = "net.kigawa"
-    const val VERSION = "1.0.0-SNAPSHOT"
+    const val VERSION = "1.0.1"
 }
 
 group = Conf.GROUP
