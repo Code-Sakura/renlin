@@ -1,6 +1,6 @@
 package net.kigawa.renlin.dsl
 
-import net.kigawa.renlin.tag.component.Component
+import net.kigawa.renlin.component.Component
 
 /**
  * `RegisteredDslData` は、DSLの登録情報を保持するデータクラスです。

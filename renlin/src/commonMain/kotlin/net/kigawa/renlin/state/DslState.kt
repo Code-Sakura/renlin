@@ -3,7 +3,7 @@ package net.kigawa.renlin.state
 import net.kigawa.renlin.css.CssManager
 import net.kigawa.renlin.dsl.RegisteredDslData
 import net.kigawa.renlin.dsl.StatedDsl
-import net.kigawa.renlin.tag.component.Component
+import net.kigawa.renlin.component.Component
 import net.kigawa.renlin.w3c.element.TagNode
 
 /**

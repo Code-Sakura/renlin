@@ -7,7 +7,7 @@ import net.kigawa.renlin.css.createCssManager
 import net.kigawa.renlin.dsl.RegisteredDslData
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.tag.Tag
-import net.kigawa.renlin.tag.component.Component
+import net.kigawa.renlin.component.Component
 import net.kigawa.renlin.w3c.element.TagNode
 
 abstract class BasicDslStateBase(

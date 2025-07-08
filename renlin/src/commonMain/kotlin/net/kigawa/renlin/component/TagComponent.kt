@@ -1,4 +1,4 @@
-package net.kigawa.renlin.tag.component
+package net.kigawa.renlin.component
 
 import net.kigawa.renlin.tag.Tag
 

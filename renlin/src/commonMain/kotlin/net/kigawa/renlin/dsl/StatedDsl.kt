@@ -2,10 +2,9 @@ package net.kigawa.renlin.dsl
 
 import net.kigawa.hakate.api.state.State
 import net.kigawa.renlin.state.DslState
-import net.kigawa.renlin.state.DslStateData
 import net.kigawa.renlin.tag.Fragment
 import net.kigawa.renlin.tag.Tag
-import net.kigawa.renlin.tag.component.Component1
+import net.kigawa.renlin.component.Component1
 import net.kigawa.renlin.w3c.category.ContentCategory
 import net.kigawa.renlin.w3c.element.TagNode
 

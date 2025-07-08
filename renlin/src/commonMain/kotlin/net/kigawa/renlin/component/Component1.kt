@@ -1,4 +1,4 @@
-package net.kigawa.renlin.tag.component
+package net.kigawa.renlin.component
 
 import net.kigawa.hakate.api.state.State
 import net.kigawa.renlin.Html
