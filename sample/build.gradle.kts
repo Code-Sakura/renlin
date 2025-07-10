@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
-
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
 }
@@ -13,25 +11,13 @@ dependencies {
 }
 
 kotlin {
-    jvm {
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
-        compilerOptions {
-            freeCompilerArgs = listOf("-Xjsr305=strict")
-        }
-    }
     js {
         browser {
-            testTask {
-                useKarma {
-                    useChromeHeadless()
-                }
-            }
             binaries.executable()
         }
     }
     sourceSets["commonMain"].dependencies {
         implementation(project(":renlin"))
-        implementation(libs.hakate)
         implementation(libs.kotlinx.coroutines.core)
     }
     sourceSets["commonTest"].dependencies {

@@ -17,3 +17,4 @@ dependencyResolutionManagement {
 rootProject.name = "renlin"
 include(":renlin")
 include(":sample")
+include(":generate")

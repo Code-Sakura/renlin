@@ -1,0 +1,9 @@
+package net.kigawa.renlin.w3c.category.native
+
+import net.kigawa.renlin.w3c.category.ContentCategory
+
+/**
+ * Union to FlowInteractivePalpablePhrasingUnion, EmbeddedFlowInteractivePalpablePhrasingUnion, EmbeddedFlowFormAssociatedInteractivePalpablePhrasingUnion, FlowFormAssociatedInteractivePalpablePhrasingUnion, FlowInteractivePalpableUnion
+ * Parent: PhrasingContent
+ */
+interface InteractiveContent : FlowInteractivePalpablePhrasingUnion, EmbeddedFlowInteractivePalpablePhrasingUnion, EmbeddedFlowFormAssociatedInteractivePalpablePhrasingUnion, FlowFormAssociatedInteractivePalpablePhrasingUnion, FlowInteractivePalpableUnion, ContentCategory, PhrasingContent

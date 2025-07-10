@@ -1,12 +1,9 @@
 package net.kigawa.renlin.dsl
 
-import net.kigawa.renlin.NotingContent
-import net.kigawa.renlin.element.TagNode
+import net.kigawa.hakate.api.state.State
+import net.kigawa.renlin.state.DslStateData
 
-class EmptyDsl : DslBase<NotingContent>(), Dsl<NotingContent> {
-    override var key: String? = null
-
-    override fun applyElement(element: TagNode) {
-        throw IllegalStateException("EmptyDsl applyElement")
-    }
+class EmptyDsl : Dsl {
+    override val states = mutableSetOf<State<*>>()
+    override val dslStateData: DslStateData = DslStateData("empty dsl")
 }
