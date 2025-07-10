@@ -22,7 +22,7 @@ class RtDsl(dslState: DslState):
     }
 }
 
-val rt = TagComponent1<Rt, RtDsl>(Rt, ::RtDsl)
+val rt = TagComponent1(Rt, ::RtDsl)
 
 object Rt : Tag<FlowPhrasingUnion> {
     override val name: String

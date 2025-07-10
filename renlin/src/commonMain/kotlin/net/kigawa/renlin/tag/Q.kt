@@ -22,7 +22,7 @@ class QDsl(dslState: DslState):
     }
 }
 
-val q = TagComponent1<Q, QDsl>(Q, ::QDsl)
+val q = TagComponent1(Q, ::QDsl)
 
 object Q : Tag<FlowPalpablePhrasingUnion> {
     override val name: String

@@ -22,7 +22,7 @@ class StrongDsl(dslState: DslState):
     }
 }
 
-val strong = TagComponent1<Strong, StrongDsl>(Strong, ::StrongDsl)
+val strong = TagComponent1(Strong, ::StrongDsl)
 
 object Strong : Tag<FlowPalpablePhrasingUnion> {
     override val name: String

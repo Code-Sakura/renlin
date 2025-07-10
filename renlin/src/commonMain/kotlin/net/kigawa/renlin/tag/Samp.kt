@@ -22,7 +22,7 @@ class SampDsl(dslState: DslState):
     }
 }
 
-val samp = TagComponent1<Samp, SampDsl>(Samp, ::SampDsl)
+val samp = TagComponent1(Samp, ::SampDsl)
 
 object Samp : Tag<FlowPalpablePhrasingUnion> {
     override val name: String

@@ -22,7 +22,7 @@ class TimeDsl(dslState: DslState):
     }
 }
 
-val time = TagComponent1<Time, TimeDsl>(Time, ::TimeDsl)
+val time = TagComponent1(Time, ::TimeDsl)
 
 object Time : Tag<FlowPalpablePhrasingUnion> {
     override val name: String

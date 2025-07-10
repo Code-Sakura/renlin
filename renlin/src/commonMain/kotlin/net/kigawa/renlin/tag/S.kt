@@ -22,7 +22,7 @@ class SDsl(dslState: DslState):
     }
 }
 
-val s = TagComponent1<S, SDsl>(S, ::SDsl)
+val s = TagComponent1(S, ::SDsl)
 
 object S : Tag<FlowPalpablePhrasingUnion> {
     override val name: String

@@ -22,7 +22,7 @@ class KbdDsl(dslState: DslState):
     }
 }
 
-val kbd = TagComponent1<Kbd, KbdDsl>(Kbd, ::KbdDsl)
+val kbd = TagComponent1(Kbd, ::KbdDsl)
 
 object Kbd : Tag<FlowPalpablePhrasingUnion> {
     override val name: String

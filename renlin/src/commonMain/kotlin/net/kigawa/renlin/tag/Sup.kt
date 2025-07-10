@@ -22,7 +22,7 @@ class SupDsl(dslState: DslState):
     }
 }
 
-val sup = TagComponent1<Sup, SupDsl>(Sup, ::SupDsl)
+val sup = TagComponent1(Sup, ::SupDsl)
 
 object Sup : Tag<FlowPalpablePhrasingUnion> {
     override val name: String

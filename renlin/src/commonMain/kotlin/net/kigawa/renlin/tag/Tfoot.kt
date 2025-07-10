@@ -24,7 +24,7 @@ class TfootDsl(dslState: DslState):
     }
 }
 
-val tfoot = TagComponent1<Tfoot, TfootDsl>(Tfoot, ::TfootDsl)
+val tfoot = TagComponent1(Tfoot, ::TfootDsl)
 
 object Tfoot : Tag<FlowContent> {
     override val name: String

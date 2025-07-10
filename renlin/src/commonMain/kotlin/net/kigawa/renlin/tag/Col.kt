@@ -24,7 +24,7 @@ class ColDsl(dslState: DslState):
     }
 }
 
-val col = TagComponent1<Col, ColDsl>(Col, ::ColDsl)
+val col = TagComponent1(Col, ::ColDsl)
 
 object Col : Tag<FlowContent> {
     override val name: String

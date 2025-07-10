@@ -24,7 +24,7 @@ class TitleDsl(dslState: DslState):
     }
 }
 
-val title = TagComponent1<Title, TitleDsl>(Title, ::TitleDsl)
+val title = TagComponent1(Title, ::TitleDsl)
 
 object Title : Tag<MetadataContent> {
     override val name: String

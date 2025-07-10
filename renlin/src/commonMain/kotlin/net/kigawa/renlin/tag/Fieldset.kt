@@ -24,7 +24,7 @@ class FieldsetDsl(dslState: DslState):
     }
 }
 
-val fieldset = TagComponent1<Fieldset, FieldsetDsl>(Fieldset, ::FieldsetDsl)
+val fieldset = TagComponent1(Fieldset, ::FieldsetDsl)
 
 object Fieldset : Tag<AutocapitalizeInheritingFormFlowFormAssociatedPalpableUnion> {
     override val name: String

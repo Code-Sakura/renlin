@@ -22,7 +22,7 @@ class IframeDsl(dslState: DslState):
     }
 }
 
-val iframe = TagComponent1<Iframe, IframeDsl>(Iframe, ::IframeDsl)
+val iframe = TagComponent1(Iframe, ::IframeDsl)
 
 object Iframe : Tag<EmbeddedFlowInteractivePalpablePhrasingUnion> {
     override val name: String

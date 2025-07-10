@@ -22,7 +22,7 @@ class SelectDsl(dslState: DslState):
     }
 }
 
-val select = TagComponent1<Select, SelectDsl>(Select, ::SelectDsl)
+val select = TagComponent1(Select, ::SelectDsl)
 
 object Select : Tag<FlowFormAssociatedInteractivePalpablePhrasingUnion> {
     override val name: String

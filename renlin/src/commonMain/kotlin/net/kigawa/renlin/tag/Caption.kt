@@ -24,7 +24,7 @@ class CaptionDsl(dslState: DslState):
     }
 }
 
-val caption = TagComponent1<Caption, CaptionDsl>(Caption, ::CaptionDsl)
+val caption = TagComponent1(Caption, ::CaptionDsl)
 
 object Caption : Tag<FlowContent> {
     override val name: String

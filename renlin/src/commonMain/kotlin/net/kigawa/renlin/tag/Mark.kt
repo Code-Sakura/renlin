@@ -22,7 +22,7 @@ class MarkDsl(dslState: DslState):
     }
 }
 
-val mark = TagComponent1<Mark, MarkDsl>(Mark, ::MarkDsl)
+val mark = TagComponent1(Mark, ::MarkDsl)
 
 object Mark : Tag<FlowPalpablePhrasingUnion> {
     override val name: String

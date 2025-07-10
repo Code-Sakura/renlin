@@ -22,7 +22,7 @@ class SearchDsl(dslState: DslState):
     }
 }
 
-val search = TagComponent1<Search, SearchDsl>(Search, ::SearchDsl)
+val search = TagComponent1(Search, ::SearchDsl)
 
 object Search : Tag<FlowPalpableUnion> {
     override val name: String

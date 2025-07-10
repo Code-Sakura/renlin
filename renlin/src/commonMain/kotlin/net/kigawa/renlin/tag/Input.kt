@@ -24,7 +24,7 @@ class InputDsl(dslState: DslState):
     }
 }
 
-val input = TagComponent1<Input, InputDsl>(Input, ::InputDsl)
+val input = TagComponent1(Input, ::InputDsl)
 
 object Input : Tag<FlowFormAssociatedInteractivePalpablePhrasingUnion> {
     override val name: String

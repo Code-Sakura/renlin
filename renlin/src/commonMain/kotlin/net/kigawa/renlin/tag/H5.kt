@@ -22,7 +22,7 @@ class H5Dsl(dslState: DslState):
     }
 }
 
-val h5 = TagComponent1<H5, H5Dsl>(H5, ::H5Dsl)
+val h5 = TagComponent1(H5, ::H5Dsl)
 
 object H5 : Tag<FlowHeadingPalpableUnion> {
     override val name: String

@@ -22,7 +22,7 @@ class SpanDsl(dslState: DslState):
     }
 }
 
-val span = TagComponent1<Span, SpanDsl>(Span, ::SpanDsl)
+val span = TagComponent1(Span, ::SpanDsl)
 
 object Span : Tag<FlowPalpablePhrasingUnion> {
     override val name: String

@@ -24,7 +24,7 @@ class DelDsl(dslState: DslState):
     }
 }
 
-val del = TagComponent1<Del, DelDsl>(Del, ::DelDsl)
+val del = TagComponent1(Del, ::DelDsl)
 
 object Del : Tag<FlowPalpablePhrasingUnion> {
     override val name: String

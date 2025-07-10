@@ -24,7 +24,7 @@ class LinkDsl(dslState: DslState):
     }
 }
 
-val link = TagComponent1<Link, LinkDsl>(Link, ::LinkDsl)
+val link = TagComponent1(Link, ::LinkDsl)
 
 object Link : Tag<FlowMetadataPhrasingUnion> {
     override val name: String

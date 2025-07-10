@@ -24,7 +24,7 @@ class TableDsl(dslState: DslState):
     }
 }
 
-val table = TagComponent1<Table, TableDsl>(Table, ::TableDsl)
+val table = TagComponent1(Table, ::TableDsl)
 
 object Table : Tag<FlowPalpableUnion> {
     override val name: String

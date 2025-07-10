@@ -22,7 +22,7 @@ class AreaDsl(dslState: DslState):
     }
 }
 
-val area = TagComponent1<Area, AreaDsl>(Area, ::AreaDsl)
+val area = TagComponent1(Area, ::AreaDsl)
 
 object Area : Tag<FlowPhrasingUnion> {
     override val name: String

@@ -24,7 +24,7 @@ class FormDsl(dslState: DslState):
     }
 }
 
-val form = TagComponent1<Form, FormDsl>(Form, ::FormDsl)
+val form = TagComponent1(Form, ::FormDsl)
 
 object Form : Tag<FlowPalpableUnion> {
     override val name: String

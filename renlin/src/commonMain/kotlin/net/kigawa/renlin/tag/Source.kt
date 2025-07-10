@@ -24,7 +24,7 @@ class SourceDsl(dslState: DslState):
     }
 }
 
-val source = TagComponent1<Source, SourceDsl>(Source, ::SourceDsl)
+val source = TagComponent1(Source, ::SourceDsl)
 
 object Source : Tag<FlowContent> {
     override val name: String

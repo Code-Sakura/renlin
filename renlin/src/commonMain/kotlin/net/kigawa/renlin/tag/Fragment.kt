@@ -1,17 +1,17 @@
 package net.kigawa.renlin.tag
 
+import net.kigawa.renlin.component.Component1
+import net.kigawa.renlin.component.StructuredComponent
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.state.DslState
-import net.kigawa.renlin.component.Component1
-import net.kigawa.renlin.component.StructuredComponent
 import net.kigawa.renlin.w3c.category.ContentCategory
 import net.kigawa.renlin.w3c.element.TagNode
 
 object Fragment {
 
 
-    //fun <CONTENT_CATEGORY : ContentCategory,NEW_DSL : TagDsl<*>> KClass<CONTENT_CATEGORY>.component(
+  //fun <CONTENT_CATEGORY : ContentCategory,NEW_DSL : TagDsl<*>> KClass<CONTENT_CATEGORY>.component(
 //    newDsl: () -> NEW_DSL,
 //    block: DSL.() -> Unit,
 //): Component1<TAG, NEW_DSL> {
@@ -35,19 +35,20 @@ object Fragment {
 //}
 //
 //fun component(block: DSL.() -> Unit) = component(::EmptyDsl, block)
-    fun <CONTENT_CATEGORY : ContentCategory> create() =
-        object : StructuredComponent<Tag<CONTENT_CATEGORY>, StatedDsl<CONTENT_CATEGORY>> {
-            override fun newDsl(dslState: DslState): StatedDsl<CONTENT_CATEGORY> {
-                return object : DslBase<CONTENT_CATEGORY>(dslState) {
-                    override fun applyElement(element: TagNode): () -> Unit {
-                        return {}
-                    }
-                }
-            }
+  fun <CONTENT_CATEGORY: ContentCategory> create() =
+    object: StructuredComponent<Tag<CONTENT_CATEGORY>, CONTENT_CATEGORY, StatedDsl<CONTENT_CATEGORY>> {
+      override fun newDsl(dslState: DslState): StatedDsl<CONTENT_CATEGORY> {
+        return object: DslBase<CONTENT_CATEGORY>(dslState) {
+          override fun applyElement(element: TagNode): () -> Unit {
+            return {}
+          }
         }
+      }
+    }
 
 }
 
-fun <CONTENT_CATEGORY : ContentCategory> fragment(): Component1<Tag<CONTENT_CATEGORY>, StatedDsl<CONTENT_CATEGORY>> {
-    return Fragment.create<CONTENT_CATEGORY>()
+fun <CONTENT_CATEGORY: ContentCategory> fragment(): StructuredComponent<
+    Tag<CONTENT_CATEGORY>, CONTENT_CATEGORY, StatedDsl<CONTENT_CATEGORY>> {
+  return Fragment.create<CONTENT_CATEGORY>()
 }

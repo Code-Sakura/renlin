@@ -22,7 +22,7 @@ class DetailsDsl(dslState: DslState):
     }
 }
 
-val details = TagComponent1<Details, DetailsDsl>(Details, ::DetailsDsl)
+val details = TagComponent1(Details, ::DetailsDsl)
 
 object Details : Tag<FlowInteractivePalpableUnion> {
     override val name: String

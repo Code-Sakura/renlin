@@ -22,7 +22,7 @@ class BlockquoteDsl(dslState: DslState):
     }
 }
 
-val blockquote = TagComponent1<Blockquote, BlockquoteDsl>(Blockquote, ::BlockquoteDsl)
+val blockquote = TagComponent1(Blockquote, ::BlockquoteDsl)
 
 object Blockquote : Tag<FlowPalpableUnion> {
     override val name: String

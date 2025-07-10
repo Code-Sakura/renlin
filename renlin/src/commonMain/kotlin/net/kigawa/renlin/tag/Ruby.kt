@@ -22,7 +22,7 @@ class RubyDsl(dslState: DslState):
     }
 }
 
-val ruby = TagComponent1<Ruby, RubyDsl>(Ruby, ::RubyDsl)
+val ruby = TagComponent1(Ruby, ::RubyDsl)
 
 object Ruby : Tag<FlowPalpablePhrasingUnion> {
     override val name: String

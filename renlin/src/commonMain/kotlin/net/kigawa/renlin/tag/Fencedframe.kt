@@ -22,7 +22,7 @@ class FencedframeDsl(dslState: DslState):
     }
 }
 
-val fencedframe = TagComponent1<Fencedframe, FencedframeDsl>(Fencedframe, ::FencedframeDsl)
+val fencedframe = TagComponent1(Fencedframe, ::FencedframeDsl)
 
 object Fencedframe : Tag<FlowContent> {
     override val name: String

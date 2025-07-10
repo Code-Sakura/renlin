@@ -22,7 +22,7 @@ class ArticleDsl(dslState: DslState):
     }
 }
 
-val article = TagComponent1<Article, ArticleDsl>(Article, ::ArticleDsl)
+val article = TagComponent1(Article, ::ArticleDsl)
 
 object Article : Tag<FlowPalpableSectioningUnion> {
     override val name: String

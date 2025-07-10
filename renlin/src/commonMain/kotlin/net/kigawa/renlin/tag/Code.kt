@@ -22,7 +22,7 @@ class CodeDsl(dslState: DslState):
     }
 }
 
-val code = TagComponent1<Code, CodeDsl>(Code, ::CodeDsl)
+val code = TagComponent1(Code, ::CodeDsl)
 
 object Code : Tag<FlowPalpablePhrasingUnion> {
     override val name: String

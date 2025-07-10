@@ -22,7 +22,7 @@ class RpDsl(dslState: DslState):
     }
 }
 
-val rp = TagComponent1<Rp, RpDsl>(Rp, ::RpDsl)
+val rp = TagComponent1(Rp, ::RpDsl)
 
 object Rp : Tag<FlowPhrasingUnion> {
     override val name: String

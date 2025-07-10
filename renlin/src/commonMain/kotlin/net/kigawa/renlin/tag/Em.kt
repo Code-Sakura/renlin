@@ -22,7 +22,7 @@ class EmDsl(dslState: DslState):
     }
 }
 
-val em = TagComponent1<Em, EmDsl>(Em, ::EmDsl)
+val em = TagComponent1(Em, ::EmDsl)
 
 object Em : Tag<FlowPalpablePhrasingUnion> {
     override val name: String

@@ -22,7 +22,7 @@ class CiteDsl(dslState: DslState):
     }
 }
 
-val cite = TagComponent1<Cite, CiteDsl>(Cite, ::CiteDsl)
+val cite = TagComponent1(Cite, ::CiteDsl)
 
 object Cite : Tag<FlowPalpablePhrasingUnion> {
     override val name: String

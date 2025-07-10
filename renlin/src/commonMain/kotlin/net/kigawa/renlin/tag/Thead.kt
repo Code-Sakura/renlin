@@ -24,7 +24,7 @@ class TheadDsl(dslState: DslState):
     }
 }
 
-val thead = TagComponent1<Thead, TheadDsl>(Thead, ::TheadDsl)
+val thead = TagComponent1(Thead, ::TheadDsl)
 
 object Thead : Tag<FlowContent> {
     override val name: String

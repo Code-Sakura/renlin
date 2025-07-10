@@ -22,7 +22,7 @@ class NavDsl(dslState: DslState):
     }
 }
 
-val nav = TagComponent1<Nav, NavDsl>(Nav, ::NavDsl)
+val nav = TagComponent1(Nav, ::NavDsl)
 
 object Nav : Tag<FlowPalpableSectioningUnion> {
     override val name: String

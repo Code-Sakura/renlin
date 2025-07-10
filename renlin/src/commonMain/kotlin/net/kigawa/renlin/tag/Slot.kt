@@ -22,7 +22,7 @@ class SlotDsl(dslState: DslState):
     }
 }
 
-val slot = TagComponent1<Slot, SlotDsl>(Slot, ::SlotDsl)
+val slot = TagComponent1(Slot, ::SlotDsl)
 
 object Slot : Tag<FlowPhrasingUnion> {
     override val name: String

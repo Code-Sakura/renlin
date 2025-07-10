@@ -22,7 +22,7 @@ class MapDsl(dslState: DslState):
     }
 }
 
-val map = TagComponent1<Map, MapDsl>(Map, ::MapDsl)
+val map = TagComponent1(Map, ::MapDsl)
 
 object Map : Tag<FlowPalpablePhrasingUnion> {
     override val name: String

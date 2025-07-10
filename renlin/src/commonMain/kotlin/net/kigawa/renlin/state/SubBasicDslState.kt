@@ -15,7 +15,7 @@ import net.kigawa.renlin.w3c.element.TagNode
 class SubBasicDslState(
     val key: String,
     private val parent: BasicDslStateBase,
-    component: Component,
+    component: Component<*>,
     stateContext: StateContext,
 ) : BasicDslStateBase(stateContext), DslState {
     override val ownElement = if (component is TagComponent<*>) {

@@ -22,7 +22,7 @@ class DdDsl(dslState: DslState):
     }
 }
 
-val dd = TagComponent1<Dd, DdDsl>(Dd, ::DdDsl)
+val dd = TagComponent1(Dd, ::DdDsl)
 
 object Dd : Tag<FlowContent> {
     override val name: String

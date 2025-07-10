@@ -24,7 +24,7 @@ class PictureDsl(dslState: DslState):
     }
 }
 
-val picture = TagComponent1<Picture, PictureDsl>(Picture, ::PictureDsl)
+val picture = TagComponent1(Picture, ::PictureDsl)
 
 object Picture : Tag<EmbeddedFlowPalpablePhrasingUnion> {
     override val name: String

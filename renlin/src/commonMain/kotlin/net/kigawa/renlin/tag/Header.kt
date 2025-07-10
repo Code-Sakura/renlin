@@ -22,7 +22,7 @@ class HeaderDsl(dslState: DslState):
     }
 }
 
-val header = TagComponent1<Header, HeaderDsl>(Header, ::HeaderDsl)
+val header = TagComponent1(Header, ::HeaderDsl)
 
 object Header : Tag<FlowPalpableUnion> {
     override val name: String

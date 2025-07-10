@@ -24,7 +24,7 @@ class SvgDsl(dslState: DslState):
     }
 }
 
-val svg = TagComponent1<Svg, SvgDsl>(Svg, ::SvgDsl)
+val svg = TagComponent1(Svg, ::SvgDsl)
 
 object Svg : Tag<EmbeddedFlowPalpablePhrasingUnion> {
     override val name: String

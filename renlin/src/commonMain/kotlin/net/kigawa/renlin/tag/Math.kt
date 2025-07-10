@@ -24,7 +24,7 @@ class MathDsl(dslState: DslState):
     }
 }
 
-val math = TagComponent1<Math, MathDsl>(Math, ::MathDsl)
+val math = TagComponent1(Math, ::MathDsl)
 
 object Math : Tag<EmbeddedFlowPalpablePhrasingUnion> {
     override val name: String

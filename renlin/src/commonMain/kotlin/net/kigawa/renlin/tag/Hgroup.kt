@@ -22,7 +22,7 @@ class HgroupDsl(dslState: DslState):
     }
 }
 
-val hgroup = TagComponent1<Hgroup, HgroupDsl>(Hgroup, ::HgroupDsl)
+val hgroup = TagComponent1(Hgroup, ::HgroupDsl)
 
 object Hgroup : Tag<FlowHeadingUnion> {
     override val name: String

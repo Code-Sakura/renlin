@@ -22,7 +22,7 @@ class SummaryDsl(dslState: DslState):
     }
 }
 
-val summary = TagComponent1<Summary, SummaryDsl>(Summary, ::SummaryDsl)
+val summary = TagComponent1(Summary, ::SummaryDsl)
 
 object Summary : Tag<FlowContent> {
     override val name: String

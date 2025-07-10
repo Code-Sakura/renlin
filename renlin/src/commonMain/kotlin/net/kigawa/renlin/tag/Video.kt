@@ -22,7 +22,7 @@ class VideoDsl(dslState: DslState):
     }
 }
 
-val video = TagComponent1<Video, VideoDsl>(Video, ::VideoDsl)
+val video = TagComponent1(Video, ::VideoDsl)
 
 object Video : Tag<EmbeddedFlowInteractivePalpablePhrasingUnion> {
     override val name: String

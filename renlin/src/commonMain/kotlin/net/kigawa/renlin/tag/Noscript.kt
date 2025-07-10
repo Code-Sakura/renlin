@@ -24,7 +24,7 @@ class NoscriptDsl(dslState: DslState):
     }
 }
 
-val noscript = TagComponent1<Noscript, NoscriptDsl>(Noscript, ::NoscriptDsl)
+val noscript = TagComponent1(Noscript, ::NoscriptDsl)
 
 object Noscript : Tag<FlowMetadataPhrasingUnion> {
     override val name: String

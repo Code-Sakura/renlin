@@ -22,7 +22,7 @@ class AudioDsl(dslState: DslState):
     }
 }
 
-val audio = TagComponent1<Audio, AudioDsl>(Audio, ::AudioDsl)
+val audio = TagComponent1(Audio, ::AudioDsl)
 
 object Audio : Tag<EmbeddedFlowInteractivePalpablePhrasingUnion> {
     override val name: String

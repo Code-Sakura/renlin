@@ -22,7 +22,7 @@ class LegendDsl(dslState: DslState):
     }
 }
 
-val legend = TagComponent1<Legend, LegendDsl>(Legend, ::LegendDsl)
+val legend = TagComponent1(Legend, ::LegendDsl)
 
 object Legend : Tag<FlowContent> {
     override val name: String

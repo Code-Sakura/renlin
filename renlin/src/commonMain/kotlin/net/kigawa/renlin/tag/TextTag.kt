@@ -23,7 +23,7 @@ class TextDsl(dslState: DslState) : DslBase<NotingContent>(dslState), StatedDsl<
     }
 }
 
-val text = TagComponent1<TextTag, TextDsl>(TextTag, ::TextDsl)
+val text = TagComponent1(TextTag, ::TextDsl)
 
 object TextTag : Tag<PhrasingContent> {
     override val name: String

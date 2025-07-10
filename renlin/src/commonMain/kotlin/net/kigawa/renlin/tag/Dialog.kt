@@ -22,7 +22,7 @@ class DialogDsl(dslState: DslState):
     }
 }
 
-val dialog = TagComponent1<Dialog, DialogDsl>(Dialog, ::DialogDsl)
+val dialog = TagComponent1(Dialog, ::DialogDsl)
 
 object Dialog : Tag<FlowContent> {
     override val name: String

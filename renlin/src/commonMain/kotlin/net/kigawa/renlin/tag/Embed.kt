@@ -22,7 +22,7 @@ class EmbedDsl(dslState: DslState):
     }
 }
 
-val embed = TagComponent1<Embed, EmbedDsl>(Embed, ::EmbedDsl)
+val embed = TagComponent1(Embed, ::EmbedDsl)
 
 object Embed : Tag<EmbeddedFlowInteractivePalpablePhrasingUnion> {
     override val name: String

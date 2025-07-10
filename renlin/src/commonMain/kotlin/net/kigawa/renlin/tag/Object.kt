@@ -22,7 +22,7 @@ class ObjectDsl(dslState: DslState):
     }
 }
 
-val `object` = TagComponent1<Object, ObjectDsl>(Object, ::ObjectDsl)
+val `object` = TagComponent1(Object, ::ObjectDsl)
 
 object Object : Tag<EmbeddedFlowFormAssociatedInteractivePalpablePhrasingUnion> {
     override val name: String

@@ -56,7 +56,7 @@ class TagGenerator(
                 }
             }
 
-            val ${tagInfo.escapement} = TagComponent1<${tagInfo.className}, ${tagInfo.className}Dsl>(${tagInfo.className}, ::${tagInfo.className}Dsl)
+            val ${tagInfo.escapement} = TagComponent1(${tagInfo.className}, ::${tagInfo.className}Dsl)
 
             object ${tagInfo.className} : Tag<${tagInfo.tagCategories.connectedStr("Union")}> {
                 override val name: String

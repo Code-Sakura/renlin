@@ -24,7 +24,7 @@ class MetaDsl(dslState: DslState):
     }
 }
 
-val meta = TagComponent1<Meta, MetaDsl>(Meta, ::MetaDsl)
+val meta = TagComponent1(Meta, ::MetaDsl)
 
 object Meta : Tag<FlowMetadataPhrasingUnion> {
     override val name: String

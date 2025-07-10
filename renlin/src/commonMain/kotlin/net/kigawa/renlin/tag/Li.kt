@@ -22,7 +22,7 @@ class LiDsl(dslState: DslState):
     }
 }
 
-val li = TagComponent1<Li, LiDsl>(Li, ::LiDsl)
+val li = TagComponent1(Li, ::LiDsl)
 
 object Li : Tag<FlowContent> {
     override val name: String

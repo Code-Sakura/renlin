@@ -24,7 +24,7 @@ class HtmlDsl(dslState: DslState):
     }
 }
 
-val html = TagComponent1<Html, HtmlDsl>(Html, ::HtmlDsl)
+val html = TagComponent1(Html, ::HtmlDsl)
 
 object Html : Tag<FlowContent> {
     override val name: String

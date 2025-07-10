@@ -22,7 +22,7 @@ class VarDsl(dslState: DslState):
     }
 }
 
-val `var` = TagComponent1<Var, VarDsl>(Var, ::VarDsl)
+val `var` = TagComponent1(Var, ::VarDsl)
 
 object Var : Tag<FlowPalpablePhrasingUnion> {
     override val name: String

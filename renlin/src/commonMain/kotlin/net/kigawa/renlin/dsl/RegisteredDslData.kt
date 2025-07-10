@@ -20,7 +20,7 @@ data class RegisteredDslData(
     /**
      * DSLに関連付けられたコンポーネント
      */
-    val component: Component,
+    val component: Component<*>,
 
     /**
      * DSLを再読み込みするための関数

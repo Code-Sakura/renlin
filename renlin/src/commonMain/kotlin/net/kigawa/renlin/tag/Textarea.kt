@@ -22,7 +22,7 @@ class TextareaDsl(dslState: DslState):
     }
 }
 
-val textarea = TagComponent1<Textarea, TextareaDsl>(Textarea, ::TextareaDsl)
+val textarea = TagComponent1(Textarea, ::TextareaDsl)
 
 object Textarea : Tag<FlowFormAssociatedInteractivePalpablePhrasingUnion> {
     override val name: String

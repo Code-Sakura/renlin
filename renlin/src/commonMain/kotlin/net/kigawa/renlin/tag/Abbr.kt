@@ -22,7 +22,7 @@ class AbbrDsl(dslState: DslState):
     }
 }
 
-val abbr = TagComponent1<Abbr, AbbrDsl>(Abbr, ::AbbrDsl)
+val abbr = TagComponent1(Abbr, ::AbbrDsl)
 
 object Abbr : Tag<FlowPalpablePhrasingUnion> {
     override val name: String

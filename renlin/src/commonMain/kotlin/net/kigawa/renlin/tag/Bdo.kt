@@ -22,7 +22,7 @@ class BdoDsl(dslState: DslState):
     }
 }
 
-val bdo = TagComponent1<Bdo, BdoDsl>(Bdo, ::BdoDsl)
+val bdo = TagComponent1(Bdo, ::BdoDsl)
 
 object Bdo : Tag<FlowPalpablePhrasingUnion> {
     override val name: String

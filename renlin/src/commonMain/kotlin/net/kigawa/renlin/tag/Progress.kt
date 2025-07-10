@@ -22,7 +22,7 @@ class ProgressDsl(dslState: DslState):
     }
 }
 
-val progress = TagComponent1<Progress, ProgressDsl>(Progress, ::ProgressDsl)
+val progress = TagComponent1(Progress, ::ProgressDsl)
 
 object Progress : Tag<FlowPalpablePhrasingUnion> {
     override val name: String

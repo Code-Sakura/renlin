@@ -22,7 +22,7 @@ class TemplateDsl(dslState: DslState):
     }
 }
 
-val template = TagComponent1<Template, TemplateDsl>(Template, ::TemplateDsl)
+val template = TagComponent1(Template, ::TemplateDsl)
 
 object Template : Tag<FlowMetadataPhrasingScriptSupportingUnion> {
     override val name: String

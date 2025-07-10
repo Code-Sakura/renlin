@@ -22,7 +22,7 @@ class SubDsl(dslState: DslState):
     }
 }
 
-val sub = TagComponent1<Sub, SubDsl>(Sub, ::SubDsl)
+val sub = TagComponent1(Sub, ::SubDsl)
 
 object Sub : Tag<FlowPalpablePhrasingUnion> {
     override val name: String

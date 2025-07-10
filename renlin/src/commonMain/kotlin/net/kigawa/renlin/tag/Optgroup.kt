@@ -22,7 +22,7 @@ class OptgroupDsl(dslState: DslState):
     }
 }
 
-val optgroup = TagComponent1<Optgroup, OptgroupDsl>(Optgroup, ::OptgroupDsl)
+val optgroup = TagComponent1(Optgroup, ::OptgroupDsl)
 
 object Optgroup : Tag<FlowContent> {
     override val name: String

@@ -19,7 +19,7 @@ abstract class BasicDslStateBase(
     override val cssManager: CssManager?
         get() = internalCssManager
 
-    override fun getOrCreateSubDslState(key: String, second: Component): DslState {
+    override fun getOrCreateSubDslState(key: String, second: Component<*>): DslState {
         return subStates.firstOrNull { it.key == key } ?: SubBasicDslState(
             key, this, second, stateContext.newStateContext()
         ).also {

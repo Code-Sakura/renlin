@@ -24,7 +24,7 @@ class AddressDsl(dslState: DslState):
     }
 }
 
-val address = TagComponent1<Address, AddressDsl>(Address, ::AddressDsl)
+val address = TagComponent1(Address, ::AddressDsl)
 
 object Address : Tag<FlowPalpableUnion> {
     override val name: String

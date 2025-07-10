@@ -22,7 +22,7 @@ class MeterDsl(dslState: DslState):
     }
 }
 
-val meter = TagComponent1<Meter, MeterDsl>(Meter, ::MeterDsl)
+val meter = TagComponent1(Meter, ::MeterDsl)
 
 object Meter : Tag<FlowPalpablePhrasingUnion> {
     override val name: String

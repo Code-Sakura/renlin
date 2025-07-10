@@ -24,7 +24,7 @@ class StyleDsl(dslState: DslState):
     }
 }
 
-val style = TagComponent1<Style, StyleDsl>(Style, ::StyleDsl)
+val style = TagComponent1(Style, ::StyleDsl)
 
 object Style : Tag<MetadataContent> {
     override val name: String

@@ -24,7 +24,7 @@ class CanvasDsl(dslState: DslState):
     }
 }
 
-val canvas = TagComponent1<Canvas, CanvasDsl>(Canvas, ::CanvasDsl)
+val canvas = TagComponent1(Canvas, ::CanvasDsl)
 
 object Canvas : Tag<EmbeddedFlowPalpablePhrasingUnion> {
     override val name: String

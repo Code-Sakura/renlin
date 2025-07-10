@@ -22,7 +22,7 @@ class SelectedcontentDsl(dslState: DslState):
     }
 }
 
-val selectedcontent = TagComponent1<Selectedcontent, SelectedcontentDsl>(Selectedcontent, ::SelectedcontentDsl)
+val selectedcontent = TagComponent1(Selectedcontent, ::SelectedcontentDsl)
 
 object Selectedcontent : Tag<FlowContent> {
     override val name: String

@@ -22,7 +22,7 @@ class WbrDsl(dslState: DslState):
     }
 }
 
-val wbr = TagComponent1<Wbr, WbrDsl>(Wbr, ::WbrDsl)
+val wbr = TagComponent1(Wbr, ::WbrDsl)
 
 object Wbr : Tag<FlowPhrasingUnion> {
     override val name: String

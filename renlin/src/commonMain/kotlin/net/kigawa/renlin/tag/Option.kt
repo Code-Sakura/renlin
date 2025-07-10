@@ -22,7 +22,7 @@ class OptionDsl(dslState: DslState):
     }
 }
 
-val option = TagComponent1<Option, OptionDsl>(Option, ::OptionDsl)
+val option = TagComponent1(Option, ::OptionDsl)
 
 object Option : Tag<FlowContent> {
     override val name: String

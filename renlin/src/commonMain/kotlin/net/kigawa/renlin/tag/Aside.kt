@@ -22,7 +22,7 @@ class AsideDsl(dslState: DslState):
     }
 }
 
-val aside = TagComponent1<Aside, AsideDsl>(Aside, ::AsideDsl)
+val aside = TagComponent1(Aside, ::AsideDsl)
 
 object Aside : Tag<FlowPalpableSectioningUnion> {
     override val name: String

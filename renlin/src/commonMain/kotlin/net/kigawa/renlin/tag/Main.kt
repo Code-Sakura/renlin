@@ -22,7 +22,7 @@ class MainDsl(dslState: DslState):
     }
 }
 
-val main = TagComponent1<Main, MainDsl>(Main, ::MainDsl)
+val main = TagComponent1(Main, ::MainDsl)
 
 object Main : Tag<FlowPalpableUnion> {
     override val name: String

@@ -22,7 +22,7 @@ class MenuDsl(dslState: DslState):
     }
 }
 
-val menu = TagComponent1<Menu, MenuDsl>(Menu, ::MenuDsl)
+val menu = TagComponent1(Menu, ::MenuDsl)
 
 object Menu : Tag<FlowContent> {
     override val name: String

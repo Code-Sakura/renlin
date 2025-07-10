@@ -24,7 +24,7 @@ class ScriptDsl(dslState: DslState):
     }
 }
 
-val script = TagComponent1<Script, ScriptDsl>(Script, ::ScriptDsl)
+val script = TagComponent1(Script, ::ScriptDsl)
 
 object Script : Tag<FlowMetadataPhrasingScriptSupportingUnion> {
     override val name: String

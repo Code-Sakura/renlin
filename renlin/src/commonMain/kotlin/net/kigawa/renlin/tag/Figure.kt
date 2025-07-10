@@ -22,7 +22,7 @@ class FigureDsl(dslState: DslState):
     }
 }
 
-val figure = TagComponent1<Figure, FigureDsl>(Figure, ::FigureDsl)
+val figure = TagComponent1(Figure, ::FigureDsl)
 
 object Figure : Tag<FlowPalpableUnion> {
     override val name: String

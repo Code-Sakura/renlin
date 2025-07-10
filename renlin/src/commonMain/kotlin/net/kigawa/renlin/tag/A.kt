@@ -24,7 +24,7 @@ class ADsl(dslState: DslState):
     }
 }
 
-val a = TagComponent1<A, ADsl>(A, ::ADsl)
+val a = TagComponent1(A, ::ADsl)
 
 object A : Tag<FlowInteractivePalpablePhrasingUnion> {
     override val name: String

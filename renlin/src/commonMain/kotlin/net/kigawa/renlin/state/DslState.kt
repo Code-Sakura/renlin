@@ -37,7 +37,7 @@ interface DslState {
      * @param second 関連するコンポーネント
      * @return サブDSLの状態
      */
-    fun getOrCreateSubDslState(key: String, second: Component): DslState
+    fun getOrCreateSubDslState(key: String, second: Component<*>): DslState
 
     /**
      * このDSL状態に関連するサブDSLのリストを設定します

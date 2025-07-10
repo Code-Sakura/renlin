@@ -22,7 +22,7 @@ class FigcaptionDsl(dslState: DslState):
     }
 }
 
-val figcaption = TagComponent1<Figcaption, FigcaptionDsl>(Figcaption, ::FigcaptionDsl)
+val figcaption = TagComponent1(Figcaption, ::FigcaptionDsl)
 
 object Figcaption : Tag<FlowContent> {
     override val name: String

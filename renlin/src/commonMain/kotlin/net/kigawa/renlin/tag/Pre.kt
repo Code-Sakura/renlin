@@ -22,7 +22,7 @@ class PreDsl(dslState: DslState):
     }
 }
 
-val pre = TagComponent1<Pre, PreDsl>(Pre, ::PreDsl)
+val pre = TagComponent1(Pre, ::PreDsl)
 
 object Pre : Tag<FlowPalpableUnion> {
     override val name: String

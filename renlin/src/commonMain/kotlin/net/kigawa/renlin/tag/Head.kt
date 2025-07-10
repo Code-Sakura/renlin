@@ -24,7 +24,7 @@ class HeadDsl(dslState: DslState):
     }
 }
 
-val head = TagComponent1<Head, HeadDsl>(Head, ::HeadDsl)
+val head = TagComponent1(Head, ::HeadDsl)
 
 object Head : Tag<FlowContent> {
     override val name: String

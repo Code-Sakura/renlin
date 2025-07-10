@@ -22,7 +22,7 @@ class LabelDsl(dslState: DslState):
     }
 }
 
-val label = TagComponent1<Label, LabelDsl>(Label, ::LabelDsl)
+val label = TagComponent1(Label, ::LabelDsl)
 
 object Label : Tag<FlowInteractivePalpablePhrasingUnion> {
     override val name: String

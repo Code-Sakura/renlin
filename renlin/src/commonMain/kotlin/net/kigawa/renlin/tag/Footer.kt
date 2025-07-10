@@ -22,7 +22,7 @@ class FooterDsl(dslState: DslState):
     }
 }
 
-val footer = TagComponent1<Footer, FooterDsl>(Footer, ::FooterDsl)
+val footer = TagComponent1(Footer, ::FooterDsl)
 
 object Footer : Tag<FlowPalpableUnion> {
     override val name: String

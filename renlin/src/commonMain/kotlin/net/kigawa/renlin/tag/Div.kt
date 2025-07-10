@@ -24,7 +24,7 @@ class DivDsl(dslState: DslState):
     }
 }
 
-val div = TagComponent1<Div, DivDsl>(Div, ::DivDsl)
+val div = TagComponent1(Div, ::DivDsl)
 
 object Div : Tag<FlowPalpableUnion> {
     override val name: String

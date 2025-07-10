@@ -22,7 +22,7 @@ class TrackDsl(dslState: DslState):
     }
 }
 
-val track = TagComponent1<Track, TrackDsl>(Track, ::TrackDsl)
+val track = TagComponent1(Track, ::TrackDsl)
 
 object Track : Tag<FlowContent> {
     override val name: String

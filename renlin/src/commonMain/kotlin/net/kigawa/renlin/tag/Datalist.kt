@@ -24,7 +24,7 @@ class DatalistDsl(dslState: DslState):
     }
 }
 
-val datalist = TagComponent1<Datalist, DatalistDsl>(Datalist, ::DatalistDsl)
+val datalist = TagComponent1(Datalist, ::DatalistDsl)
 
 object Datalist : Tag<FlowPhrasingUnion> {
     override val name: String

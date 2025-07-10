@@ -24,7 +24,7 @@ class PDsl(dslState: DslState):
     }
 }
 
-val p = TagComponent1<P, PDsl>(P, ::PDsl)
+val p = TagComponent1(P, ::PDsl)
 
 object P : Tag<FlowPalpableUnion> {
     override val name: String

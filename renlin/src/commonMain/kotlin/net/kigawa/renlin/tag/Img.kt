@@ -22,7 +22,7 @@ class ImgDsl(dslState: DslState):
     }
 }
 
-val img = TagComponent1<Img, ImgDsl>(Img, ::ImgDsl)
+val img = TagComponent1(Img, ::ImgDsl)
 
 object Img : Tag<EmbeddedFlowFormAssociatedInteractivePalpablePhrasingUnion> {
     override val name: String

@@ -22,7 +22,7 @@ class OutputDsl(dslState: DslState):
     }
 }
 
-val output = TagComponent1<Output, OutputDsl>(Output, ::OutputDsl)
+val output = TagComponent1(Output, ::OutputDsl)
 
 object Output : Tag<FlowFormAssociatedPalpablePhrasingUnion> {
     override val name: String

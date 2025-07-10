@@ -22,7 +22,7 @@ class SmallDsl(dslState: DslState):
     }
 }
 
-val small = TagComponent1<Small, SmallDsl>(Small, ::SmallDsl)
+val small = TagComponent1(Small, ::SmallDsl)
 
 object Small : Tag<FlowPalpablePhrasingUnion> {
     override val name: String

@@ -24,7 +24,7 @@ class ButtonDsl(dslState: DslState):
     }
 }
 
-val button = TagComponent1<Button, ButtonDsl>(Button, ::ButtonDsl)
+val button = TagComponent1(Button, ::ButtonDsl)
 
 object Button : Tag<FlowFormAssociatedInteractivePalpablePhrasingUnion> {
     override val name: String
