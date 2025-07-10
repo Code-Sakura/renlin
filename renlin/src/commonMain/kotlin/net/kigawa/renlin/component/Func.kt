@@ -1,10 +1,11 @@
 package net.kigawa.renlin.component
 
-import net.kigawa.hakate.api.state.State
+import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.RegisteredDslData
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.tag.Tag
 import net.kigawa.renlin.w3c.category.ContentCategory
+import net.kigawa.renlin.w3c.element.TagNode
 import kotlin.reflect.KClass
 import kotlin.uuid.ExperimentalUuidApi
 import kotlin.uuid.Uuid
@@ -31,17 +32,18 @@ fun <CONTENT_CATEGORY: ContentCategory> component(
       @OptIn(ExperimentalUuidApi::class)
       val nonNullKey = key ?: Uuid.random().toString()
       val state = parentDsl.dslState.getOrCreateSubDslState(nonNullKey, this)
-      val newDsl = object: StatedDsl<CONTENT_CATEGORY> by state {
+      // Create a concrete implementation of DslBase instead of using delegation
+      val newDsl = object: DslBase<CONTENT_CATEGORY>(state) {
+        override fun applyElement(element: TagNode): () -> Unit {
+          return parentDsl.applyElement(element)
+        }
       }
       println("component newDsl")
       newDsl.block()
       println("component end")
       parentDsl.registerSubDsl(
         RegisteredDslData(
-          object: StatedDsl<ContentCategory> by newDsl {
-            override val states: Set<State<*>>
-              get() = newDsl.states
-          },
+          newDsl,
           this,
           { render(parentDsl, key) },
           nonNullKey
@@ -60,15 +62,16 @@ fun <CONTENT_CATEGORY: ContentCategory, ARG1> component(
       @OptIn(ExperimentalUuidApi::class)
       val nonNullKey = key ?: Uuid.random().toString()
       val state = parentDsl.dslState.getOrCreateSubDslState(nonNullKey, this)
-      val newDsl = object: StatedDsl<CONTENT_CATEGORY> by state {
+      // Create a concrete implementation of DslBase instead of using delegation
+      val newDsl = object: DslBase<CONTENT_CATEGORY>(state) {
+        override fun applyElement(element: TagNode): () -> Unit {
+          return parentDsl.applyElement(element)
+        }
       }
       newDsl.block(arg1)
       parentDsl.registerSubDsl(
         RegisteredDslData(
-          object: StatedDsl<ContentCategory> by newDsl {
-            override val states: Set<State<*>>
-              get() = newDsl.states
-          },
+          newDsl,
           this,
           { render(parentDsl, arg1, key) },
           nonNullKey
