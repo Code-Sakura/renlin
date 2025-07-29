@@ -80,3 +80,30 @@ fun <CONTENT_CATEGORY: ContentCategory, ARG1> component(
     }
   }
 }
+
+fun <CONTENT_CATEGORY: ContentCategory, ARG1, ARG2> component(
+  block: StatedDsl<CONTENT_CATEGORY>.(ARG1, ARG2) -> Unit,
+): Component2<Tag<CONTENT_CATEGORY>, CONTENT_CATEGORY, ARG1, ARG2> {
+  return object: Component2<Tag<CONTENT_CATEGORY>, CONTENT_CATEGORY, ARG1, ARG2> {
+    override fun render(parentDsl: StatedDsl<out CONTENT_CATEGORY>, arg1: ARG1, arg2: ARG2, key: String?) {
+      @OptIn(ExperimentalUuidApi::class)
+      val nonNullKey = key ?: Uuid.random().toString()
+      val state = parentDsl.dslState.getOrCreateSubDslState(nonNullKey, this)
+      // Create a concrete implementation of DslBase instead of using delegation
+      val newDsl = object: DslBase<CONTENT_CATEGORY>(state) {
+        override fun applyElement(element: TagNode): () -> Unit {
+          return parentDsl.applyElement(element)
+        }
+      }
+      newDsl.block(arg1, arg2)
+      parentDsl.registerSubDsl(
+        RegisteredDslData(
+          newDsl,
+          this,
+          { render(parentDsl, arg1, arg2, key) },
+          nonNullKey
+        )
+      )
+    }
+  }
+}
