@@ -4,6 +4,8 @@ import net.kigawa.hakate.api.state.State
 import net.kigawa.renlin.component.Component0
 import net.kigawa.renlin.component.Component1
 import net.kigawa.renlin.component.Component2
+import net.kigawa.renlin.component.Component3
+import net.kigawa.renlin.component.Component4
 import net.kigawa.renlin.component.StructuredComponent
 import net.kigawa.renlin.state.DslState
 import net.kigawa.renlin.tag.Fragment
@@ -90,6 +92,37 @@ interface StatedDsl<CONTENT_CATEGORY: ContentCategory>: Dsl {
     arg1: ARG1, arg2: ARG2, key: String? = null,
   ) {
     return this@invoke.render(this@StatedDsl, arg1, arg2, key)
+  }
+
+  /**
+   * Component3を呼び出し、レンダリングするための演算子オーバーロード。
+   *
+   * @param key コンポーネントの一意のキー（オプション）
+   * @param arg1 第1引数
+   * @param arg2 第2引数
+   * @param arg3 第3引数
+   * @return コンポーネントのレンダリング結果
+   */
+  operator fun <TAG: Tag<in CONTENT_CATEGORY>, ARG1, ARG2, ARG3> Component3<TAG, in CONTENT_CATEGORY, ARG1, ARG2, ARG3>.invoke(
+    arg1: ARG1, arg2: ARG2, arg3: ARG3, key: String? = null,
+  ) {
+    return this@invoke.render(this@StatedDsl, arg1, arg2, arg3, key)
+  }
+
+  /**
+   * Component4を呼び出し、レンダリングするための演算子オーバーロード。
+   *
+   * @param key コンポーネントの一意のキー（オプション）
+   * @param arg1 第1引数
+   * @param arg2 第2引数
+   * @param arg3 第3引数
+   * @param arg4 第4引数
+   * @return コンポーネントのレンダリング結果
+   */
+  operator fun <TAG: Tag<in CONTENT_CATEGORY>, ARG1, ARG2, ARG3, ARG4> Component4<TAG, in CONTENT_CATEGORY, ARG1, ARG2, ARG3, ARG4>.invoke(
+    arg1: ARG1, arg2: ARG2, arg3: ARG3, arg4: ARG4, key: String? = null,
+  ) {
+    return this@invoke.render(this@StatedDsl, arg1, arg2, arg3, arg4, key)
   }
 
 

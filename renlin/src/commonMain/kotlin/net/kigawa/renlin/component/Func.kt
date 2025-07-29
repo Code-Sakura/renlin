@@ -107,3 +107,57 @@ fun <CONTENT_CATEGORY: ContentCategory, ARG1, ARG2> component(
     }
   }
 }
+
+fun <CONTENT_CATEGORY: ContentCategory, ARG1, ARG2, ARG3> component(
+  block: StatedDsl<CONTENT_CATEGORY>.(ARG1, ARG2, ARG3) -> Unit,
+): Component3<Tag<CONTENT_CATEGORY>, CONTENT_CATEGORY, ARG1, ARG2, ARG3> {
+  return object: Component3<Tag<CONTENT_CATEGORY>, CONTENT_CATEGORY, ARG1, ARG2, ARG3> {
+    override fun render(parentDsl: StatedDsl<out CONTENT_CATEGORY>, arg1: ARG1, arg2: ARG2, arg3: ARG3, key: String?) {
+      @OptIn(ExperimentalUuidApi::class)
+      val nonNullKey = key ?: Uuid.random().toString()
+      val state = parentDsl.dslState.getOrCreateSubDslState(nonNullKey, this)
+      // Create a concrete implementation of DslBase instead of using delegation
+      val newDsl = object: DslBase<CONTENT_CATEGORY>(state) {
+        override fun applyElement(element: TagNode): () -> Unit {
+          return parentDsl.applyElement(element)
+        }
+      }
+      newDsl.block(arg1, arg2, arg3)
+      parentDsl.registerSubDsl(
+        RegisteredDslData(
+          newDsl,
+          this,
+          { render(parentDsl, arg1, arg2, arg3, key) },
+          nonNullKey
+        )
+      )
+    }
+  }
+}
+
+fun <CONTENT_CATEGORY: ContentCategory, ARG1, ARG2, ARG3, ARG4> component(
+  block: StatedDsl<CONTENT_CATEGORY>.(ARG1, ARG2, ARG3, ARG4) -> Unit,
+): Component4<Tag<CONTENT_CATEGORY>, CONTENT_CATEGORY, ARG1, ARG2, ARG3, ARG4> {
+  return object: Component4<Tag<CONTENT_CATEGORY>, CONTENT_CATEGORY, ARG1, ARG2, ARG3, ARG4> {
+    override fun render(parentDsl: StatedDsl<out CONTENT_CATEGORY>, arg1: ARG1, arg2: ARG2, arg3: ARG3, arg4: ARG4, key: String?) {
+      @OptIn(ExperimentalUuidApi::class)
+      val nonNullKey = key ?: Uuid.random().toString()
+      val state = parentDsl.dslState.getOrCreateSubDslState(nonNullKey, this)
+      // Create a concrete implementation of DslBase instead of using delegation
+      val newDsl = object: DslBase<CONTENT_CATEGORY>(state) {
+        override fun applyElement(element: TagNode): () -> Unit {
+          return parentDsl.applyElement(element)
+        }
+      }
+      newDsl.block(arg1, arg2, arg3, arg4)
+      parentDsl.registerSubDsl(
+        RegisteredDslData(
+          newDsl,
+          this,
+          { render(parentDsl, arg1, arg2, arg3, arg4, key) },
+          nonNullKey
+        )
+      )
+    }
+  }
+}
