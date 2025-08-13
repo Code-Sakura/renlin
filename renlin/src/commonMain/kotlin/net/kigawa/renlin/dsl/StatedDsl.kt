@@ -76,7 +76,6 @@ interface StatedDsl<CONTENT_CATEGORY: ContentCategory>: Dsl {
   operator fun <TAG: Tag<in CONTENT_CATEGORY>, DSL> Component1<TAG, in CONTENT_CATEGORY, DSL>.invoke(
     key: String? = null, block: DSL,
   ) {
-    println("invoke")
     return this@invoke.render(this@StatedDsl, block, key)
   }
 

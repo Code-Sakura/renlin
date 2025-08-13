@@ -12,7 +12,6 @@ class Entrypoint(
   fun <CONTENT_CATEGORY: ContentCategory> render(
     component: Component0<*, CONTENT_CATEGORY>, dispatcher: StateDispatcher,
   ) {
-    println("Entrypoint")
     val dsl = DomDsl<CONTENT_CATEGORY>(element, dispatcher)
     component.render(dsl, "root")
   }

@@ -10,9 +10,7 @@ fun main() {
     val sub = Sub()
     val sample = SampleComponent("sample", sub)
     val dispatcher = HakateInitializer().newStateDispatcher()
-    println("Hello, world!")
     Entrypoint(root).render(sample.root, dispatcher)
-    println("Hello, world! 2")
     var i = 0
     window.setInterval(
         {
