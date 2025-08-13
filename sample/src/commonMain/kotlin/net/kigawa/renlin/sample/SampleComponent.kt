@@ -18,52 +18,14 @@ class SampleComponent(
 ) {
     var update: (Int) -> Unit = {}
 
-    // public final val root: Component1<Div, EmptyDsl>
-    // public val div: TagComponent1<Div, DivDsl> = TagComponent1<Div, DivDsl>
-    val aaaa = div.component {
-        p {
-        }
-    }
-
     val root = div.component {
-        div.invoke("uuid 1") {
-            println("div 1")
-            text("uuid 1-1") {
-                +"repeat "
-            }
+        sub.navigation("navigation") {
         }
-        sub.display("uuid 2")
+        // a
+        sub.display("main-display") {
+        }
 
-        fragment {
-            div {
-                fragment {
-                    p {
-                        onClick {
-                            println("onClick!")
-                        }
-                        t("onClick")
-                        text {
-                            text = "onClick"
-                        }
-                        css { textAlign = TextAlign.CENTER }
-                    }
-                }
-                p {
-//                    +"aaaa"
-                }
-            }
-        }
-//        fragment {
-        sub.display("uuid 3")
-//        }
-        sub.controller("uuid 4")
-        p {
-//            key = "uuid 5"
-        }
-        div {
-            sub.test()
-            sub.test1()
-            sub.test2()
-        }
+
+
     }
 }
