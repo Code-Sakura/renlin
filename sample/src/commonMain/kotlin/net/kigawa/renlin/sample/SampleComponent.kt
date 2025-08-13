@@ -1,16 +1,7 @@
-@file:Suppress("unused")
-
 package net.kigawa.renlin.sample
 
 import net.kigawa.renlin.component.component
-import net.kigawa.renlin.css.AlignItems
-import net.kigawa.renlin.css.TextAlign
-import net.kigawa.renlin.css.css
 import net.kigawa.renlin.tag.div
-import net.kigawa.renlin.tag.p
-import net.kigawa.renlin.tag.text
-import net.kigawa.renlin.w3c.category.t
-import net.kigawa.renlin.w3c.event.tag.onClick
 
 class SampleComponent(
     val name: String,
@@ -19,12 +10,9 @@ class SampleComponent(
     var update: (Int) -> Unit = {}
 
     val root = div.component {
-        sub.navigation("navigation") {
-        }
+        sub.navigation("navigation")
         // a
-        sub.display("main-display") {
-        }
-
+        sub.display("main-display")
 
 
     }

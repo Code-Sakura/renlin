@@ -2,6 +2,7 @@ package net.kigawa.renlin.sample
 
 import net.kigawa.hakate.api.HakateInitializer
 import net.kigawa.hakate.api.state.MutableState
+import net.kigawa.renlin.component.component
 import net.kigawa.renlin.css.*
 import net.kigawa.renlin.tag.div
 import net.kigawa.renlin.tag.fragment
