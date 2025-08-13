@@ -17,10 +17,9 @@ class SampleComponent(
     val root = div.component {
         sub.navigation("navigation") {
         }
-
+        // a
         sub.display("main-display") {
         }
-
 
 
 

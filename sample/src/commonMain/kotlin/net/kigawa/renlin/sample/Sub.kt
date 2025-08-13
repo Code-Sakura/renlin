@@ -83,7 +83,7 @@ class Sub {
                 }
 
                 div("feature-card") {
-                    t("🔧 Easy to Use")
+                    t("Easy to Use")
                     p {
                         t("Simple and intuitive API for building amazing applications.")
                     }
