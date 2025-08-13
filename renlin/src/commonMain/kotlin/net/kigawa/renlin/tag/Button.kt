@@ -4,7 +4,7 @@ import net.kigawa.renlin.w3c.category.native.FlowFormAssociatedInteractivePalpab
 import net.kigawa.renlin.w3c.category.integration.FlowFormAssociatedInteractivePalpablePhrasingIntegration
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
-import net.kigawa.renlin.tag.component.TagComponent1
+import net.kigawa.renlin.component.TagComponent1
 import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.state.DslState
 import net.kigawa.renlin.w3c.category.dsl.FlowFormAssociatedInteractivePalpablePhrasingDsl
@@ -24,7 +24,7 @@ class ButtonDsl(dslState: DslState):
     }
 }
 
-val button = TagComponent1<Button, ButtonDsl>(Button, ::ButtonDsl)
+val button = TagComponent1(Button, ::ButtonDsl)
 
 object Button : Tag<FlowFormAssociatedInteractivePalpablePhrasingUnion> {
     override val name: String

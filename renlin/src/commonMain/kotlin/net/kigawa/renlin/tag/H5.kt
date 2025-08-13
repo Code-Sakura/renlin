@@ -4,7 +4,7 @@ import net.kigawa.renlin.w3c.category.native.FlowHeadingPalpableUnion
 
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
-import net.kigawa.renlin.tag.component.TagComponent1
+import net.kigawa.renlin.component.TagComponent1
 import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.state.DslState
 import net.kigawa.renlin.w3c.category.ContentCategory
@@ -22,7 +22,7 @@ class H5Dsl(dslState: DslState):
     }
 }
 
-val h5 = TagComponent1<H5, H5Dsl>(H5, ::H5Dsl)
+val h5 = TagComponent1(H5, ::H5Dsl)
 
 object H5 : Tag<FlowHeadingPalpableUnion> {
     override val name: String

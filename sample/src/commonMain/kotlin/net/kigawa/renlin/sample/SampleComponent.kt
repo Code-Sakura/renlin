@@ -2,6 +2,10 @@
 
 package net.kigawa.renlin.sample
 
+import net.kigawa.renlin.component.component
+import net.kigawa.renlin.css.AlignItems
+import net.kigawa.renlin.css.TextAlign
+import net.kigawa.renlin.css.css
 import net.kigawa.renlin.tag.div
 import net.kigawa.renlin.tag.p
 import net.kigawa.renlin.tag.text
@@ -22,14 +26,13 @@ class SampleComponent(
     }
 
     val root = div.component {
-
-        div("uuid 1") {
+        div.invoke("uuid 1") {
+            println("div 1")
             text("uuid 1-1") {
                 +"repeat "
             }
         }
-        sub.display("uuid 2") {
-        }
+        sub.display("uuid 2")
 
         fragment {
             div {
@@ -42,6 +45,7 @@ class SampleComponent(
                         text {
                             text = "onClick"
                         }
+                        css { textAlign = TextAlign.CENTER }
                     }
                 }
                 p {
@@ -50,15 +54,16 @@ class SampleComponent(
             }
         }
 //        fragment {
-        sub.display("uuid 3") {
-        }
+        sub.display("uuid 3")
 //        }
-        sub.controller("uuid 4") {
-        }
+        sub.controller("uuid 4")
         p {
 //            key = "uuid 5"
         }
-        sub.test {}
-        sub.test1 {}
+        div {
+            sub.test()
+            sub.test1()
+            sub.test2()
+        }
     }
 }

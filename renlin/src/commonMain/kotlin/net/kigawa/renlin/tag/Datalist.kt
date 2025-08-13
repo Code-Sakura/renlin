@@ -4,7 +4,7 @@ import net.kigawa.renlin.w3c.category.native.FlowPhrasingUnion
 import net.kigawa.renlin.w3c.category.integration.FlowPhrasingIntegration
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
-import net.kigawa.renlin.tag.component.TagComponent1
+import net.kigawa.renlin.component.TagComponent1
 import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.state.DslState
 import net.kigawa.renlin.w3c.category.dsl.FlowPhrasingDsl
@@ -24,7 +24,7 @@ class DatalistDsl(dslState: DslState):
     }
 }
 
-val datalist = TagComponent1<Datalist, DatalistDsl>(Datalist, ::DatalistDsl)
+val datalist = TagComponent1(Datalist, ::DatalistDsl)
 
 object Datalist : Tag<FlowPhrasingUnion> {
     override val name: String
