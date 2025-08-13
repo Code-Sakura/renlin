@@ -4,7 +4,7 @@ plugins {
 object Conf {
     const val GROUP = "net.kigawa"
     // Base version - will be modified based on branch name if available
-    const val BASE_VERSION = "1.0.1"
+    const val BASE_VERSION = "1.2.1"
 }
 
 // Determine version based on branch name
