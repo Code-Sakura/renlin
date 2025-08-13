@@ -13,8 +13,8 @@ fun determineVersion(): String {
     // Try to get branch name from different environment variables
     // For pull requests, GITHUB_HEAD_REF contains the source branch name
     // For direct pushes, GITHUB_REF_NAME contains the branch name
-    val branchName = System.getenv("GITHUB_HEAD_REF") 
-        ?: System.getenv("GITHUB_REF_NAME") 
+    val branchName = System.getenv("GITHUB_HEAD_REF")
+        ?: System.getenv("GITHUB_REF_NAME")
         ?: return Conf.BASE_VERSION
 
     // For main branch, use the base version
