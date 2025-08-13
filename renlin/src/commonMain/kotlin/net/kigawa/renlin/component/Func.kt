@@ -21,14 +21,12 @@ fun <CONTENT_CATEGORY: ContentCategory, TAG: Tag<CONTENT_CATEGORY>> Component<TA
 fun <CONTENT_CATEGORY: ContentCategory> component(
   block: StatedDsl<CONTENT_CATEGORY>.() -> Unit,
 ): Component0<Tag<in CONTENT_CATEGORY>, in CONTENT_CATEGORY> {
-  println("component start $block")
   return object: Component0<Tag<CONTENT_CATEGORY>, CONTENT_CATEGORY> {
     override fun render(
       parentDsl: StatedDsl<out
       CONTENT_CATEGORY>,
       key: String?,
     ) {
-      println("component")
       @OptIn(ExperimentalUuidApi::class)
       val nonNullKey = key ?: Uuid.random().toString()
       val state = parentDsl.dslState.getOrCreateSubDslState(nonNullKey, this)
@@ -38,9 +36,7 @@ fun <CONTENT_CATEGORY: ContentCategory> component(
           return parentDsl.applyElement(element)
         }
       }
-      println("component newDsl")
       newDsl.block()
-      println("component end")
       parentDsl.registerSubDsl(
         RegisteredDslData(
           newDsl,
