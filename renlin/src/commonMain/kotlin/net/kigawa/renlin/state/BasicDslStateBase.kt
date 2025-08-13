@@ -7,7 +7,7 @@ import net.kigawa.renlin.css.createCssManager
 import net.kigawa.renlin.dsl.RegisteredDslData
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.tag.Tag
-import net.kigawa.renlin.tag.component.Component
+import net.kigawa.renlin.component.Component
 import net.kigawa.renlin.w3c.element.TagNode
 
 /**
@@ -44,7 +44,7 @@ abstract class BasicDslStateBase(
      *
      *
      */
-    override fun getOrCreateSubDslState(key: String, second: Component): DslState {
+    override fun getOrCreateSubDslState(key: String, second: Component<*>): DslState {
         return subStates.firstOrNull { it.key == key } ?: SubBasicDslState(
             key, this, second, stateContext.newStateContext()
         ).also {

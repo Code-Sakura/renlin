@@ -4,7 +4,7 @@ import net.kigawa.renlin.w3c.category.native.FlowPalpablePhrasingUnion
 
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
-import net.kigawa.renlin.tag.component.TagComponent1
+import net.kigawa.renlin.component.TagComponent1
 import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.state.DslState
 import net.kigawa.renlin.w3c.category.ContentCategory
@@ -22,7 +22,7 @@ class SpanDsl(dslState: DslState):
     }
 }
 
-val span = TagComponent1<Span, SpanDsl>(Span, ::SpanDsl)
+val span = TagComponent1(Span, ::SpanDsl)
 
 object Span : Tag<FlowPalpablePhrasingUnion> {
     override val name: String

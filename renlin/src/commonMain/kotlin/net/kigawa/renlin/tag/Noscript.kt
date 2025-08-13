@@ -4,7 +4,7 @@ import net.kigawa.renlin.w3c.category.native.FlowMetadataPhrasingUnion
 import net.kigawa.renlin.w3c.category.integration.FlowMetadataPhrasingIntegration
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
-import net.kigawa.renlin.tag.component.TagComponent1
+import net.kigawa.renlin.component.TagComponent1
 import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.state.DslState
 import net.kigawa.renlin.w3c.category.dsl.FlowMetadataPhrasingDsl
@@ -24,7 +24,7 @@ class NoscriptDsl(dslState: DslState):
     }
 }
 
-val noscript = TagComponent1<Noscript, NoscriptDsl>(Noscript, ::NoscriptDsl)
+val noscript = TagComponent1(Noscript, ::NoscriptDsl)
 
 object Noscript : Tag<FlowMetadataPhrasingUnion> {
     override val name: String

@@ -4,7 +4,7 @@ import net.kigawa.renlin.NotingContent
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.state.DslState
-import net.kigawa.renlin.tag.component.TagComponent1
+import net.kigawa.renlin.component.TagComponent1
 import net.kigawa.renlin.w3c.category.native.PhrasingContent
 
 import net.kigawa.renlin.w3c.element.TagNode
@@ -23,7 +23,7 @@ class TextDsl(dslState: DslState) : DslBase<NotingContent>(dslState), StatedDsl<
     }
 }
 
-val text = TagComponent1<TextTag, TextDsl>(TextTag, ::TextDsl)
+val text = TagComponent1(TextTag, ::TextDsl)
 
 object TextTag : Tag<PhrasingContent> {
     override val name: String

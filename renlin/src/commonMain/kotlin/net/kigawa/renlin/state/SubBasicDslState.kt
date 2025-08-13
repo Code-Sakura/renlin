@@ -8,8 +8,8 @@ import net.kigawa.renlin.css.CssManager
 import net.kigawa.renlin.dsl.RegisteredDslData
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.tag.Tag
-import net.kigawa.renlin.tag.component.Component
-import net.kigawa.renlin.tag.component.TagComponent
+import net.kigawa.renlin.component.Component
+import net.kigawa.renlin.component.TagComponent
 import net.kigawa.renlin.w3c.element.TagNode
 
 /**
@@ -30,7 +30,7 @@ class SubBasicDslState(
     /** 親のDSL状態 */
     private val parent: BasicDslStateBase,
     /** 子DSLのコンポーネント情報 */
-    component: Component,
+    component: Component<*>,
     /** 状態管理のコンテキスト */
     stateContext: StateContext,
 ) : BasicDslStateBase(stateContext), DslState {

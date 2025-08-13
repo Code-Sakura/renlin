@@ -4,7 +4,7 @@ import net.kigawa.renlin.w3c.category.native.FlowPhrasingUnion
 
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
-import net.kigawa.renlin.tag.component.TagComponent1
+import net.kigawa.renlin.component.TagComponent1
 import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.state.DslState
 import net.kigawa.renlin.w3c.category.ContentCategory
@@ -22,7 +22,7 @@ class WbrDsl(dslState: DslState):
     }
 }
 
-val wbr = TagComponent1<Wbr, WbrDsl>(Wbr, ::WbrDsl)
+val wbr = TagComponent1(Wbr, ::WbrDsl)
 
 object Wbr : Tag<FlowPhrasingUnion> {
     override val name: String

@@ -4,7 +4,7 @@ import net.kigawa.renlin.w3c.category.native.FlowPalpableSectioningUnion
 
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
-import net.kigawa.renlin.tag.component.TagComponent1
+import net.kigawa.renlin.component.TagComponent1
 import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.state.DslState
 import net.kigawa.renlin.w3c.category.ContentCategory
@@ -22,7 +22,7 @@ class SectionDsl(dslState: DslState):
     }
 }
 
-val section = TagComponent1<Section, SectionDsl>(Section, ::SectionDsl)
+val section = TagComponent1(Section, ::SectionDsl)
 
 object Section : Tag<FlowPalpableSectioningUnion> {
     override val name: String
