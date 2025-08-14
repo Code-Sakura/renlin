@@ -1,6 +1,5 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.w3c.category.native.FlowInteractivePalpablePhrasingUnion
 import net.kigawa.renlin.w3c.category.integration.FlowInteractivePalpablePhrasingIntegration
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
@@ -26,7 +25,7 @@ class ADsl(dslState: DslState):
 
 val a = TagComponent1(A, ::ADsl)
 
-object A : Tag<FlowInteractivePalpablePhrasingUnion> {
+object A : Tag<FlowInteractivePalpablePhrasingIntegration> {
     override val name: String
         get() = "a"
 }

@@ -1,6 +1,5 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.w3c.category.native.FlowMetadataPhrasingScriptSupportingUnion
 import net.kigawa.renlin.w3c.category.integration.FlowMetadataPhrasingScriptSupportingIntegration
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
@@ -26,7 +25,7 @@ class ScriptDsl(dslState: DslState):
 
 val script = TagComponent1(Script, ::ScriptDsl)
 
-object Script : Tag<FlowMetadataPhrasingScriptSupportingUnion> {
+object Script : Tag<FlowMetadataPhrasingScriptSupportingIntegration> {
     override val name: String
         get() = "script"
 }

@@ -3,7 +3,7 @@ package net.kigawa.renlin.w3c.category.native
 import net.kigawa.renlin.w3c.category.ContentCategory
 
 /**
- * Union to FlowHeadingPalpableUnion, FlowHeadingUnion
+ * Integration to FlowHeadingPalpableIntegration, FlowHeadingIntegration
  * Parent: FlowContent
  */
-interface HeadingContent : FlowHeadingPalpableUnion, FlowHeadingUnion, ContentCategory, FlowContent
+interface HeadingContent : FlowHeadingPalpableIntegration, FlowHeadingIntegration, ContentCategory, FlowContent

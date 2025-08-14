@@ -1,7 +1,6 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.w3c.category.native.EmbeddedFlowInteractivePalpablePhrasingUnion
-
+import net.kigawa.renlin.w3c.category.integration.EmbeddedFlowInteractivePalpablePhrasingIntegration
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.component.TagComponent1
@@ -24,7 +23,7 @@ class VideoDsl(dslState: DslState):
 
 val video = TagComponent1(Video, ::VideoDsl)
 
-object Video : Tag<EmbeddedFlowInteractivePalpablePhrasingUnion> {
+object Video : Tag<EmbeddedFlowInteractivePalpablePhrasingIntegration> {
     override val name: String
         get() = "video"
 }

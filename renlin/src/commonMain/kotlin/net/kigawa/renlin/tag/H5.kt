@@ -1,7 +1,6 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.w3c.category.native.FlowHeadingPalpableUnion
-
+import net.kigawa.renlin.w3c.category.integration.FlowHeadingPalpableIntegration
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.component.TagComponent1
@@ -24,7 +23,7 @@ class H5Dsl(dslState: DslState):
 
 val h5 = TagComponent1(H5, ::H5Dsl)
 
-object H5 : Tag<FlowHeadingPalpableUnion> {
+object H5 : Tag<FlowHeadingPalpableIntegration> {
     override val name: String
         get() = "h5"
 }

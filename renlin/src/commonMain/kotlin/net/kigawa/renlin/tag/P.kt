@@ -1,7 +1,7 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.w3c.category.native.FlowPalpableUnion
-import net.kigawa.renlin.w3c.category.native.PhrasingContent
+import net.kigawa.renlin.w3c.category.integration.FlowPalpableIntegration
+    import net.kigawa.renlin.w3c.category.native.PhrasingContent
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.component.TagComponent1
@@ -26,7 +26,7 @@ class PDsl(dslState: DslState):
 
 val p = TagComponent1(P, ::PDsl)
 
-object P : Tag<FlowPalpableUnion> {
+object P : Tag<FlowPalpableIntegration> {
     override val name: String
         get() = "p"
 }

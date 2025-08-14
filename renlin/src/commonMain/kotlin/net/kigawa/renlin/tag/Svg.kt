@@ -1,6 +1,5 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.w3c.category.native.EmbeddedFlowPalpablePhrasingUnion
 import net.kigawa.renlin.w3c.category.integration.EmbeddedFlowPalpablePhrasingIntegration
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
@@ -26,7 +25,7 @@ class SvgDsl(dslState: DslState):
 
 val svg = TagComponent1(Svg, ::SvgDsl)
 
-object Svg : Tag<EmbeddedFlowPalpablePhrasingUnion> {
+object Svg : Tag<EmbeddedFlowPalpablePhrasingIntegration> {
     override val name: String
         get() = "svg"
 }

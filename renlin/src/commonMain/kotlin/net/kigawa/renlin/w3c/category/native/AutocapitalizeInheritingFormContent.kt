@@ -3,7 +3,7 @@ package net.kigawa.renlin.w3c.category.native
 import net.kigawa.renlin.w3c.category.ContentCategory
 
 /**
- * Union to AutocapitalizeInheritingFormFlowFormAssociatedPalpableUnion
+ * Integration to AutocapitalizeInheritingFormFlowFormAssociatedPalpableIntegration
  * 
  */
-interface AutocapitalizeInheritingFormContent : AutocapitalizeInheritingFormFlowFormAssociatedPalpableUnion, ContentCategory
+interface AutocapitalizeInheritingFormContent : AutocapitalizeInheritingFormFlowFormAssociatedPalpableIntegration, ContentCategory

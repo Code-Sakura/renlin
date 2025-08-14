@@ -1,7 +1,6 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.w3c.category.native.FlowPalpableSectioningUnion
-
+import net.kigawa.renlin.w3c.category.integration.FlowPalpableSectioningIntegration
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.component.TagComponent1
@@ -24,7 +23,7 @@ class AsideDsl(dslState: DslState):
 
 val aside = TagComponent1(Aside, ::AsideDsl)
 
-object Aside : Tag<FlowPalpableSectioningUnion> {
+object Aside : Tag<FlowPalpableSectioningIntegration> {
     override val name: String
         get() = "aside"
 }

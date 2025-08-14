@@ -1,6 +1,5 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.w3c.category.native.FlowMetadataPhrasingUnion
 import net.kigawa.renlin.w3c.category.integration.FlowMetadataPhrasingIntegration
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
@@ -26,7 +25,7 @@ class MetaDsl(dslState: DslState):
 
 val meta = TagComponent1(Meta, ::MetaDsl)
 
-object Meta : Tag<FlowMetadataPhrasingUnion> {
+object Meta : Tag<FlowMetadataPhrasingIntegration> {
     override val name: String
         get() = "meta"
 }

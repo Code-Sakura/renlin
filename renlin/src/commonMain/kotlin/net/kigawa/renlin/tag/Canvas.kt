@@ -1,6 +1,5 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.w3c.category.native.EmbeddedFlowPalpablePhrasingUnion
 import net.kigawa.renlin.w3c.category.integration.EmbeddedFlowPalpablePhrasingIntegration
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
@@ -26,7 +25,7 @@ class CanvasDsl(dslState: DslState):
 
 val canvas = TagComponent1(Canvas, ::CanvasDsl)
 
-object Canvas : Tag<EmbeddedFlowPalpablePhrasingUnion> {
+object Canvas : Tag<EmbeddedFlowPalpablePhrasingIntegration> {
     override val name: String
         get() = "canvas"
 }

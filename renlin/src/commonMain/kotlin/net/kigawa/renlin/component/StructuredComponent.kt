@@ -15,7 +15,6 @@ interface StructuredComponent<
   fun newDsl(dslState: DslState): DSL
   @OptIn(ExperimentalUuidApi::class)
   override fun render(parentDsl: StatedDsl<out CONTENT_CATEGORY>, arg1: DSL.() -> Unit, key: String?) {
-    println("render start $arg1")
     val nonNullKey = key ?: Uuid.random().toString()
     val dslState = parentDsl.dslState.getOrCreateSubDslState(nonNullKey, this)
     val dsl = newDsl(dslState)

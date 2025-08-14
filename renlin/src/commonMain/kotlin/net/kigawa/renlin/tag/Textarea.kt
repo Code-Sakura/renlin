@@ -1,7 +1,6 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.w3c.category.native.FlowFormAssociatedInteractivePalpablePhrasingUnion
-
+import net.kigawa.renlin.w3c.category.integration.FlowFormAssociatedInteractivePalpablePhrasingIntegration
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.component.TagComponent1
@@ -24,7 +23,7 @@ class TextareaDsl(dslState: DslState):
 
 val textarea = TagComponent1(Textarea, ::TextareaDsl)
 
-object Textarea : Tag<FlowFormAssociatedInteractivePalpablePhrasingUnion> {
+object Textarea : Tag<FlowFormAssociatedInteractivePalpablePhrasingIntegration> {
     override val name: String
         get() = "textarea"
 }

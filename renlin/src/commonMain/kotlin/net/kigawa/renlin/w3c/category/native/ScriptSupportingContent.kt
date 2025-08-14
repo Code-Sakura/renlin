@@ -3,7 +3,7 @@ package net.kigawa.renlin.w3c.category.native
 import net.kigawa.renlin.w3c.category.ContentCategory
 
 /**
- * Union to FlowMetadataPhrasingScriptSupportingUnion
+ * Integration to FlowMetadataPhrasingScriptSupportingIntegration
  * 
  */
-interface ScriptSupportingContent : FlowMetadataPhrasingScriptSupportingUnion, ContentCategory
+interface ScriptSupportingContent : FlowMetadataPhrasingScriptSupportingIntegration, ContentCategory

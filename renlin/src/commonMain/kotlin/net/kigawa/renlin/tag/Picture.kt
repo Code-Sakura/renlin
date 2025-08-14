@@ -1,6 +1,5 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.w3c.category.native.EmbeddedFlowPalpablePhrasingUnion
 import net.kigawa.renlin.w3c.category.integration.EmbeddedFlowPalpablePhrasingIntegration
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
@@ -26,7 +25,7 @@ class PictureDsl(dslState: DslState):
 
 val picture = TagComponent1(Picture, ::PictureDsl)
 
-object Picture : Tag<EmbeddedFlowPalpablePhrasingUnion> {
+object Picture : Tag<EmbeddedFlowPalpablePhrasingIntegration> {
     override val name: String
         get() = "picture"
 }
