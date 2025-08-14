@@ -1,6 +1,5 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.w3c.category.native.FlowFormAssociatedInteractivePalpablePhrasingUnion
 import net.kigawa.renlin.w3c.category.integration.FlowFormAssociatedInteractivePalpablePhrasingIntegration
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
@@ -26,7 +25,7 @@ class ButtonDsl(dslState: DslState):
 
 val button = TagComponent1(Button, ::ButtonDsl)
 
-object Button : Tag<FlowFormAssociatedInteractivePalpablePhrasingUnion> {
+object Button : Tag<FlowFormAssociatedInteractivePalpablePhrasingIntegration> {
     override val name: String
         get() = "button"
 }

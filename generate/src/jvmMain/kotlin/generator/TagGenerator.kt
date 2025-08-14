@@ -10,24 +10,36 @@ class TagGenerator(
         // 各タグのクラスを生成
         tagCategories.forEach { tagInfo ->
 
-            val fileContent = """
-            package net.kigawa.renlin.tag
+            val imports = mutableSetOf<String>()
 
-            import net.kigawa.renlin.w3c.category.native.${tagInfo.tagCategories.connectedStr("Union")}
-            ${
-                if (tagInfo.allowedCategories.categories.size > 1)
+            if (tagInfo.tagCategories.categories.size > 1)
+                imports.add(
+                    "import net.kigawa.renlin.w3c.category.integration.${
+                        tagInfo.tagCategories.connectedStr(
+                            "Integration"
+                        )
+                    }"
+                )
+            else imports.add("import net.kigawa.renlin.w3c.category.native.${tagInfo.tagCategories.connectedStr()}")
+            if (tagInfo.allowedCategories.categories.size > 1)
+                imports.add(
                     "import net.kigawa.renlin.w3c.category.integration.${
                         tagInfo.allowedCategories.connectedStr("Integration")
                     }"
-                else if (
-                    tagInfo.allowedCategories.categories.isNotEmpty() &&
-                    tagInfo.tagCategories.connectedStr("Union") !=
-                    tagInfo.allowedCategories.connectedStr("Integration")
-                ) "import net.kigawa.renlin.w3c.category.native.${
-                    tagInfo.allowedCategories.connectedStr("Integration")
+                )
+            else if (
+                tagInfo.allowedCategories.categories.isNotEmpty() &&
+                tagInfo.tagCategories.connectedStr("Integration") !=
+                tagInfo.allowedCategories.connectedStr("Integration")
+            ) imports.add(
+                "import net.kigawa.renlin.w3c.category.native.${
+                    tagInfo.allowedCategories.connectedStr()
                 }"
-                else ""
-            }
+            )
+            val fileContent = """
+            package net.kigawa.renlin.tag
+ 
+            ${imports.distinct().joinToString("\n                ")}
             import net.kigawa.renlin.dsl.DslBase
             import net.kigawa.renlin.dsl.StatedDsl
             import net.kigawa.renlin.component.TagComponent1
@@ -49,7 +61,7 @@ class TagGenerator(
                 StatedDsl<${tagInfo.allowedCategories.connectedStr("Integration")}>${
                 if (tagInfo.allowedCategories.categories.isEmpty()) ""
                 else ",\n                ${tagInfo.allowedCategories.connectedStr()}" +
-                        "Dsl<${tagInfo.allowedCategories.connectedStr("Integration")}>"
+                    "Dsl<${tagInfo.allowedCategories.connectedStr("Integration")}>"
             } {
                 override fun applyElement(element: TagNode): ()->Unit {
                     return {}
@@ -58,7 +70,7 @@ class TagGenerator(
 
             val ${tagInfo.escapement} = TagComponent1(${tagInfo.className}, ::${tagInfo.className}Dsl)
 
-            object ${tagInfo.className} : Tag<${tagInfo.tagCategories.connectedStr("Union")}> {
+            object ${tagInfo.className} : Tag<${tagInfo.tagCategories.connectedStr("Integration")}> {
                 override val name: String
                     get() = "${tagInfo.name}"
             }

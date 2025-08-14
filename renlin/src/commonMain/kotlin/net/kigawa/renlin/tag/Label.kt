@@ -1,7 +1,6 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.w3c.category.native.FlowInteractivePalpablePhrasingUnion
-
+import net.kigawa.renlin.w3c.category.integration.FlowInteractivePalpablePhrasingIntegration
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.component.TagComponent1
@@ -24,7 +23,7 @@ class LabelDsl(dslState: DslState):
 
 val label = TagComponent1(Label, ::LabelDsl)
 
-object Label : Tag<FlowInteractivePalpablePhrasingUnion> {
+object Label : Tag<FlowInteractivePalpablePhrasingIntegration> {
     override val name: String
         get() = "label"
 }

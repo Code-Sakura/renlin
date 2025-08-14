@@ -1,7 +1,6 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.w3c.category.native.FlowPalpablePhrasingUnion
-
+import net.kigawa.renlin.w3c.category.integration.FlowPalpablePhrasingIntegration
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.component.TagComponent1
@@ -24,7 +23,7 @@ class StrongDsl(dslState: DslState):
 
 val strong = TagComponent1(Strong, ::StrongDsl)
 
-object Strong : Tag<FlowPalpablePhrasingUnion> {
+object Strong : Tag<FlowPalpablePhrasingIntegration> {
     override val name: String
         get() = "strong"
 }

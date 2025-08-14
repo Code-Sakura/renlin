@@ -1,6 +1,5 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.w3c.category.native.FlowPalpableUnion
 import net.kigawa.renlin.w3c.category.integration.FlowPalpableIntegration
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
@@ -26,7 +25,7 @@ class FormDsl(dslState: DslState):
 
 val form = TagComponent1(Form, ::FormDsl)
 
-object Form : Tag<FlowPalpableUnion> {
+object Form : Tag<FlowPalpableIntegration> {
     override val name: String
         get() = "form"
 }

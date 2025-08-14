@@ -1,6 +1,5 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.w3c.category.native.EmbeddedFlowPalpablePhrasingUnion
 import net.kigawa.renlin.w3c.category.integration.EmbeddedFlowPalpablePhrasingIntegration
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
@@ -26,7 +25,7 @@ class MathDsl(dslState: DslState):
 
 val math = TagComponent1(Math, ::MathDsl)
 
-object Math : Tag<EmbeddedFlowPalpablePhrasingUnion> {
+object Math : Tag<EmbeddedFlowPalpablePhrasingIntegration> {
     override val name: String
         get() = "math"
 }

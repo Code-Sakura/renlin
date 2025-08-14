@@ -1,7 +1,6 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.w3c.category.native.FlowHeadingUnion
-
+import net.kigawa.renlin.w3c.category.integration.FlowHeadingIntegration
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.component.TagComponent1
@@ -24,7 +23,7 @@ class HgroupDsl(dslState: DslState):
 
 val hgroup = TagComponent1(Hgroup, ::HgroupDsl)
 
-object Hgroup : Tag<FlowHeadingUnion> {
+object Hgroup : Tag<FlowHeadingIntegration> {
     override val name: String
         get() = "hgroup"
 }

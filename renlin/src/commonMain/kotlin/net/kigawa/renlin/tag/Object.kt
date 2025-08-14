@@ -1,7 +1,6 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.w3c.category.native.EmbeddedFlowFormAssociatedInteractivePalpablePhrasingUnion
-
+import net.kigawa.renlin.w3c.category.integration.EmbeddedFlowFormAssociatedInteractivePalpablePhrasingIntegration
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.component.TagComponent1
@@ -24,7 +23,7 @@ class ObjectDsl(dslState: DslState):
 
 val `object` = TagComponent1(Object, ::ObjectDsl)
 
-object Object : Tag<EmbeddedFlowFormAssociatedInteractivePalpablePhrasingUnion> {
+object Object : Tag<EmbeddedFlowFormAssociatedInteractivePalpablePhrasingIntegration> {
     override val name: String
         get() = "object"
 }

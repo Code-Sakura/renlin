@@ -1,6 +1,5 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.w3c.category.native.FlowPalpableUnion
 import net.kigawa.renlin.w3c.category.integration.FlowPalpableIntegration
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
@@ -26,7 +25,7 @@ class AddressDsl(dslState: DslState):
 
 val address = TagComponent1(Address, ::AddressDsl)
 
-object Address : Tag<FlowPalpableUnion> {
+object Address : Tag<FlowPalpableIntegration> {
     override val name: String
         get() = "address"
 }

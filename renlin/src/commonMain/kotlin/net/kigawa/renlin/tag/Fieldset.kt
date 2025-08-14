@@ -1,6 +1,5 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.w3c.category.native.AutocapitalizeInheritingFormFlowFormAssociatedPalpableUnion
 import net.kigawa.renlin.w3c.category.integration.AutocapitalizeInheritingFormFlowFormAssociatedPalpableIntegration
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
@@ -26,7 +25,7 @@ class FieldsetDsl(dslState: DslState):
 
 val fieldset = TagComponent1(Fieldset, ::FieldsetDsl)
 
-object Fieldset : Tag<AutocapitalizeInheritingFormFlowFormAssociatedPalpableUnion> {
+object Fieldset : Tag<AutocapitalizeInheritingFormFlowFormAssociatedPalpableIntegration> {
     override val name: String
         get() = "fieldset"
 }
