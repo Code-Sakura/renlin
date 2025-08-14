@@ -1,7 +1,6 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.w3c.category.native.FlowPhrasingUnion
-
+import net.kigawa.renlin.w3c.category.integration.FlowPhrasingIntegration
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.component.TagComponent1
@@ -24,7 +23,7 @@ class BrDsl(dslState: DslState):
 
 val br = TagComponent1(Br, ::BrDsl)
 
-object Br : Tag<FlowPhrasingUnion> {
+object Br : Tag<FlowPhrasingIntegration> {
     override val name: String
         get() = "br"
 }

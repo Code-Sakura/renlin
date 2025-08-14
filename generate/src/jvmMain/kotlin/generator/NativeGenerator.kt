@@ -13,7 +13,7 @@ class NativeGenerator(val categoryNativeOutputDir: String) {
             allParentCategories.putAll(tagInfo.allowedCategories.parentCategories)
         }
 
-        // Unionクラスの生成
+        // Integrationクラスの生成
         categories.forEach { (name, deps) ->
             val categoryName = name
 
@@ -33,7 +33,7 @@ class NativeGenerator(val categoryNativeOutputDir: String) {
                 import net.kigawa.renlin.w3c.category.ContentCategory
 
                 /**
-                 * Union to ${deps.joinToString(", ")}
+                 * Integration to ${deps.joinToString(", ")}
                  * ${if (parentCategory != null) "Parent: $parentCategory" else ""}
                  */
                 interface $categoryName : $interfaces

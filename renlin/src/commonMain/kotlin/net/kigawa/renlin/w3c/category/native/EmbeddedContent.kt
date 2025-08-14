@@ -3,7 +3,7 @@ package net.kigawa.renlin.w3c.category.native
 import net.kigawa.renlin.w3c.category.ContentCategory
 
 /**
- * Union to EmbeddedFlowInteractivePalpablePhrasingUnion, EmbeddedFlowFormAssociatedInteractivePalpablePhrasingUnion, EmbeddedFlowPalpablePhrasingUnion
+ * Integration to EmbeddedFlowInteractivePalpablePhrasingIntegration, EmbeddedFlowFormAssociatedInteractivePalpablePhrasingIntegration, EmbeddedFlowPalpablePhrasingIntegration
  * Parent: PhrasingContent
  */
-interface EmbeddedContent : EmbeddedFlowInteractivePalpablePhrasingUnion, EmbeddedFlowFormAssociatedInteractivePalpablePhrasingUnion, EmbeddedFlowPalpablePhrasingUnion, ContentCategory, PhrasingContent
+interface EmbeddedContent : EmbeddedFlowInteractivePalpablePhrasingIntegration, EmbeddedFlowFormAssociatedInteractivePalpablePhrasingIntegration, EmbeddedFlowPalpablePhrasingIntegration, ContentCategory, PhrasingContent

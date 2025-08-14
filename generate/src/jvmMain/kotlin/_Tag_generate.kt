@@ -2,28 +2,22 @@ import generator.DslGenerator
 import generator.IntegrationGenerator
 import generator.NativeGenerator
 import generator.TagGenerator
-import generator.UnionGenerator
 import java.io.File
 
 fun main() {
     // 出力先ディレクトリ
     val outputDir = "../renlin/src/commonMain/kotlin/net/kigawa/renlin/tag"
     val categoryOutputDir = "../renlin/src/commonMain/kotlin/net/kigawa/renlin/w3c/category"
-    val categoryUnionOutputDir = "$categoryOutputDir/native"
     val categoryIntegrationOutputDir = "$categoryOutputDir/integration"
     val categoryDslOutputDir = "$categoryOutputDir/dsl"
     val categoryNativeOutputDir = "$categoryOutputDir/native"
     File(outputDir).mkdirs()
     File(categoryOutputDir).mkdirs()
-    File(categoryUnionOutputDir).mkdirs()
     File(categoryIntegrationOutputDir).mkdirs()
     File(categoryDslOutputDir).mkdirs()
     File(categoryNativeOutputDir).mkdirs()
 
     val tagGenerator = TagGenerator(outputDir).also {
-        it.generate()
-    }
-    val unionGenerator = UnionGenerator(categoryUnionOutputDir).also {
         it.generate()
     }
     val integrationGenerator = IntegrationGenerator(categoryIntegrationOutputDir).also {
@@ -33,11 +27,10 @@ fun main() {
         it.generate()
     }
     val nativeGenerator = NativeGenerator(categoryNativeOutputDir).also {
-        it.generate(unionGenerator.nativeCategories)
+        it.generate(integrationGenerator.nativeCategories)
     }
 
     println("タグのコード生成が完了しました。")
-    println("生成されたUnionクラス: ${unionGenerator.processedUnions.size}")
     println("生成されたIntegrationクラス: ${integrationGenerator.processedIntegrations.size}")
     println("生成されたDSLクラス: ${dslGenerator.processedDsls.size}")
 }
