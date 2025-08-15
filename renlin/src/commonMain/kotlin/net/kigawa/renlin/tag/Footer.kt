@@ -1,11 +1,13 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.w3c.category.integration.FlowPalpableIntegration
+import net.kigawa.renlin.w3c.category.integration.FlowPalpable
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.component.TagComponent1
+import net.kigawa.renlin.component.Component
 import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.state.DslState
+import net.kigawa.renlin.w3c.category.native.FooterCategory
 import net.kigawa.renlin.w3c.category.ContentCategory
 
 /**
@@ -23,7 +25,7 @@ class FooterDsl(dslState: DslState):
 
 val footer = TagComponent1(Footer, ::FooterDsl)
 
-object Footer : Tag<FlowPalpableIntegration> {
+object Footer : Tag<FooterCategory> {
     override val name: String
         get() = "footer"
 }

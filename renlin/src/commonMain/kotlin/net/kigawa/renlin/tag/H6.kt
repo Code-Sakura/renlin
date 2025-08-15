@@ -1,11 +1,13 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.w3c.category.integration.FlowHeadingPalpableIntegration
+import net.kigawa.renlin.w3c.category.integration.FlowHeadingPalpable
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.component.TagComponent1
+import net.kigawa.renlin.component.Component
 import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.state.DslState
+import net.kigawa.renlin.w3c.category.native.H6Category
 import net.kigawa.renlin.w3c.category.ContentCategory
 
 /**
@@ -23,7 +25,7 @@ class H6Dsl(dslState: DslState):
 
 val h6 = TagComponent1(H6, ::H6Dsl)
 
-object H6 : Tag<FlowHeadingPalpableIntegration> {
+object H6 : Tag<H6Category> {
     override val name: String
         get() = "h6"
 }

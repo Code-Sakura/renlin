@@ -6,6 +6,7 @@ import net.kigawa.renlin.component.argComponent
 import net.kigawa.renlin.component.component
 import net.kigawa.renlin.css.*
 import net.kigawa.renlin.dsl.StatedDsl
+import net.kigawa.renlin.tag.a
 import net.kigawa.renlin.tag.div
 import net.kigawa.renlin.tag.fragment
 import net.kigawa.renlin.tag.p
@@ -21,6 +22,7 @@ class Sub {
 
     val display = div.argComponent { block: StatedDsl<out FlowContent>.() -> Unit ->
         div("hero-section") {
+            a {}
             block()
             t("Renlin")
             css {

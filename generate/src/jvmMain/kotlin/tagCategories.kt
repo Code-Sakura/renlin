@@ -4,12 +4,13 @@ import model.TagInfo
 
 // カテゴリーの親子関係を定義
 val categoryParents = mapOf(
-    "PhrasingContent" to "FlowContent",
+    "PhrasingContent" to "P",
+    "FlowContent" to "P, Div",
+    "FlowPhrasing" to "FlowContent, PhrasingContent",
     "HeadingContent" to "FlowContent",
     "SectioningContent" to "FlowContent",
     "EmbeddedContent" to "PhrasingContent",
     "InteractiveContent" to "PhrasingContent",
-    "FlowContent" to "EventTarget",
     "MetaDataContent" to "FlowContent",
     "PhrasingPhrasingContent" to "PhrasingContent",
     "FlowPhrasingContent" to "FlowContent",
@@ -19,10 +20,15 @@ val categoryParents = mapOf(
     "SectioningRoot" to "Any",
     "SectioningHeadings" to "HeadingContent",
     "FlowSectioningContent" to "FlowContent",
+    "P" to "",
+    "Div" to "",
 )
 
 // 元のコードの並び順を維持するためのタグリスト
 val tagCategories = setOf(
+    // Base interfaces
+    TagInfo("P", TagCategories("P"), AllowedCategories()),
+    TagInfo("Div", TagCategories("Div"), AllowedCategories()),
     // Main root
     TagInfo("html", TagCategories("FlowContent"), AllowedCategories("FlowContent")),
 

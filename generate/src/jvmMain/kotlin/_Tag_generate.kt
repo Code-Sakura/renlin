@@ -27,7 +27,7 @@ fun main() {
         it.generate()
     }
     val nativeGenerator = NativeGenerator(categoryNativeOutputDir).also {
-        it.generate(integrationGenerator.nativeCategories)
+        it.generate()
     }
 
     println("タグのコード生成が完了しました。")

@@ -19,10 +19,12 @@ class SampleComponent(
                 a {
                 }
             }
-            p {}
+            p {
+            }
             a {}
         }
 
 
     }
 }
+

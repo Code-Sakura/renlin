@@ -1,11 +1,13 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.w3c.category.integration.EmbeddedFlowPalpablePhrasingIntegration
+import net.kigawa.renlin.w3c.category.integration.EmbeddedFlowPalpablePhrasing
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.component.TagComponent1
+import net.kigawa.renlin.component.Component
 import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.state.DslState
+import net.kigawa.renlin.w3c.category.native.CanvasCategory
 import net.kigawa.renlin.w3c.category.dsl.EmbeddedFlowPalpablePhrasingDsl
 
 
@@ -15,9 +17,9 @@ import net.kigawa.renlin.w3c.category.dsl.EmbeddedFlowPalpablePhrasingDsl
  * model.Categories: FlowContent, PhrasingContent, EmbeddedContent, PalpableContent
  */
 class CanvasDsl(dslState: DslState): 
-    DslBase<EmbeddedFlowPalpablePhrasingIntegration>(dslState),
-    StatedDsl<EmbeddedFlowPalpablePhrasingIntegration>,
-    EmbeddedFlowPalpablePhrasingDsl<EmbeddedFlowPalpablePhrasingIntegration> {
+    DslBase<EmbeddedFlowPalpablePhrasing>(dslState),
+    StatedDsl<EmbeddedFlowPalpablePhrasing>,
+    EmbeddedFlowPalpablePhrasingDsl<EmbeddedFlowPalpablePhrasing> {
     override fun applyElement(element: TagNode): ()->Unit {
         return {}
     }
@@ -25,7 +27,7 @@ class CanvasDsl(dslState: DslState):
 
 val canvas = TagComponent1(Canvas, ::CanvasDsl)
 
-object Canvas : Tag<EmbeddedFlowPalpablePhrasingIntegration> {
+object Canvas : Tag<CanvasCategory> {
     override val name: String
         get() = "canvas"
 }
