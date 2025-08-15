@@ -1,13 +1,13 @@
 package net.kigawa.renlin.w3c.category.dsl
 
 
-import net.kigawa.renlin.w3c.category.integration.FlowFormAssociatedInteractivePalpablePhrasingIntegration
+import net.kigawa.renlin.w3c.category.integration.FlowFormAssociatedInteractivePalpablePhrasing
 
 
 /**
  * DSL for FlowContent, PhrasingContent, InteractiveContent, PalpableContent, FormAssociatedContent
  */
-interface FlowFormAssociatedInteractivePalpablePhrasingDsl<CATEGORY_DSL : FlowFormAssociatedInteractivePalpablePhrasingIntegration>:
+interface FlowFormAssociatedInteractivePalpablePhrasingDsl<CATEGORY_DSL : FlowFormAssociatedInteractivePalpablePhrasing>:
     FlowContentDsl<CATEGORY_DSL>,
     PhrasingContentDsl<CATEGORY_DSL>,
     InteractiveContentDsl<CATEGORY_DSL>,

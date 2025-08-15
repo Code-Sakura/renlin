@@ -4,8 +4,10 @@ import net.kigawa.renlin.w3c.category.native.FlowContent
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.component.TagComponent1
+import net.kigawa.renlin.component.Component
 import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.state.DslState
+import net.kigawa.renlin.w3c.category.native.HeadCategory
 import net.kigawa.renlin.w3c.category.dsl.FlowContentDsl
 
 
@@ -25,7 +27,7 @@ class HeadDsl(dslState: DslState):
 
 val head = TagComponent1(Head, ::HeadDsl)
 
-object Head : Tag<FlowContent> {
+object Head : Tag<HeadCategory> {
     override val name: String
         get() = "head"
 }

@@ -1,12 +1,12 @@
 package net.kigawa.renlin.w3c.category.dsl
 
 
-import net.kigawa.renlin.w3c.category.integration.FlowPalpableIntegration
+import net.kigawa.renlin.w3c.category.integration.FlowPalpable
 
 
 /**
  * DSL for FlowContent, PalpableContent
  */
-interface FlowPalpableDsl<CATEGORY_DSL : FlowPalpableIntegration>:
+interface FlowPalpableDsl<CATEGORY_DSL : FlowPalpable>:
     FlowContentDsl<CATEGORY_DSL>,
     PalpableContentDsl<CATEGORY_DSL>

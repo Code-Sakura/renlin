@@ -1,11 +1,13 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.w3c.category.integration.FlowPalpablePhrasingIntegration
+import net.kigawa.renlin.w3c.category.integration.FlowPalpablePhrasing
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.component.TagComponent1
+import net.kigawa.renlin.component.Component
 import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.state.DslState
+import net.kigawa.renlin.w3c.category.native.RubyCategory
 import net.kigawa.renlin.w3c.category.ContentCategory
 
 /**
@@ -23,7 +25,7 @@ class RubyDsl(dslState: DslState):
 
 val ruby = TagComponent1(Ruby, ::RubyDsl)
 
-object Ruby : Tag<FlowPalpablePhrasingIntegration> {
+object Ruby : Tag<RubyCategory> {
     override val name: String
         get() = "ruby"
 }

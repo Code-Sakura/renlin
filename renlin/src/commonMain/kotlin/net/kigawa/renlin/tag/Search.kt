@@ -1,11 +1,13 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.w3c.category.integration.FlowPalpableIntegration
+import net.kigawa.renlin.w3c.category.integration.FlowPalpable
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.component.TagComponent1
+import net.kigawa.renlin.component.Component
 import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.state.DslState
+import net.kigawa.renlin.w3c.category.native.SearchCategory
 import net.kigawa.renlin.w3c.category.ContentCategory
 
 /**
@@ -23,7 +25,7 @@ class SearchDsl(dslState: DslState):
 
 val search = TagComponent1(Search, ::SearchDsl)
 
-object Search : Tag<FlowPalpableIntegration> {
+object Search : Tag<SearchCategory> {
     override val name: String
         get() = "search"
 }

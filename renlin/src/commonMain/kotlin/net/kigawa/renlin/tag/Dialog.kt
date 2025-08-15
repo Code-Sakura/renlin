@@ -4,8 +4,10 @@ import net.kigawa.renlin.w3c.category.native.FlowContent
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.component.TagComponent1
+import net.kigawa.renlin.component.Component
 import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.state.DslState
+import net.kigawa.renlin.w3c.category.native.DialogCategory
 import net.kigawa.renlin.w3c.category.ContentCategory
 
 /**
@@ -23,7 +25,7 @@ class DialogDsl(dslState: DslState):
 
 val dialog = TagComponent1(Dialog, ::DialogDsl)
 
-object Dialog : Tag<FlowContent> {
+object Dialog : Tag<DialogCategory> {
     override val name: String
         get() = "dialog"
 }

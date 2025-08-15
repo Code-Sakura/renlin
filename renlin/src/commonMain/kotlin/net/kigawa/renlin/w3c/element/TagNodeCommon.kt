@@ -19,10 +19,16 @@ interface TagNodeCommon {
         prevData?.getAdditionalData<List<RegisteredEvent>>(this::class)
             ?.forEach { removeEventListener(it) }
         if (dslStateData == null) return
+        
+        // Handle href attribute
+        dslStateData.href?.let { setAttribute("href", it) }
+        
         listOfNotNull(
             dslStateData.onClick?.let { addEventListener(EventNames.click, it) }
         ).let { dslStateData.setAdditionalData(this::class, it) }
     }
 
     fun setClassName(className: String)
+    fun setAttribute(name: String, value: String)
+    fun getAttribute(name: String): String?
 }

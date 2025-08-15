@@ -70,4 +70,16 @@ class DomTagElement(
             node.className = newClasses.joinToString(" ")
         }
     }
+
+    override fun setAttribute(name: String, value: String) {
+        if (node is Element) {
+            node.setAttribute(name, value)
+        }
+    }
+
+    override fun getAttribute(name: String): String? {
+        return if (node is Element) {
+            node.getAttribute(name)
+        } else null
+    }
 }

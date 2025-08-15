@@ -4,8 +4,10 @@ import net.kigawa.renlin.w3c.category.native.MetadataContent
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.component.TagComponent1
+import net.kigawa.renlin.component.Component
 import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.state.DslState
+import net.kigawa.renlin.w3c.category.native.TitleCategory
 import net.kigawa.renlin.w3c.category.dsl.MetadataContentDsl
 
 
@@ -25,7 +27,7 @@ class TitleDsl(dslState: DslState):
 
 val title = TagComponent1(Title, ::TitleDsl)
 
-object Title : Tag<MetadataContent> {
+object Title : Tag<TitleCategory> {
     override val name: String
         get() = "title"
 }

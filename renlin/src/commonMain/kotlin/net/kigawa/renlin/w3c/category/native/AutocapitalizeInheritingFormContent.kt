@@ -1,9 +1,10 @@
 package net.kigawa.renlin.w3c.category.native
 
 import net.kigawa.renlin.w3c.category.ContentCategory
+import net.kigawa.renlin.w3c.category.native.FieldsetCategory
 
 /**
- * Integration to AutocapitalizeInheritingFormFlowFormAssociatedPalpableIntegration
+ * AutocapitalizeInheritingFormContent represents elements that are part of the autocapitalizeinheritingform content category.
  * 
  */
-interface AutocapitalizeInheritingFormContent : AutocapitalizeInheritingFormFlowFormAssociatedPalpableIntegration, ContentCategory
+interface AutocapitalizeInheritingFormContent : ContentCategory, FieldsetCategory

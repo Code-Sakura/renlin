@@ -1,12 +1,7 @@
 package net.kigawa.renlin.dsl
 
 import net.kigawa.hakate.api.state.State
-import net.kigawa.renlin.component.Component0
-import net.kigawa.renlin.component.Component1
-import net.kigawa.renlin.component.Component2
-import net.kigawa.renlin.component.Component3
-import net.kigawa.renlin.component.Component4
-import net.kigawa.renlin.component.StructuredComponent
+import net.kigawa.renlin.component.*
 import net.kigawa.renlin.state.DslState
 import net.kigawa.renlin.tag.Fragment
 import net.kigawa.renlin.tag.Tag
@@ -30,41 +25,41 @@ import net.kigawa.renlin.w3c.element.TagNode
  *
  * @param CONTENT_CATEGORY このDSLが生成できるHTMLコンテンツのカテゴリ
  */
-interface StatedDsl<CONTENT_CATEGORY: ContentCategory>: Dsl {
-  /**
-   * 現在のDSLに関連付けられた状態。
-   * この状態はDSLの動作と描画を制御します。
-   */
-  val dslState: DslState
+interface StatedDsl< CONTENT_CATEGORY: ContentCategory>: Dsl {
+    /**
+     * 現在のDSLに関連付けられた状態。
+     * この状態はDSLの動作と描画を制御します。
+     */
+    val dslState: DslState
 
-  /**
-   * サブDSLを現在のDSLに登録します。
-   *
-   * @param registeredDslData 登録するDSLのデータ
-   */
-  fun registerSubDsl(registeredDslData: RegisteredDslData)
+    /**
+     * サブDSLを現在のDSLに登録します。
+     *
+     * @param registeredDslData 登録するDSLのデータ
+     */
+    fun registerSubDsl(registeredDslData: RegisteredDslData)
 
-  /**
-   * 指定された状態をDSLにマウントします。
-   * これにより、DSLの状態が更新され、関連するサブDSLも更新されます。
-   *
-   * @param state マウントする状態
-   * @param registeredDslData 関連するDSLデータ
-   */
-  fun applyToDslState(state: DslState, registeredDslData: RegisteredDslData)
+    /**
+     * 指定された状態をDSLにマウントします。
+     * これにより、DSLの状態が更新され、関連するサブDSLも更新されます。
+     *
+     * @param state マウントする状態
+     * @param registeredDslData 関連するDSLデータ
+     */
+    fun applyToDslState(state: DslState, registeredDslData: RegisteredDslData)
 
-  /**
-   * 指定された要素をDSLに適用します。
-   *
-   * @param element 適用するHTML要素
-   * @return 要素の適用を取り消すための関数
-   */
-  fun applyElement(element: TagNode): () -> Unit
+    /**
+     * 指定された要素をDSLに適用します。
+     *
+     * @param element 適用するHTML要素
+     * @return 要素の適用を取り消すための関数
+     */
+    fun applyElement(element: TagNode): () -> Unit
 
 
-  operator fun <TAG: Tag<in CONTENT_CATEGORY>> Component0<TAG, in CONTENT_CATEGORY>.invoke(
-    key: String? = null,
-  ) = this.render(this@StatedDsl, key)
+    operator fun <TAG: Tag<in CONTENT_CATEGORY>> Component0<TAG, in CONTENT_CATEGORY>.invoke(
+        key: String? = null,
+    ) = this.render(this@StatedDsl, key)
 
   /**
    * コンポーネントを呼び出し、レンダリングするための演算子オーバーロード。
@@ -125,17 +120,17 @@ interface StatedDsl<CONTENT_CATEGORY: ContentCategory>: Dsl {
   }
 
 
-  /**
-   * フラグメントコンポーネント。
-   * これは、複数の要素をグループ化するためのコンテナとして機能します。
-   */
-  val fragment: StructuredComponent<Tag<CONTENT_CATEGORY>, CONTENT_CATEGORY, out StatedDsl<CONTENT_CATEGORY>>
-    get() = Fragment.create<CONTENT_CATEGORY>()
+    /**
+     * フラグメントコンポーネント。
+     * これは、複数の要素をグループ化するためのコンテナとして機能します。
+     */
+    val fragment: StructuredComponent<Tag<CONTENT_CATEGORY>, CONTENT_CATEGORY, out StatedDsl<CONTENT_CATEGORY>>
+        get() = Fragment.create<CONTENT_CATEGORY>()
 
-  /**
-   * 状態の現在の値を取得し、この状態をDSLの状態セットに追加します。
-   *
-   * @return 状態の現在の値
-   */
-  fun <T> State<T>.useValue(): T
+    /**
+     * 状態の現在の値を取得し、この状態をDSLの状態セットに追加します。
+     *
+     * @return 状態の現在の値
+     */
+    fun <T> State<T>.useValue(): T
 }

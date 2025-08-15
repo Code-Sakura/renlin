@@ -1,11 +1,13 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.w3c.category.integration.FlowPalpableSectioningIntegration
+import net.kigawa.renlin.w3c.category.integration.FlowPalpableSectioning
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.component.TagComponent1
+import net.kigawa.renlin.component.Component
 import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.state.DslState
+import net.kigawa.renlin.w3c.category.native.AsideCategory
 import net.kigawa.renlin.w3c.category.ContentCategory
 
 /**
@@ -23,7 +25,7 @@ class AsideDsl(dslState: DslState):
 
 val aside = TagComponent1(Aside, ::AsideDsl)
 
-object Aside : Tag<FlowPalpableSectioningIntegration> {
+object Aside : Tag<AsideCategory> {
     override val name: String
         get() = "aside"
 }
