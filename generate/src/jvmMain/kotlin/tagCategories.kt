@@ -17,11 +17,12 @@ val categoryParents = mapOf(
     "MetaDataPhrasingContent" to "MetaDataContent",
     "FlowMetaDataContent" to "FlowContent",
     "HeadingPhrasingContent" to "HeadingContent",
-    "SectioningRoot" to "Any",
+    "SectioningRoot" to "",
     "SectioningHeadings" to "HeadingContent",
     "FlowSectioningContent" to "FlowContent",
     "P" to "",
     "Div" to "",
+    "EventTarget" to "",
 )
 
 // 元のコードの並び順を維持するためのタグリスト

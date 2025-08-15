@@ -14,6 +14,11 @@ class NativeGenerator(val categoryNativeOutputDir: String) {
             // 各タグ専用のCategoryインターフェースも追加
             usedNativeCategories.add("${tagInfo.className}Category")
         }
+        
+        // categoryParentsで定義されているがタグで使用されていないカテゴリも追加（EventTargetなど）
+        categoryParents.keys.forEach { categoryName ->
+            usedNativeCategories.add(categoryName)
+        }
 
         // 親カテゴリーの情報を収集
         val allParentCategories = categoryParents.toMutableMap()
@@ -46,12 +51,24 @@ class NativeGenerator(val categoryNativeOutputDir: String) {
 
             val fileContent = when {
                 parentCategory?.isEmpty() == true && !categoryName.endsWith("Category") -> {
-                    // P, Divの場合は基本インターフェースのみ
-                    """
-                        package net.kigawa.renlin.w3c.category.native
+                    // P, Div, EventTargetの場合
+                    if (categoryName == "EventTarget") {
+                        // EventTargetはContentCategoryを継承
+                        """
+                            package net.kigawa.renlin.w3c.category.native
 
-                        interface $categoryName
-                    """.trimIndent()
+                            import net.kigawa.renlin.w3c.category.ContentCategory
+
+                            interface $categoryName : ContentCategory
+                        """.trimIndent()
+                    } else {
+                        // P, Divの場合は基本インターフェースのみ
+                        """
+                            package net.kigawa.renlin.w3c.category.native
+
+                            interface $categoryName
+                        """.trimIndent()
+                    }
                 }
                 categoryName.endsWith("Category") -> {
                     // タグ専用カテゴリはContentCategoryのみ継承
