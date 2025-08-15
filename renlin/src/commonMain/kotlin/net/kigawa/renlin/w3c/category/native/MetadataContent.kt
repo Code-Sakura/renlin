@@ -12,6 +12,6 @@ import net.kigawa.renlin.w3c.category.native.TemplateCategory
 
 /**
  * MetadataContent represents elements that are part of the metadata content category.
- * 
+ * Parent: FlowContent
  */
-interface MetadataContent : ContentCategory, BaseCategory, LinkCategory, MetaCategory, StyleCategory, TitleCategory, NoscriptCategory, ScriptCategory, TemplateCategory
+interface MetadataContent : ContentCategory, FlowContent, BaseCategory, LinkCategory, MetaCategory, StyleCategory, TitleCategory, NoscriptCategory, ScriptCategory, TemplateCategory

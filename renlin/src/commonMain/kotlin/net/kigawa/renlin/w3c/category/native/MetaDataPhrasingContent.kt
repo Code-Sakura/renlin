@@ -5,6 +5,6 @@ import net.kigawa.renlin.w3c.category.ContentCategory
 
 /**
  * MetaDataPhrasingContent represents elements that are part of the metadataphrasing content category.
- * Parent: MetaDataContent
+ * Parent: MetadataContent
  */
-interface MetaDataPhrasingContent : ContentCategory, MetaDataContent
+interface MetaDataPhrasingContent : ContentCategory, MetadataContent
