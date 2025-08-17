@@ -4,8 +4,10 @@ import net.kigawa.renlin.w3c.category.native.MetadataContent
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.component.TagComponent1
+import net.kigawa.renlin.component.Component
 import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.state.DslState
+import net.kigawa.renlin.w3c.category.native.StyleCategory
 import net.kigawa.renlin.w3c.category.dsl.MetadataContentDsl
 
 
@@ -25,7 +27,7 @@ class StyleDsl(dslState: DslState):
 
 val style = TagComponent1(Style, ::StyleDsl)
 
-object Style : Tag<MetadataContent> {
+object Style : Tag<StyleCategory> {
     override val name: String
         get() = "style"
 }

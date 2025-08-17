@@ -1,9 +1,82 @@
 package net.kigawa.renlin.w3c.category.native
 
 import net.kigawa.renlin.w3c.category.ContentCategory
+import net.kigawa.renlin.w3c.category.native.AddressCategory
+import net.kigawa.renlin.w3c.category.native.ArticleCategory
+import net.kigawa.renlin.w3c.category.native.AsideCategory
+import net.kigawa.renlin.w3c.category.native.FooterCategory
+import net.kigawa.renlin.w3c.category.native.HeaderCategory
+import net.kigawa.renlin.w3c.category.native.H1Category
+import net.kigawa.renlin.w3c.category.native.H2Category
+import net.kigawa.renlin.w3c.category.native.H3Category
+import net.kigawa.renlin.w3c.category.native.H4Category
+import net.kigawa.renlin.w3c.category.native.H5Category
+import net.kigawa.renlin.w3c.category.native.H6Category
+import net.kigawa.renlin.w3c.category.native.MainCategory
+import net.kigawa.renlin.w3c.category.native.NavCategory
+import net.kigawa.renlin.w3c.category.native.SectionCategory
+import net.kigawa.renlin.w3c.category.native.SearchCategory
+import net.kigawa.renlin.w3c.category.native.BlockquoteCategory
+import net.kigawa.renlin.w3c.category.native.DivCategory
+import net.kigawa.renlin.w3c.category.native.DlCategory
+import net.kigawa.renlin.w3c.category.native.FigureCategory
+import net.kigawa.renlin.w3c.category.native.OlCategory
+import net.kigawa.renlin.w3c.category.native.PCategory
+import net.kigawa.renlin.w3c.category.native.PreCategory
+import net.kigawa.renlin.w3c.category.native.UlCategory
+import net.kigawa.renlin.w3c.category.native.ACategory
+import net.kigawa.renlin.w3c.category.native.AbbrCategory
+import net.kigawa.renlin.w3c.category.native.BCategory
+import net.kigawa.renlin.w3c.category.native.BdiCategory
+import net.kigawa.renlin.w3c.category.native.BdoCategory
+import net.kigawa.renlin.w3c.category.native.CiteCategory
+import net.kigawa.renlin.w3c.category.native.CodeCategory
+import net.kigawa.renlin.w3c.category.native.DataCategory
+import net.kigawa.renlin.w3c.category.native.DfnCategory
+import net.kigawa.renlin.w3c.category.native.EmCategory
+import net.kigawa.renlin.w3c.category.native.ICategory
+import net.kigawa.renlin.w3c.category.native.KbdCategory
+import net.kigawa.renlin.w3c.category.native.MarkCategory
+import net.kigawa.renlin.w3c.category.native.QCategory
+import net.kigawa.renlin.w3c.category.native.RubyCategory
+import net.kigawa.renlin.w3c.category.native.SCategory
+import net.kigawa.renlin.w3c.category.native.SampCategory
+import net.kigawa.renlin.w3c.category.native.SmallCategory
+import net.kigawa.renlin.w3c.category.native.SpanCategory
+import net.kigawa.renlin.w3c.category.native.StrongCategory
+import net.kigawa.renlin.w3c.category.native.SubCategory
+import net.kigawa.renlin.w3c.category.native.SupCategory
+import net.kigawa.renlin.w3c.category.native.TimeCategory
+import net.kigawa.renlin.w3c.category.native.UCategory
+import net.kigawa.renlin.w3c.category.native.VarCategory
+import net.kigawa.renlin.w3c.category.native.AudioCategory
+import net.kigawa.renlin.w3c.category.native.ImgCategory
+import net.kigawa.renlin.w3c.category.native.MapCategory
+import net.kigawa.renlin.w3c.category.native.VideoCategory
+import net.kigawa.renlin.w3c.category.native.EmbedCategory
+import net.kigawa.renlin.w3c.category.native.IframeCategory
+import net.kigawa.renlin.w3c.category.native.ObjectCategory
+import net.kigawa.renlin.w3c.category.native.PictureCategory
+import net.kigawa.renlin.w3c.category.native.SvgCategory
+import net.kigawa.renlin.w3c.category.native.MathCategory
+import net.kigawa.renlin.w3c.category.native.CanvasCategory
+import net.kigawa.renlin.w3c.category.native.DelCategory
+import net.kigawa.renlin.w3c.category.native.InsCategory
+import net.kigawa.renlin.w3c.category.native.TableCategory
+import net.kigawa.renlin.w3c.category.native.ButtonCategory
+import net.kigawa.renlin.w3c.category.native.FieldsetCategory
+import net.kigawa.renlin.w3c.category.native.FormCategory
+import net.kigawa.renlin.w3c.category.native.InputCategory
+import net.kigawa.renlin.w3c.category.native.LabelCategory
+import net.kigawa.renlin.w3c.category.native.MeterCategory
+import net.kigawa.renlin.w3c.category.native.OutputCategory
+import net.kigawa.renlin.w3c.category.native.ProgressCategory
+import net.kigawa.renlin.w3c.category.native.SelectCategory
+import net.kigawa.renlin.w3c.category.native.TextareaCategory
+import net.kigawa.renlin.w3c.category.native.DetailsCategory
 
 /**
- * Integration to FlowPalpableIntegration, FlowPalpableSectioningIntegration, FlowHeadingPalpableIntegration, FlowInteractivePalpablePhrasingIntegration, FlowPalpablePhrasingIntegration, EmbeddedFlowInteractivePalpablePhrasingIntegration, EmbeddedFlowFormAssociatedInteractivePalpablePhrasingIntegration, EmbeddedFlowPalpablePhrasingIntegration, FlowFormAssociatedInteractivePalpablePhrasingIntegration, AutocapitalizeInheritingFormFlowFormAssociatedPalpableIntegration, FlowFormAssociatedPalpablePhrasingIntegration, FlowInteractivePalpableIntegration
+ * PalpableContent represents elements that are part of the palpable content category.
  * 
  */
-interface PalpableContent : FlowPalpableIntegration, FlowPalpableSectioningIntegration, FlowHeadingPalpableIntegration, FlowInteractivePalpablePhrasingIntegration, FlowPalpablePhrasingIntegration, EmbeddedFlowInteractivePalpablePhrasingIntegration, EmbeddedFlowFormAssociatedInteractivePalpablePhrasingIntegration, EmbeddedFlowPalpablePhrasingIntegration, FlowFormAssociatedInteractivePalpablePhrasingIntegration, AutocapitalizeInheritingFormFlowFormAssociatedPalpableIntegration, FlowFormAssociatedPalpablePhrasingIntegration, FlowInteractivePalpableIntegration, ContentCategory
+interface PalpableContent : ContentCategory, AddressCategory, ArticleCategory, AsideCategory, FooterCategory, HeaderCategory, H1Category, H2Category, H3Category, H4Category, H5Category, H6Category, MainCategory, NavCategory, SectionCategory, SearchCategory, BlockquoteCategory, DivCategory, DlCategory, FigureCategory, OlCategory, PCategory, PreCategory, UlCategory, ACategory, AbbrCategory, BCategory, BdiCategory, BdoCategory, CiteCategory, CodeCategory, DataCategory, DfnCategory, EmCategory, ICategory, KbdCategory, MarkCategory, QCategory, RubyCategory, SCategory, SampCategory, SmallCategory, SpanCategory, StrongCategory, SubCategory, SupCategory, TimeCategory, UCategory, VarCategory, AudioCategory, ImgCategory, MapCategory, VideoCategory, EmbedCategory, IframeCategory, ObjectCategory, PictureCategory, SvgCategory, MathCategory, CanvasCategory, DelCategory, InsCategory, TableCategory, ButtonCategory, FieldsetCategory, FormCategory, InputCategory, LabelCategory, MeterCategory, OutputCategory, ProgressCategory, SelectCategory, TextareaCategory, DetailsCategory

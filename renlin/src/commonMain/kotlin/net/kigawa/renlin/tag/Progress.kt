@@ -1,11 +1,13 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.w3c.category.integration.FlowPalpablePhrasingIntegration
+import net.kigawa.renlin.w3c.category.integration.FlowPalpablePhrasing
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.component.TagComponent1
+import net.kigawa.renlin.component.Component
 import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.state.DslState
+import net.kigawa.renlin.w3c.category.native.ProgressCategory
 import net.kigawa.renlin.w3c.category.ContentCategory
 
 /**
@@ -23,7 +25,7 @@ class ProgressDsl(dslState: DslState):
 
 val progress = TagComponent1(Progress, ::ProgressDsl)
 
-object Progress : Tag<FlowPalpablePhrasingIntegration> {
+object Progress : Tag<ProgressCategory> {
     override val name: String
         get() = "progress"
 }

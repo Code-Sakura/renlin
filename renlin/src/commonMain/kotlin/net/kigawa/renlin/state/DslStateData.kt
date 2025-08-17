@@ -23,6 +23,8 @@ data class DslStateData(
     val key: String,
     /** クリックイベントのハンドラー */
     var onClick: ((WebPointerEvent) -> Unit)? = null,
+    /** href属性の値 */
+    var href: String? = null,
     /**
      * 追加データのリスト
      *

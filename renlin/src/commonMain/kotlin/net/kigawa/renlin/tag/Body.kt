@@ -4,8 +4,10 @@ import net.kigawa.renlin.w3c.category.native.FlowContent
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.component.TagComponent1
+import net.kigawa.renlin.component.Component
 import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.state.DslState
+import net.kigawa.renlin.w3c.category.native.BodyCategory
 import net.kigawa.renlin.w3c.category.dsl.FlowContentDsl
 
 
@@ -25,7 +27,7 @@ class BodyDsl(dslState: DslState):
 
 val body = TagComponent1(Body, ::BodyDsl)
 
-object Body : Tag<FlowContent> {
+object Body : Tag<BodyCategory> {
     override val name: String
         get() = "body"
 }

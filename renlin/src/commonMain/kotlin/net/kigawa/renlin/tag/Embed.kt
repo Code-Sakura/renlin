@@ -1,11 +1,13 @@
 package net.kigawa.renlin.tag
 
-import net.kigawa.renlin.w3c.category.integration.EmbeddedFlowInteractivePalpablePhrasingIntegration
+import net.kigawa.renlin.w3c.category.integration.EmbeddedFlowInteractivePalpablePhrasing
 import net.kigawa.renlin.dsl.DslBase
 import net.kigawa.renlin.dsl.StatedDsl
 import net.kigawa.renlin.component.TagComponent1
+import net.kigawa.renlin.component.Component
 import net.kigawa.renlin.w3c.element.TagNode
 import net.kigawa.renlin.state.DslState
+import net.kigawa.renlin.w3c.category.native.EmbedCategory
 import net.kigawa.renlin.w3c.category.ContentCategory
 
 /**
@@ -23,7 +25,7 @@ class EmbedDsl(dslState: DslState):
 
 val embed = TagComponent1(Embed, ::EmbedDsl)
 
-object Embed : Tag<EmbeddedFlowInteractivePalpablePhrasingIntegration> {
+object Embed : Tag<EmbedCategory> {
     override val name: String
         get() = "embed"
 }

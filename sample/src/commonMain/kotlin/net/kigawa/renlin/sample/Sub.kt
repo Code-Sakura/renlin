@@ -2,26 +2,28 @@ package net.kigawa.renlin.sample
 
 import net.kigawa.hakate.api.HakateInitializer
 import net.kigawa.hakate.api.state.MutableState
+import net.kigawa.renlin.component.argComponent
 import net.kigawa.renlin.component.component
 import net.kigawa.renlin.css.*
+import net.kigawa.renlin.dsl.StatedDsl
+import net.kigawa.renlin.tag.a
 import net.kigawa.renlin.tag.div
 import net.kigawa.renlin.tag.fragment
 import net.kigawa.renlin.tag.p
-import net.kigawa.renlin.tag.style
-import net.kigawa.renlin.tag.text
 import net.kigawa.renlin.w3c.category.integration.FlowPhrasingIntegration
 import net.kigawa.renlin.w3c.category.native.FlowContent
 import net.kigawa.renlin.w3c.category.native.PhrasingContent
 import net.kigawa.renlin.w3c.category.t
-import net.kigawa.renlin.w3c.event.tag.onClick
 
 
 class Sub {
     val state: MutableState<String> = HakateInitializer().newStateDispatcher().newState("state 0")
     private var isMenuOpen = false
 
-    val display = div.component {
+    val display = div.argComponent { block: StatedDsl<out FlowContent>.() -> Unit ->
         div("hero-section") {
+            a {}
+            block()
             t("Renlin")
             css {
                 fontSize = 48.px

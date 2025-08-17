@@ -29,10 +29,10 @@ class DslGenerator(
                 ${
                         if (allowedCategories.categories.size > 1)
                             "import net.kigawa.renlin.w3c.category.integration.${
-                                allowedCategories.connectedStr("Integration")
+                                allowedCategories.connectedStr()
                             }"
                         else "import net.kigawa.renlin.w3c.category.native.${
-                            allowedCategories.connectedStr("Integration")
+                            allowedCategories.connectedStr()
                         }"
                     }
                 
@@ -40,7 +40,7 @@ class DslGenerator(
                 /**
                  * DSL for ${categories.joinToString(", ")}
                  */
-                interface ${dslName}<CATEGORY_DSL : ${allowedCategories.connectedStr("Integration")}>${
+                interface ${dslName}<CATEGORY_DSL : ${allowedCategories.connectedStr()}>${
                         if (categories.size <= 1) ""
                         else (categories.filter { it.trim() != dslName.trim() }
                             .joinToString(separator = ",", prefix = ":")
