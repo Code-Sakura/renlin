@@ -14,6 +14,7 @@ import net.kigawa.renlin.w3c.category.integration.FlowPhrasingIntegration
 import net.kigawa.renlin.w3c.category.native.FlowContent
 import net.kigawa.renlin.w3c.category.native.PhrasingContent
 import net.kigawa.renlin.w3c.category.t
+import net.kigawa.renlin.w3c.event.tag.onClick
 
 
 class Sub {
@@ -38,6 +39,7 @@ class Sub {
                 alignItems = AlignItems.CENTER
                 justifyContent = JustifyContent.CENTER
             }
+            onClick {  }
         }
 
         div("content-section") {
