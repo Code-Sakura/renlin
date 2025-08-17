@@ -5,7 +5,7 @@ import model.TagInfo
 // カテゴリーの親子関係を定義
 val categoryParents = mapOf(
     "PhrasingContent" to "P",
-    "FlowContent" to "P, Div",
+    "FlowContent" to "P, Div, EventTarget",
     "FlowPhrasing" to "FlowContent, PhrasingContent",
     "HeadingContent" to "FlowContent",
     "SectioningContent" to "FlowContent",
