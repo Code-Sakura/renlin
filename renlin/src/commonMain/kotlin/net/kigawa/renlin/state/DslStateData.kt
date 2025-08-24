@@ -1,5 +1,6 @@
 package net.kigawa.renlin.state
 
+import net.kigawa.renlin.AutoFill
 import net.kigawa.renlin.w3c.event.WebPointerEvent
 import kotlin.reflect.KClass
 import kotlin.reflect.typeOf
@@ -42,7 +43,7 @@ data class DslStateData(
      * @param T 追加データの値の型
      * @param key 追加データの一意のキー
      */
-    inline fun <reified T : Any> setAdditionalData(contextClass: KClass<*>, value: T, key: String? = null) {
+    inline fun <reified T : Any> setAdditionalData(contextClass: KClass<*>, value: T,  @AutoFill key: String? = null) {
         removeAdditionalData<T>(contextClass)
         additionalData = additionalData + AdditionalDslStateData(
             contextClass, typeOf<T>(), key, value
@@ -55,7 +56,7 @@ data class DslStateData(
      *  @param T 追加データの値の型
      *  @param key 追加データの一意のキー
      */
-    inline fun <reified T : Any> removeAdditionalData(contextClass: KClass<*>,key: String? = null) {
+    inline fun <reified T : Any> removeAdditionalData(contextClass: KClass<*>, @AutoFill key: String? = null) {
         additionalData = additionalData.filter {
             it.contextClass != contextClass || it.valueType != typeOf<T>() || it.key != key
         }
@@ -71,7 +72,7 @@ data class DslStateData(
      * @return 一致するデータが見つかった場合はその値、見つからない場合はnul
      *
      */
-    inline fun <reified T : Any> getAdditionalData(contextClass: KClass<*>, key: String? = null): T? {
+    inline fun <reified T : Any> getAdditionalData(contextClass: KClass<*>,  @AutoFill key: String? = null): T? {
         @Suppress("UNCHECKED_CAST")
         return additionalData
             .firstOrNull {

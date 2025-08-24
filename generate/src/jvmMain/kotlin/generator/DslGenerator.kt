@@ -35,6 +35,7 @@ class DslGenerator(
                             allowedCategories.connectedStr()
                         }"
                     }
+                import net.kigawa.renlin.dsl.StatedDsl
                 
 
                 /**
@@ -45,7 +46,7 @@ class DslGenerator(
                         else (categories.filter { it.trim() != dslName.trim() }
                             .joinToString(separator = ",", prefix = ":")
                             { "\n                    ${it}Dsl<CATEGORY_DSL>" })
-                    }
+                    }: StatedDsl<CATEGORY_DSL>
             """.trimIndent()
 
                     val file = File("$categoryDslOutputDir/${dslName}.kt")

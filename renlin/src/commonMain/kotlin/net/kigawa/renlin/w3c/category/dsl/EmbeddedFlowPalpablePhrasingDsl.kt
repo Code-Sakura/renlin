@@ -2,6 +2,7 @@ package net.kigawa.renlin.w3c.category.dsl
 
 
 import net.kigawa.renlin.w3c.category.integration.EmbeddedFlowPalpablePhrasing
+import net.kigawa.renlin.dsl.StatedDsl
 
 
 /**
@@ -11,4 +12,4 @@ interface EmbeddedFlowPalpablePhrasingDsl<CATEGORY_DSL : EmbeddedFlowPalpablePhr
     FlowContentDsl<CATEGORY_DSL>,
     PhrasingContentDsl<CATEGORY_DSL>,
     EmbeddedContentDsl<CATEGORY_DSL>,
-    PalpableContentDsl<CATEGORY_DSL>
+    PalpableContentDsl<CATEGORY_DSL>: StatedDsl<CATEGORY_DSL>

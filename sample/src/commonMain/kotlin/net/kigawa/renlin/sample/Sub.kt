@@ -23,7 +23,9 @@ class Sub {
 
     val display = div.argComponent { block: StatedDsl<out FlowContent>.() -> Unit ->
         div("hero-section") {
-            a {}
+            a {
+                onClick {  }
+            }
             block()
             t("Renlin")
             css {
