@@ -1,6 +1,7 @@
 package net.kigawa.renlin.dsl
 
 import net.kigawa.hakate.api.state.State
+import net.kigawa.renlin.AutoFill
 import net.kigawa.renlin.component.*
 import net.kigawa.renlin.state.DslState
 import net.kigawa.renlin.tag.Fragment
@@ -25,7 +26,7 @@ import net.kigawa.renlin.w3c.element.TagNode
  *
  * @param CONTENT_CATEGORY このDSLが生成できるHTMLコンテンツのカテゴリ
  */
-interface StatedDsl< CONTENT_CATEGORY: ContentCategory>: Dsl {
+interface StatedDsl<CONTENT_CATEGORY: ContentCategory>: Dsl {
     /**
      * 現在のDSLに関連付けられた状態。
      * この状態はDSLの動作と描画を制御します。
@@ -58,66 +59,66 @@ interface StatedDsl< CONTENT_CATEGORY: ContentCategory>: Dsl {
 
 
     operator fun <TAG: Tag<in CONTENT_CATEGORY>> Component0<TAG, in CONTENT_CATEGORY>.invoke(
-        key: String? = null,
+        @AutoFill key: String? = null,
     ) = this.render(this@StatedDsl, key)
 
-  /**
-   * コンポーネントを呼び出し、レンダリングするための演算子オーバーロード。
-   *
-   * @param key コンポーネントの一意のキー（オプション）
-   * @param block コンポーネントの内容を定義するブロック
-   * @return コンポーネントのレンダリング結果
-   */
-  operator fun <TAG: Tag<in CONTENT_CATEGORY>, DSL> Component1<TAG, in CONTENT_CATEGORY, DSL>.invoke(
-    key: String? = null, block: DSL,
-  ) {
-    return this@invoke.render(this@StatedDsl, block, key)
-  }
+    /**
+     * コンポーネントを呼び出し、レンダリングするための演算子オーバーロード。
+     *
+     * @param key コンポーネントの一意のキー（オプション）
+     * @param block コンポーネントの内容を定義するブロック
+     * @return コンポーネントのレンダリング結果
+     */
+    operator fun <TAG: Tag<in CONTENT_CATEGORY>, DSL> Component1<TAG, in CONTENT_CATEGORY, DSL>.invoke(
+        @AutoFill key: String? = null, block: DSL,
+    ) {
+        return this@invoke.render(this@StatedDsl, block, key)
+    }
 
-  /**
-   * Component2を呼び出し、レンダリングするための演算子オーバーロード。
-   *
-   * @param key コンポーネントの一意のキー（オプション）
-   * @param arg1 第1引数
-   * @param arg2 第2引数
-   * @return コンポーネントのレンダリング結果
-   */
-  operator fun <TAG: Tag<in CONTENT_CATEGORY>, ARG1, ARG2> Component2<TAG, in CONTENT_CATEGORY, ARG1, ARG2>.invoke(
-    arg1: ARG1, arg2: ARG2, key: String? = null,
-  ) {
-    return this@invoke.render(this@StatedDsl, arg1, arg2, key)
-  }
+    /**
+     * Component2を呼び出し、レンダリングするための演算子オーバーロード。
+     *
+     * @param key コンポーネントの一意のキー（オプション）
+     * @param arg1 第1引数
+     * @param arg2 第2引数
+     * @return コンポーネントのレンダリング結果
+     */
+    operator fun <TAG: Tag<in CONTENT_CATEGORY>, ARG1, ARG2> Component2<TAG, in CONTENT_CATEGORY, ARG1, ARG2>.invoke(
+        arg1: ARG1, arg2: ARG2, @AutoFill key: String? = null,
+    ) {
+        return this@invoke.render(this@StatedDsl, arg1, arg2, key)
+    }
 
-  /**
-   * Component3を呼び出し、レンダリングするための演算子オーバーロード。
-   *
-   * @param key コンポーネントの一意のキー（オプション）
-   * @param arg1 第1引数
-   * @param arg2 第2引数
-   * @param arg3 第3引数
-   * @return コンポーネントのレンダリング結果
-   */
-  operator fun <TAG: Tag<in CONTENT_CATEGORY>, ARG1, ARG2, ARG3> Component3<TAG, in CONTENT_CATEGORY, ARG1, ARG2, ARG3>.invoke(
-    arg1: ARG1, arg2: ARG2, arg3: ARG3, key: String? = null,
-  ) {
-    return this@invoke.render(this@StatedDsl, arg1, arg2, arg3, key)
-  }
+    /**
+     * Component3を呼び出し、レンダリングするための演算子オーバーロード。
+     *
+     * @param key コンポーネントの一意のキー（オプション）
+     * @param arg1 第1引数
+     * @param arg2 第2引数
+     * @param arg3 第3引数
+     * @return コンポーネントのレンダリング結果
+     */
+    operator fun <TAG: Tag<in CONTENT_CATEGORY>, ARG1, ARG2, ARG3> Component3<TAG, in CONTENT_CATEGORY, ARG1, ARG2, ARG3>.invoke(
+        arg1: ARG1, arg2: ARG2, arg3: ARG3, @AutoFill key: String? = null,
+    ) {
+        return this@invoke.render(this@StatedDsl, arg1, arg2, arg3, key)
+    }
 
-  /**
-   * Component4を呼び出し、レンダリングするための演算子オーバーロード。
-   *
-   * @param key コンポーネントの一意のキー（オプション）
-   * @param arg1 第1引数
-   * @param arg2 第2引数
-   * @param arg3 第3引数
-   * @param arg4 第4引数
-   * @return コンポーネントのレンダリング結果
-   */
-  operator fun <TAG: Tag<in CONTENT_CATEGORY>, ARG1, ARG2, ARG3, ARG4> Component4<TAG, in CONTENT_CATEGORY, ARG1, ARG2, ARG3, ARG4>.invoke(
-    arg1: ARG1, arg2: ARG2, arg3: ARG3, arg4: ARG4, key: String? = null,
-  ) {
-    return this@invoke.render(this@StatedDsl, arg1, arg2, arg3, arg4, key)
-  }
+    /**
+     * Component4を呼び出し、レンダリングするための演算子オーバーロード。
+     *
+     * @param key コンポーネントの一意のキー（オプション）
+     * @param arg1 第1引数
+     * @param arg2 第2引数
+     * @param arg3 第3引数
+     * @param arg4 第4引数
+     * @return コンポーネントのレンダリング結果
+     */
+    operator fun <TAG: Tag<in CONTENT_CATEGORY>, ARG1, ARG2, ARG3, ARG4> Component4<TAG, in CONTENT_CATEGORY, ARG1, ARG2, ARG3, ARG4>.invoke(
+        arg1: ARG1, arg2: ARG2, arg3: ARG3, arg4: ARG4, @AutoFill key: String? = null,
+    ) {
+        return this@invoke.render(this@StatedDsl, arg1, arg2, arg3, arg4, key)
+    }
 
 
     /**

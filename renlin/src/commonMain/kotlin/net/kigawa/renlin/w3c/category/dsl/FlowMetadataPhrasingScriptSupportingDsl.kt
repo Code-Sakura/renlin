@@ -2,6 +2,7 @@ package net.kigawa.renlin.w3c.category.dsl
 
 
 import net.kigawa.renlin.w3c.category.integration.FlowMetadataPhrasingScriptSupporting
+import net.kigawa.renlin.dsl.StatedDsl
 
 
 /**
@@ -11,4 +12,5 @@ interface FlowMetadataPhrasingScriptSupportingDsl<CATEGORY_DSL : FlowMetadataPhr
     MetadataContentDsl<CATEGORY_DSL>,
     FlowContentDsl<CATEGORY_DSL>,
     PhrasingContentDsl<CATEGORY_DSL>,
-    ScriptSupportingContentDsl<CATEGORY_DSL>
+    ScriptSupportingContentDsl<CATEGORY_DSL>,
+    StatedDsl<CATEGORY_DSL>
