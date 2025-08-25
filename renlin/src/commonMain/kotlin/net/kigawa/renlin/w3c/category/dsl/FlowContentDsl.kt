@@ -8,4 +8,5 @@ import net.kigawa.renlin.dsl.StatedDsl
 /**
  * DSL for FlowContent
  */
-interface FlowContentDsl<CATEGORY_DSL : FlowContent>: StatedDsl<CATEGORY_DSL>
+interface FlowContentDsl<CATEGORY_DSL : FlowContent>:
+    StatedDsl<CATEGORY_DSL>

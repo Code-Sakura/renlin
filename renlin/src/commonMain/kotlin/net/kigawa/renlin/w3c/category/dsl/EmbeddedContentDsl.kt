@@ -8,4 +8,5 @@ import net.kigawa.renlin.dsl.StatedDsl
 /**
  * DSL for EmbeddedContent
  */
-interface EmbeddedContentDsl<CATEGORY_DSL : EmbeddedContent>: StatedDsl<CATEGORY_DSL>
+interface EmbeddedContentDsl<CATEGORY_DSL : EmbeddedContent>:
+    StatedDsl<CATEGORY_DSL>

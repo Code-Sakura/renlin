@@ -10,4 +10,5 @@ import net.kigawa.renlin.dsl.StatedDsl
  */
 interface FlowPhrasingDsl<CATEGORY_DSL : FlowPhrasing>:
     FlowContentDsl<CATEGORY_DSL>,
-    PhrasingContentDsl<CATEGORY_DSL>: StatedDsl<CATEGORY_DSL>
+    PhrasingContentDsl<CATEGORY_DSL>,
+    StatedDsl<CATEGORY_DSL>

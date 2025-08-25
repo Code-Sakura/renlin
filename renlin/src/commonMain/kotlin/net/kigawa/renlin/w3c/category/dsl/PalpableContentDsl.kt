@@ -8,4 +8,5 @@ import net.kigawa.renlin.dsl.StatedDsl
 /**
  * DSL for PalpableContent
  */
-interface PalpableContentDsl<CATEGORY_DSL : PalpableContent>: StatedDsl<CATEGORY_DSL>
+interface PalpableContentDsl<CATEGORY_DSL : PalpableContent>:
+    StatedDsl<CATEGORY_DSL>

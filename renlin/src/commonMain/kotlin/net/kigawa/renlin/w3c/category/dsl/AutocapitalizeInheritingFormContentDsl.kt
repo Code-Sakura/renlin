@@ -8,4 +8,5 @@ import net.kigawa.renlin.dsl.StatedDsl
 /**
  * DSL for AutocapitalizeInheritingFormContent
  */
-interface AutocapitalizeInheritingFormContentDsl<CATEGORY_DSL : AutocapitalizeInheritingFormContent>: StatedDsl<CATEGORY_DSL>
+interface AutocapitalizeInheritingFormContentDsl<CATEGORY_DSL : AutocapitalizeInheritingFormContent>:
+    StatedDsl<CATEGORY_DSL>

@@ -8,4 +8,5 @@ import net.kigawa.renlin.dsl.StatedDsl
 /**
  * DSL for ScriptSupportingContent
  */
-interface ScriptSupportingContentDsl<CATEGORY_DSL : ScriptSupportingContent>: StatedDsl<CATEGORY_DSL>
+interface ScriptSupportingContentDsl<CATEGORY_DSL : ScriptSupportingContent>:
+    StatedDsl<CATEGORY_DSL>

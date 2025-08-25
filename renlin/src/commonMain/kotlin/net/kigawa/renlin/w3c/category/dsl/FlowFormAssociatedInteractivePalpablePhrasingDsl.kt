@@ -13,4 +13,5 @@ interface FlowFormAssociatedInteractivePalpablePhrasingDsl<CATEGORY_DSL : FlowFo
     PhrasingContentDsl<CATEGORY_DSL>,
     InteractiveContentDsl<CATEGORY_DSL>,
     PalpableContentDsl<CATEGORY_DSL>,
-    FormAssociatedContentDsl<CATEGORY_DSL>: StatedDsl<CATEGORY_DSL>
+    FormAssociatedContentDsl<CATEGORY_DSL>,
+    StatedDsl<CATEGORY_DSL>

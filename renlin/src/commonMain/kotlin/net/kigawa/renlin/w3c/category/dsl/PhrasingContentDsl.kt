@@ -8,4 +8,5 @@ import net.kigawa.renlin.dsl.StatedDsl
 /**
  * DSL for PhrasingContent
  */
-interface PhrasingContentDsl<CATEGORY_DSL : PhrasingContent>: StatedDsl<CATEGORY_DSL>
+interface PhrasingContentDsl<CATEGORY_DSL : PhrasingContent>:
+    StatedDsl<CATEGORY_DSL>

@@ -12,4 +12,5 @@ interface AutocapitalizeInheritingFormFlowFormAssociatedPalpableDsl<CATEGORY_DSL
     FlowContentDsl<CATEGORY_DSL>,
     PalpableContentDsl<CATEGORY_DSL>,
     FormAssociatedContentDsl<CATEGORY_DSL>,
-    AutocapitalizeInheritingFormContentDsl<CATEGORY_DSL>: StatedDsl<CATEGORY_DSL>
+    AutocapitalizeInheritingFormContentDsl<CATEGORY_DSL>,
+    StatedDsl<CATEGORY_DSL>

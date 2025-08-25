@@ -8,4 +8,5 @@ import net.kigawa.renlin.dsl.StatedDsl
 /**
  * DSL for InteractiveContent
  */
-interface InteractiveContentDsl<CATEGORY_DSL : InteractiveContent>: StatedDsl<CATEGORY_DSL>
+interface InteractiveContentDsl<CATEGORY_DSL : InteractiveContent>:
+    StatedDsl<CATEGORY_DSL>

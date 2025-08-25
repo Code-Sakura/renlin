@@ -12,4 +12,5 @@ interface EmbeddedFlowPalpablePhrasingDsl<CATEGORY_DSL : EmbeddedFlowPalpablePhr
     FlowContentDsl<CATEGORY_DSL>,
     PhrasingContentDsl<CATEGORY_DSL>,
     EmbeddedContentDsl<CATEGORY_DSL>,
-    PalpableContentDsl<CATEGORY_DSL>: StatedDsl<CATEGORY_DSL>
+    PalpableContentDsl<CATEGORY_DSL>,
+    StatedDsl<CATEGORY_DSL>

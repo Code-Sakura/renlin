@@ -12,4 +12,5 @@ interface FlowInteractivePalpablePhrasingDsl<CATEGORY_DSL : FlowInteractivePalpa
     FlowContentDsl<CATEGORY_DSL>,
     PhrasingContentDsl<CATEGORY_DSL>,
     PalpableContentDsl<CATEGORY_DSL>,
-    InteractiveContentDsl<CATEGORY_DSL>: StatedDsl<CATEGORY_DSL>
+    InteractiveContentDsl<CATEGORY_DSL>,
+    StatedDsl<CATEGORY_DSL>

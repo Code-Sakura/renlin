@@ -8,4 +8,5 @@ import net.kigawa.renlin.dsl.StatedDsl
 /**
  * DSL for FormAssociatedContent
  */
-interface FormAssociatedContentDsl<CATEGORY_DSL : FormAssociatedContent>: StatedDsl<CATEGORY_DSL>
+interface FormAssociatedContentDsl<CATEGORY_DSL : FormAssociatedContent>:
+    StatedDsl<CATEGORY_DSL>

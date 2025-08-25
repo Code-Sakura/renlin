@@ -8,4 +8,5 @@ import net.kigawa.renlin.dsl.StatedDsl
 /**
  * DSL for MetadataContent
  */
-interface MetadataContentDsl<CATEGORY_DSL : MetadataContent>: StatedDsl<CATEGORY_DSL>
+interface MetadataContentDsl<CATEGORY_DSL : MetadataContent>:
+    StatedDsl<CATEGORY_DSL>

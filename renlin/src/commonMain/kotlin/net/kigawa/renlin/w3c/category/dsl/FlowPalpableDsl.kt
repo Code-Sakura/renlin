@@ -10,4 +10,5 @@ import net.kigawa.renlin.dsl.StatedDsl
  */
 interface FlowPalpableDsl<CATEGORY_DSL : FlowPalpable>:
     FlowContentDsl<CATEGORY_DSL>,
-    PalpableContentDsl<CATEGORY_DSL>: StatedDsl<CATEGORY_DSL>
+    PalpableContentDsl<CATEGORY_DSL>,
+    StatedDsl<CATEGORY_DSL>
