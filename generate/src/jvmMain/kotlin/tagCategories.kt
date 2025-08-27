@@ -63,12 +63,30 @@ val tagCategories = setOf(
     ),
     TagInfo("footer", TagCategories(setOf("FlowContent", "PalpableContent")), AllowedCategories()),
     TagInfo("header", TagCategories(setOf("FlowContent", "PalpableContent")), AllowedCategories()),
-    TagInfo("h1", TagCategories(setOf("FlowContent", "HeadingContent", "PalpableContent")), AllowedCategories()),
-    TagInfo("h2", TagCategories(setOf("FlowContent", "HeadingContent", "PalpableContent")), AllowedCategories()),
-    TagInfo("h3", TagCategories(setOf("FlowContent", "HeadingContent", "PalpableContent")), AllowedCategories()),
-    TagInfo("h4", TagCategories(setOf("FlowContent", "HeadingContent", "PalpableContent")), AllowedCategories()),
-    TagInfo("h5", TagCategories(setOf("FlowContent", "HeadingContent", "PalpableContent")), AllowedCategories()),
-    TagInfo("h6", TagCategories(setOf("FlowContent", "HeadingContent", "PalpableContent")), AllowedCategories()),
+    TagInfo(
+        "h1", TagCategories(setOf("FlowContent", "HeadingContent", "PalpableContent")),
+        AllowedCategories("PhrasingContent")
+    ),
+    TagInfo(
+        "h2", TagCategories(setOf("FlowContent", "HeadingContent", "PalpableContent")),
+        AllowedCategories("PhrasingContent")
+    ),
+    TagInfo(
+        "h3", TagCategories(setOf("FlowContent", "HeadingContent", "PalpableContent")),
+        AllowedCategories("PhrasingContent")
+    ),
+    TagInfo(
+        "h4", TagCategories(setOf("FlowContent", "HeadingContent", "PalpableContent")),
+        AllowedCategories("PhrasingContent")
+    ),
+    TagInfo(
+        "h5", TagCategories(setOf("FlowContent", "HeadingContent", "PalpableContent")),
+        AllowedCategories("PhrasingContent")
+    ),
+    TagInfo(
+        "h6", TagCategories(setOf("FlowContent", "HeadingContent", "PalpableContent")),
+        AllowedCategories("PhrasingContent")
+    ),
     TagInfo("hgroup", TagCategories(setOf("FlowContent", "HeadingContent")), AllowedCategories()),
     TagInfo("main", TagCategories(setOf("FlowContent", "PalpableContent")), AllowedCategories()),
     TagInfo(
