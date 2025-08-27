@@ -1,9 +1,8 @@
 [versions]
 kotlin-version = "2.1.0"
-coroutines-version = "1.9.0"
 coroutines-test-version = "1.10.1"
 datetime-version = "0.6.1"
-hakate-version = "3.3.0"
+hakate-version = "3.3.2"
 nexus-publish = "2.0.0-rc-1"
 dokka = "1.9.20"
 vanniktech-maven-publish = "0.29.0"
@@ -12,7 +11,7 @@ vanniktech-maven-publish = "0.29.0"
 kotlin-stdlib-js = { module = "org.jetbrains.kotlin:kotlin-stdlib-js", version.ref = "kotlin-version" }
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin-version" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin-version" }
-kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines-version" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "coroutines-test-version" }
 kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines-test-version" }
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "datetime-version" }
 nexus-publish = { module = "io.github.gradle-nexus.publish-plugin:io.github.gradle-nexus.publish-plugin.gradle.plugin", version.ref = "nexus-publish" }

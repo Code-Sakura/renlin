@@ -24,6 +24,7 @@ kotlin {
     }
     sourceSets["commonMain"].dependencies {
         implementation("net.kigawa:hakate:3.3.2")
+        implementation("net.kigawa.renlin-compiler:renlin-kotlin-plugin:1.3.11")
     }
     sourceSets["commonTest"].dependencies {
 

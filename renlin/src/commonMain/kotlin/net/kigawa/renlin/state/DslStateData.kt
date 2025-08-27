@@ -31,7 +31,8 @@ data class DslStateData(
      *
      * 各追加データは、特定のコンテキストクラスに関連付けられ、値の型とキーを持ちます。
      */
-    var additionalData: List<AdditionalDslStateData<*>> = listOf()
+    var additionalData: List<AdditionalDslStateData<*>> = listOf(),
+    val dslStates: List<DslState> = listOf(),
 ) {
     /**
      * 指定されたコンテキストクラスに対して型安全に追加データを設定します。
@@ -43,12 +44,13 @@ data class DslStateData(
      * @param T 追加データの値の型
      * @param key 追加データの一意のキー
      */
-    inline fun <reified T : Any> setAdditionalData(contextClass: KClass<*>, value: T,  @AutoFill key: String? = null) {
+    inline fun <reified T: Any> setAdditionalData(contextClass: KClass<*>, value: T, @AutoFill key: String? = null) {
         removeAdditionalData<T>(contextClass)
         additionalData = additionalData + AdditionalDslStateData(
             contextClass, typeOf<T>(), key, value
         )
     }
+
     /**
      *  指定されたコンテキストクラス、型、キーに一致する追加データを削除します。
      *
@@ -56,11 +58,12 @@ data class DslStateData(
      *  @param T 追加データの値の型
      *  @param key 追加データの一意のキー
      */
-    inline fun <reified T : Any> removeAdditionalData(contextClass: KClass<*>, @AutoFill key: String? = null) {
+    inline fun <reified T: Any> removeAdditionalData(contextClass: KClass<*>, @AutoFill key: String? = null) {
         additionalData = additionalData.filter {
             it.contextClass != contextClass || it.valueType != typeOf<T>() || it.key != key
         }
     }
+
     /**
      * 指定されたコンテキストクラス、型、キーに一致する追加データを取得します。
      *
@@ -72,13 +75,13 @@ data class DslStateData(
      * @return 一致するデータが見つかった場合はその値、見つからない場合はnul
      *
      */
-    inline fun <reified T : Any> getAdditionalData(contextClass: KClass<*>,  @AutoFill key: String? = null): T? {
+    inline fun <reified T: Any> getAdditionalData(contextClass: KClass<*>, @AutoFill key: String? = null): T? {
         @Suppress("UNCHECKED_CAST")
         return additionalData
             .firstOrNull {
                 it.contextClass == contextClass &&
-                        it.valueType == typeOf<T>() &&
-                        it.key == key
+                    it.valueType == typeOf<T>() &&
+                    it.key == key
             }?.value as? T?
     }
 }

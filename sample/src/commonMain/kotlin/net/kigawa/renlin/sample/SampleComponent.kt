@@ -13,8 +13,8 @@ class SampleComponent(
     var update: (Int) -> Unit = {}
 
     val root = div.component {
-        sub.navigation("navigation")
-        sub.display("main-display") {
+        sub.navigation()
+        sub.display() {
             div {
                 t("aaaa")
                 a {
